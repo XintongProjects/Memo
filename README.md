@@ -1,2 +1,2 @@
 # Memo
-For reference
+For reference to others and myself.
