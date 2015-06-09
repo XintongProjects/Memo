@@ -33,6 +33,20 @@
     
      NSLog(@"sbu2 is: %@**sub3 is %@**comb is %@", sub2, sub3, comb);
     
+    NSMutableDictionary* dict = [NSMutableDictionary alloc];
+    NSArray *strArr = @[@"hello", @"world", @"blah", @"car", @"rac"];
+    unsigned long len = [strArr count];
+    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:len];
+    
+    
+    if(![[dict allKeys] containsObject:@"car"]){
+        [values addObject:@5];
+        [dict setObject:values forKey:@"car"];
+    }
+    else{
+        //add index to the corresponding mutable arr values
+    }
+    
     // Override point for customization after application launch.
     return YES;
 }
