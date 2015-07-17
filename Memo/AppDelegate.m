@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LLNode.h"
 
 @interface AppDelegate ()
 
@@ -16,9 +17,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    [self testOfLinkedList];
+    [self testOfString];
+    
+//    NSMutableDictionary* dict = [NSMutableDictionary alloc];
+//    NSArray *strArr = @[@"hello", @"world", @"blah", @"car", @"rac"];
+//    unsigned long len = [strArr count];
+//    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:len];
+//    
+//    
+//    if(![[dict allKeys] containsObject:@"car"]){
+//        [values addObject:@5];
+//        [dict setObject:values forKey:@"car"];
+//    }
+//    else{
+//        //add index to the corresponding mutable arr values
+//    }
+    
+    // Override point for customization after application launch.
+    return YES;
+}
+
+-(void) testOfString{
     
     NSString* str = @"Hello world KAYAK";
-    NSLog(@"str[1] is %c",[str characterAtIndex: 1]);
+    NSLog(@"str[1] is %c",[str characterAtIndex: 1]); //'e'
     NSString *subString = [str substringWithRange:NSMakeRange(0, 8)];
     NSLog(@"sbustring is %@", subString);
     NSString *sub2 = [str substringFromIndex:1];
@@ -30,27 +54,24 @@
     char c = [str characterAtIndex:12];
     [comb appendFormat:@"%c", c];
     
+    NSLog(@"sbu2 is: %@**sub3 is %@**comb is %@", sub2, sub3, comb);
+}
+- (void) testOfLinkedList{
+    LLNode * head = [[LLNode alloc] init];
+    head.val = 1;
+    LLNode * node2 = [[LLNode alloc] init];
+    node2.val = 2;
+    LLNode * node3 = [[LLNode alloc] init];
+    node3.val = 3;
+    head.next = node2;
+    node2.next = node3;
+    node3.next = NULL;
     
-     NSLog(@"sbu2 is: %@**sub3 is %@**comb is %@", sub2, sub3, comb);
-    
-    NSMutableDictionary* dict = [NSMutableDictionary alloc];
-    NSArray *strArr = @[@"hello", @"world", @"blah", @"car", @"rac"];
-    unsigned long len = [strArr count];
-    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:len];
-    
-    
-    if(![[dict allKeys] containsObject:@"car"]){
-        [values addObject:@5];
-        [dict setObject:values forKey:@"car"];
-    }
-    else{
-        //add index to the corresponding mutable arr values
-    }
-    
-    // Override point for customization after application launch.
-    return YES;
+    [head printNodes: head];
+
 }
 
+/////////////////////////
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
