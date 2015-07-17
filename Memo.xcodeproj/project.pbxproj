@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02192E5D1B5977E000375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192E5A1B5977E000375F52 /* LLNode.m */; };
+		02192E641B597F3000375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192E611B597F3000375F52 /* LLNode.m */; };
 		37B6A6B41B2696B500BB623F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B31B2696B500BB623F /* main.m */; };
 		37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B61B2696B500BB623F /* AppDelegate.m */; };
 		37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B91B2696B500BB623F /* FirstViewController.m */; };
@@ -29,8 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02192E591B5977E000375F52 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
-		02192E5A1B5977E000375F52 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
+		02192E601B597F3000375F52 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
+		02192E611B597F3000375F52 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
 		37B6A6AE1B2696B500BB623F /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B6A6B21B2696B500BB623F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B6A6B31B2696B500BB623F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,33 +66,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02192E571B5977E000375F52 /* Utilities */ = {
+		02192E5E1B597F3000375F52 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				02192E581B5977E000375F52 /* Node */,
-				02192E5B1B5977E000375F52 /* Queue */,
-				02192E5C1B5977E000375F52 /* Stack */,
+				02192E5F1B597F3000375F52 /* Node */,
+				02192E621B597F3000375F52 /* Queue */,
+				02192E631B597F3000375F52 /* Stack */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		02192E581B5977E000375F52 /* Node */ = {
+		02192E5F1B597F3000375F52 /* Node */ = {
 			isa = PBXGroup;
 			children = (
-				02192E591B5977E000375F52 /* LLNode.h */,
-				02192E5A1B5977E000375F52 /* LLNode.m */,
+				02192E601B597F3000375F52 /* LLNode.h */,
+				02192E611B597F3000375F52 /* LLNode.m */,
 			);
 			path = Node;
 			sourceTree = "<group>";
 		};
-		02192E5B1B5977E000375F52 /* Queue */ = {
+		02192E621B597F3000375F52 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Queue;
 			sourceTree = "<group>";
 		};
-		02192E5C1B5977E000375F52 /* Stack */ = {
+		02192E631B597F3000375F52 /* Stack */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -102,7 +102,6 @@
 		37B6A6A51B2696B500BB623F = {
 			isa = PBXGroup;
 			children = (
-				02192E571B5977E000375F52 /* Utilities */,
 				37B6A6B01B2696B500BB623F /* Memo */,
 				37B6A6CD1B2696B500BB623F /* MemoTests */,
 				37B6A6AF1B2696B500BB623F /* Products */,
@@ -121,6 +120,7 @@
 		37B6A6B01B2696B500BB623F /* Memo */ = {
 			isa = PBXGroup;
 			children = (
+				02192E5E1B597F3000375F52 /* Utilities */,
 				37B6A6B51B2696B500BB623F /* AppDelegate.h */,
 				37B6A6B61B2696B500BB623F /* AppDelegate.m */,
 				37B6A6B81B2696B500BB623F /* FirstViewController.h */,
@@ -265,7 +265,7 @@
 				37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */,
 				37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */,
 				37B6A6B41B2696B500BB623F /* main.m in Sources */,
-				02192E5D1B5977E000375F52 /* LLNode.m in Sources */,
+				02192E641B597F3000375F52 /* LLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
