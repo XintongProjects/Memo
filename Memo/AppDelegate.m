@@ -17,28 +17,29 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    [self testOfLinkedList];
-    [self testOfString];
-    
-//    NSMutableDictionary* dict = [NSMutableDictionary alloc];
-//    NSArray *strArr = @[@"hello", @"world", @"blah", @"car", @"rac"];
-//    unsigned long len = [strArr count];
-//    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:len];
-//    
-//    
-//    if(![[dict allKeys] containsObject:@"car"]){
-//        [values addObject:@5];
-//        [dict setObject:values forKey:@"car"];
-//    }
-//    else{
-//        //add index to the corresponding mutable arr values
-//    }
-    
+    [self runtests];
     // Override point for customization after application launch.
     return YES;
 }
 
+-(void) runtests{
+    [self testOfLinkedList];
+    [self testOfString];
+    
+    //    NSMutableDictionary* dict = [NSMutableDictionary alloc];
+    //    NSArray *strArr = @[@"hello", @"world", @"blah", @"car", @"rac"];
+    //    unsigned long len = [strArr count];
+    //    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:len];
+    //
+    //
+    //    if(![[dict allKeys] containsObject:@"car"]){
+    //        [values addObject:@5];
+    //        [dict setObject:values forKey:@"car"];
+    //    }
+    //    else{
+    //        //add index to the corresponding mutable arr values
+    //    }
+}
 -(void) testOfString{
     
     NSString* str = @"Hello world KAYAK";
@@ -66,7 +67,6 @@
     head.next = node2;
     node2.next = node3;
     node3.next = NULL;
-    
     [head printNodes: head];
 
 }

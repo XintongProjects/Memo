@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02192E641B597F3000375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192E611B597F3000375F52 /* LLNode.m */; };
+		02192EA81B59950F00375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA41B59950F00375F52 /* LLNode.m */; };
+		02192EA91B59950F00375F52 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA61B59950F00375F52 /* Queue.m */; };
+		02192EAC1B59967200375F52 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EAB1B59967200375F52 /* Misc.m */; };
 		37B6A6B41B2696B500BB623F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B31B2696B500BB623F /* main.m */; };
 		37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B61B2696B500BB623F /* AppDelegate.m */; };
 		37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B91B2696B500BB623F /* FirstViewController.m */; };
@@ -29,8 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02192E601B597F3000375F52 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
-		02192E611B597F3000375F52 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
+		02192EA31B59950F00375F52 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
+		02192EA41B59950F00375F52 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
+		02192EA61B59950F00375F52 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		02192EAB1B59967200375F52 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
+		02192EAD1B59969600375F52 /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Misc.h; path = Stack/Misc.h; sourceTree = "<group>"; };
 		37B6A6AE1B2696B500BB623F /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B6A6B21B2696B500BB623F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B6A6B31B2696B500BB623F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,33 +71,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02192E5E1B597F3000375F52 /* Utilities */ = {
+		02192EA11B59950F00375F52 /* MiscFunctions */ = {
 			isa = PBXGroup;
 			children = (
-				02192E5F1B597F3000375F52 /* Node */,
-				02192E621B597F3000375F52 /* Queue */,
-				02192E631B597F3000375F52 /* Stack */,
+				02192EAD1B59969600375F52 /* Misc.h */,
+				02192EAB1B59967200375F52 /* Misc.m */,
+				02192EA21B59950F00375F52 /* Node */,
+				02192EA51B59950F00375F52 /* Queue */,
+				02192EA71B59950F00375F52 /* Stack */,
 			);
-			path = Utilities;
+			path = MiscFunctions;
 			sourceTree = "<group>";
 		};
-		02192E5F1B597F3000375F52 /* Node */ = {
+		02192EA21B59950F00375F52 /* Node */ = {
 			isa = PBXGroup;
 			children = (
-				02192E601B597F3000375F52 /* LLNode.h */,
-				02192E611B597F3000375F52 /* LLNode.m */,
+				02192EA31B59950F00375F52 /* LLNode.h */,
+				02192EA41B59950F00375F52 /* LLNode.m */,
 			);
 			path = Node;
 			sourceTree = "<group>";
 		};
-		02192E621B597F3000375F52 /* Queue */ = {
+		02192EA51B59950F00375F52 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				02192EA61B59950F00375F52 /* Queue.m */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
 		};
-		02192E631B597F3000375F52 /* Stack */ = {
+		02192EA71B59950F00375F52 /* Stack */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -120,7 +128,7 @@
 		37B6A6B01B2696B500BB623F /* Memo */ = {
 			isa = PBXGroup;
 			children = (
-				02192E5E1B597F3000375F52 /* Utilities */,
+				02192EA11B59950F00375F52 /* MiscFunctions */,
 				37B6A6B51B2696B500BB623F /* AppDelegate.h */,
 				37B6A6B61B2696B500BB623F /* AppDelegate.m */,
 				37B6A6B81B2696B500BB623F /* FirstViewController.h */,
@@ -264,8 +272,10 @@
 				37B6A6BD1B2696B500BB623F /* SecondViewController.m in Sources */,
 				37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */,
 				37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */,
+				02192EAC1B59967200375F52 /* Misc.m in Sources */,
+				02192EA91B59950F00375F52 /* Queue.m in Sources */,
 				37B6A6B41B2696B500BB623F /* main.m in Sources */,
-				02192E641B597F3000375F52 /* LLNode.m in Sources */,
+				02192EA81B59950F00375F52 /* LLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -376,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -388,6 +398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Memo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -398,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Memo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

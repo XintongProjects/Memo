@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 -(void) testOfString;
-- (void) testOfLinkedList;
+-(void) testOfLinkedList;
+-(void) runtests;
 @end
 
