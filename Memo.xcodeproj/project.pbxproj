@@ -10,6 +10,8 @@
 		02192EA81B59950F00375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA41B59950F00375F52 /* LLNode.m */; };
 		02192EA91B59950F00375F52 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA61B59950F00375F52 /* Queue.m */; };
 		02192EAC1B59967200375F52 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EAB1B59967200375F52 /* Misc.m */; };
+		028A3FCA1B6C30B900EF21F8 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A3FC91B6C30B900EF21F8 /* Blockies.m */; };
+		028A3FCB1B6C30B900EF21F8 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A3FC91B6C30B900EF21F8 /* Blockies.m */; };
 		37B6A6B41B2696B500BB623F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B31B2696B500BB623F /* main.m */; };
 		37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B61B2696B500BB623F /* AppDelegate.m */; };
 		37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B91B2696B500BB623F /* FirstViewController.m */; };
@@ -36,6 +38,8 @@
 		02192EA61B59950F00375F52 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		02192EAB1B59967200375F52 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
 		02192EAD1B59969600375F52 /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Misc.h; path = Stack/Misc.h; sourceTree = "<group>"; };
+		028A3FC81B6C30B900EF21F8 /* Blockies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blockies.h; sourceTree = "<group>"; };
+		028A3FC91B6C30B900EF21F8 /* Blockies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blockies.m; sourceTree = "<group>"; };
 		37B6A6AE1B2696B500BB623F /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B6A6B21B2696B500BB623F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B6A6B31B2696B500BB623F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				02192EA21B59950F00375F52 /* Node */,
 				02192EA51B59950F00375F52 /* Queue */,
 				02192EA71B59950F00375F52 /* Stack */,
+				028A3FC81B6C30B900EF21F8 /* Blockies.h */,
+				028A3FC91B6C30B900EF21F8 /* Blockies.m */,
 			);
 			path = MiscFunctions;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B6A6BD1B2696B500BB623F /* SecondViewController.m in Sources */,
+				028A3FCA1B6C30B900EF21F8 /* Blockies.m in Sources */,
 				37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */,
 				37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */,
 				02192EAC1B59967200375F52 /* Misc.m in Sources */,
@@ -284,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B6A6D11B2696B500BB623F /* MemoTests.m in Sources */,
+				028A3FCB1B6C30B900EF21F8 /* Blockies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

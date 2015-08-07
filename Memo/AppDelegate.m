@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LLNode.h"
+#import "Blockies.h"
 
 @interface AppDelegate ()
 
@@ -25,20 +26,26 @@
 -(void) runtests{
     [self testOfLinkedList];
     [self testOfString];
+    [self stringTests];
+    [self blocksTests];
     
-    //    NSMutableDictionary* dict = [NSMutableDictionary alloc];
-    //    NSArray *strArr = @[@"hello", @"world", @"blah", @"car", @"rac"];
-    //    unsigned long len = [strArr count];
-    //    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:len];
-    //
-    //
-    //    if(![[dict allKeys] containsObject:@"car"]){
-    //        [values addObject:@5];
-    //        [dict setObject:values forKey:@"car"];
-    //    }
-    //    else{
-    //        //add index to the corresponding mutable arr values
-    //    }
+    NSString * key1 = @"key1";
+    NSLog(@"key1[0] is %c", [key1 characterAtIndex:0]);
+    
+    NSString *key2 = @"key2";
+    NSNumber *val1 = [NSNumber numberWithInt: 1];
+    NSNumber *val2 = [NSNumber numberWithInt: 2];
+    //NSMapTable * map = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableWeakMemory];
+    
+    NSMapTable * mapTable = [[NSMapTable alloc] init];
+    [mapTable setObject:val1 forKey:key1];
+    [mapTable setObject:val2 forKey:key2];
+    NSLog(@"mapTable is %@", mapTable);
+    //NSLog(@"removing key2");
+    
+    
+    //NSLog(@"mapTable is %@", mapTable);
+    
 }
 -(void) testOfString{
     
@@ -71,6 +78,60 @@
 
 }
 
+- (int *) productWithoutSelf: (int*) arr forlength:(int) len andReturnLength:(int *)returnLength{
+    //int* result = (int*)sizeof(int);
+    //
+    int* result = malloc(len * sizeof(int));//malloc(len);
+    
+    // int result[len] is a stack variable and will be undefined behavor for return: function returns address of local variable
+    *returnLength = len;
+    for (int i = 0; i < len; i++)
+        result[i] = 1;
+    int dp[2][len];
+    dp[0][0] = 1;
+    dp[1][len-1] = 1;
+    // right to left for row 1
+    for (int i = 1; i < len; i++){
+        dp[0][i] = dp[0][i-1] * arr[i-1];
+    }
+    // left to right for row 2
+    for (int i = len - 2; i >= 0; i--){
+        dp[1][i] = dp[1][i+1] * arr[i+1];
+    }
+    // get the result
+    for (int i = 0; i < len; i++){
+        result[i] = dp[0][i] * dp[0][i];
+    }
+    return result;
+}
+
+- (void) stringTests{
+    NSString * s1 = @"hello world";
+    
+    NSRange range = NSMakeRange(2,8);
+    //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
+    NSString *input = @"berry, tomato, apple";
+    if ([input rangeOfString:@"apple"].location != NSNotFound) {
+        NSLog(@"We have apple");
+    }
+
+    
+}
+
+- (void) blocksTests{
+    
+    Blockies *blockies = [[Blockies alloc] init];
+    [blockies blockTests];
+    
+}
+
+//-(NSArray*) productWithoutSelf: (NSArray*) arr{
+//    int len = (int)[arr count];
+//    NSMutableArray *temp = [[NSMutableArray alloc] initWithCapacity:len];
+//    temp[0] = 15;
+//    
+//    return [temp copy];
+//}
 /////////////////////////
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
