@@ -28,10 +28,69 @@
     [self testOfString];
     [self stringTests];
     [self blocksTests];
+    [self containersTests];
+    NSString *s1 = @"3333";
+    //int*result = [self convertStringToNumArray:s1];
+    //NSLog(@"result[1] is %d", result[1]);
+    [self leetCodeTests];
+}
+
+-(void) leetCodeTests{
     
+    NSString *multiResult;
+    NSString *s1 = @"12";
+    NSString *s2 = @"15";
+    //int a = [self multiplyStrings:s1 multiplyWith:s2 to:multiResult];
+    //NSLog(@"a is %d, and multiResult: %@", a, multiResult);
+    multiResult = [self multiplyStrings:s1 multiplyWith:s2];
+    NSLog(@"multiResult: %@", multiResult);
+    
+}
+
+// #43 Multiply Strings;
+// assume all positive,
+- (int) multiplyStrings: (NSString *) s1  multiplyWith: (NSString*)s2 to: (NSString*) result{
+    
+    return -1;
+}
+
+- (NSString *) multiplyStrings: (NSString *) s1  multiplyWith: (NSString*)s2{
+    int len1 = s1.length;
+    int len2 = s2.length;
+    
+    NSMutableString *ms = [NSMutableString stringWithCapacity:len1+len2];
+    
+    
+    return [NSString stringWithString:ms];
+    //@"2222";
+}
+
+- (BOOL) isValidInteger: (NSString*) num{
+    for (int i = 0; i < num.length; i++){
+        if([num characterAtIndex:i] < '0' || [num characterAtIndex:i] > '9') return NO;
+            
+    }
+    return YES;
+}
+
+- (int *) convertStringToNumArray: (NSString*) num{
+    if(![self isValidInteger:num])
+        return NULL;
+    int start = 0;
+    while(num && [num characterAtIndex:start] == '0'){
+        start++;
+    }
+    int len = (int)num.length - start;
+    int result[len];
+    for (int i = 0; i < len; i++){
+        result[i] = 2;
+    }
+    
+    return result;
+}
+
+-(void) containersTests{
     NSString * key1 = @"key1";
-    NSLog(@"key1[0] is %c", [key1 characterAtIndex:0]);
-    
     NSString *key2 = @"key2";
     NSNumber *val1 = [NSNumber numberWithInt: 1];
     NSNumber *val2 = [NSNumber numberWithInt: 2];
@@ -42,8 +101,6 @@
     [mapTable setObject:val2 forKey:key2];
     NSLog(@"mapTable is %@", mapTable);
     //NSLog(@"removing key2");
-    
-    
     //NSLog(@"mapTable is %@", mapTable);
     
 }
