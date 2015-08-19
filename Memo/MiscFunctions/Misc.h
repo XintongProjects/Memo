@@ -17,6 +17,13 @@
 }
 
 - (BOOL) isHappyNumber:(int)number;
+
+-(NSMutableArray *)printSpiral:(int**) matrix withRow :(int)row andCol:(int) col;
+
+-(NSString *) reverseString: (NSString*) s;
+
+- (void) reverseString: (char *)str start: (int) low end:(int)hi;
+- (void) reverseWords: (char *) words;
 @end
 
 

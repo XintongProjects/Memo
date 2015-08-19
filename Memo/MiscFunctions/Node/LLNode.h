@@ -6,7 +6,7 @@
 //  Copyright © 2015 Xintong Bi. All rights reserved.
 //
 
-
+// Linked List Node
 #import <Foundation/Foundation.h>
 @interface LLNode : NSObject{
 }

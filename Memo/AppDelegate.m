@@ -73,22 +73,7 @@
     return YES;
 }
 
-- (int *) convertStringToNumArray: (NSString*) num{
-    if(![self isValidInteger:num])
-        return NULL;
-    int start = 0;
-    while(num && [num characterAtIndex:start] == '0'){
-        start++;
-    }
-    int len = (int)num.length - start;
-    int result[len];
-    for (int i = 0; i < len; i++){
-        result[i] = 2;
-    }
-    
-    return result;
-}
-
+//NSMapTable  equivalent to java's Hashmap
 -(void) containersTests{
     NSString * key1 = @"key1";
     NSString *key2 = @"key2";
@@ -120,6 +105,19 @@
     [comb appendFormat:@"%c", c];
     
     NSLog(@"sbu2 is: %@**sub3 is %@**comb is %@", sub2, sub3, comb);
+    
+    
+    NSString * s1 = @"hello world";
+    
+    NSRange range = NSMakeRange(2,8);
+    //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
+    NSString *input = @"berry, tomato, apple";
+    if ([input rangeOfString:@"apple"].location != NSNotFound) {
+        NSLog(@"We have apple");
+    }
+
+    
+    
 }
 - (void) testOfLinkedList{
     LLNode * head = [[LLNode alloc] init];
@@ -163,15 +161,7 @@
 }
 
 - (void) stringTests{
-    NSString * s1 = @"hello world";
-    
-    NSRange range = NSMakeRange(2,8);
-    //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
-    NSString *input = @"berry, tomato, apple";
-    if ([input rangeOfString:@"apple"].location != NSNotFound) {
-        NSLog(@"We have apple");
-    }
-
+    ;
     
 }
 
@@ -179,6 +169,8 @@
     
     Blockies *blockies = [[Blockies alloc] init];
     [blockies blockTests];
+    
+
     
 }
 

@@ -32,5 +32,22 @@
     
     NSLog(@"localCharacter is: %c", localCharacter);
     
+    
+    NSInteger (^alwaysReturnNSIntegerZero)() = ^ NSInteger (){ return 0; };
+    long long (^alwaysReturnLongLongZero)() = (long long (^)())alwaysReturnNSIntegerZero;
+    
+    NSString * s = @"hello";
+    BOOL isString = [s isKindOfClass:[NSString class]];
+    NSLog(isString?@"Yes":@"No");
+    
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *rsp, NSData *d, NSError *e) {
+//        // process request here
+//    }];
+//    
+//    
+//    [NSURLConnection sendAsynchronousRequest: request queue:[NSOperationQueue mainQueue] completionHandler:<#^(NSURLResponse * __nullable response, NSData * __nullable data, NSError * __nullable connectionError)handler#>){
+//        
+//    }];
+    
 }
 @end
