@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Misc.h"
+#import "Pair.h"
 
 @implementation Misc: NSObject
 
@@ -72,6 +73,91 @@
         [self reverseString:words start:lo end:hi - 1];
         lo = hi+1;
         hi = lo;
+    }
+}
+
+- (NSMutableArray*) findPairsInArray:(int*) arr addsUpTo: (int) target{
+    NSMutableArray * results = [[NSMutableArray alloc] init];
+    
+    
+    return results;
+}
+
+- (void) randomNumbers{
+    int len = 10;
+    // generate a random number between 0 and len
+    NSMutableArray* arrNumbers = [NSMutableArray arrayWithCapacity:len];
+    for (int i = 0; i < len; i++){
+        [arrNumbers addObject:[NSNumber numberWithInt:i]];
+    }
+    //shuffle the elements
+    for (int i = 0; i < len; i++){
+        int r = arc4random_uniform(len);
+        NSNumber* temp = arrNumbers[i];
+        arrNumbers[i] = arrNumbers[r];
+        arrNumbers[r] = temp;
+    }
+    
+    // add len2 more elements, and need be randomized, such that each element is different form it's previous one.
+    
+    int len2 = 20;
+    for (int i = 0; i < len2; i++){
+        int r = arc4random_uniform(len);
+        
+        while([arrNumbers[r] isEqualToNumber: arrNumbers[len - 1 + i]]){ // here is the same result as "=="
+            r = arc4random_uniform(len);
+            //r = rand()%len;
+        }
+        [arrNumbers addObject:arrNumbers[r]];
+    }
+    for (int i = 0; i < (len + len2); i++){
+        NSLog(@"arrNumber[%d] is %@", i, arrNumbers[i]);
+    }
+    
+    
+}
+// find all pairs in an input int array that adds up to a target value
+- (void) findAllPairs{
+//    @interface Pair : NSObject{
+//    }
+//    @property (nonatomic, assign) int a;
+//    @property (nonatomic, assign) int b;
+//    - (NSString *)description;
+//    @end
+    NSMutableArray * results = [[NSMutableArray alloc] init];
+    int input[14] = {10, 10, 3, 8, 7, 50, 0, 9, 8, 1, 12, -1, -2, 0};
+    int len = 14;
+    int sum = 10;
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+    for (int i = 0; i < len; i++){
+        int goal = sum - input[i];
+        //found matching
+        if(dict[[NSNumber numberWithInt:goal]]){
+            Pair *p = [Pair new];//[[Pair alloc]init];
+            p.a = input[i];
+            p.b = goal;
+            [results addObject: p];
+            int val = [dict[[NSNumber numberWithInt:goal]] intValue];
+            val--;
+            if (val == 0)
+                [dict removeObjectForKey:[NSNumber numberWithInt:goal]];
+            else{
+                dict[[NSNumber numberWithInt:goal]] = [NSNumber numberWithInt:val];
+            }
+        }
+        else{
+        if(![dict objectForKey:[NSNumber numberWithInt:input[i]]]){
+            dict[[NSNumber numberWithInt:input[i]]] = [NSNumber numberWithInt:1];
+        }
+            else{
+                int value = [dict[[NSNumber numberWithInt:input[i]]] intValue];
+                value++;
+                dict[[NSNumber numberWithInt:input[i]]] = [NSNumber numberWithInt:value];
+            }
+        }
+    }
+    for (int i = 0; i < [results count]; i++){
+        NSLog(@"Results[%d]:%@", i, results[i]);
     }
 }
 

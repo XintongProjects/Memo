@@ -13,30 +13,30 @@
 -(id)init{
     self = [super init];
     if(self != nil){
-        stack = [[NSMutableArray alloc] init];
+        self.stackContainer = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 
 -(void)push:(id)object{
-    [stack addObject:object];
+    [self.stackContainer addObject:object];
 }
 -(id)pop{
-    id obj = [stack lastObject];
-    [stack removeLastObject];
+    id obj = [self.stackContainer lastObject];
+    [self.stackContainer removeLastObject];
     return obj;
 }
 -(id)peek{
-    return [[stack lastObject] copy];
+    return [[self.stackContainer lastObject] copy];
 }
 -(BOOL) isEmpty{
-    if([stack count] == 0)
+    if([self.stackContainer count] == 0)
         return YES;
     return NO;
 }
 - (NSUInteger)size{
-    return [stack count];
+    return [self.stackContainer count];
 }
 
 

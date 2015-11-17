@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LLNode.h"
 #import "Blockies.h"
+#import "Misc.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self runtests];
     // Override point for customization after application launch.
+    
+    dispatch_queue_t downLoadQueue = dispatch_queue_create("Hello", NULL);
+    dispatch_async(downLoadQueue, ^{
+        NSLog(@"long work process");
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // update UI
+        });
+    });
     return YES;
 }
 
@@ -28,13 +38,18 @@
     [self testOfString];
     [self stringTests];
     [self blocksTests];
-    [self containersTests];
-    NSString *s1 = @"3333";
-    //int*result = [self convertStringToNumArray:s1];
-    //NSLog(@"result[1] is %d", result[1]);
+    [self NSMapTableTests];
+    [self NSSetTests];
     [self leetCodeTests];
+    [self miscTests];
 }
 
+-(void) miscTests{
+    Misc *mis = [[Misc alloc] init];
+    [mis findAllPairs];
+    [mis randomNumbers];
+    
+}
 -(void) leetCodeTests{
     
     NSString *multiResult;
@@ -73,20 +88,38 @@
     return YES;
 }
 
-//NSMapTable  equivalent to java's Hashmap
--(void) containersTests{
+//NSMapTable  equivalent to java's Hashmap, available iOS 6+
+-(void) NSMapTableTests{
     NSString * key1 = @"key1";
     NSString *key2 = @"key2";
-    NSNumber *val1 = [NSNumber numberWithInt: 1];
-    NSNumber *val2 = [NSNumber numberWithInt: 2];
+    NSNumber *val1 = [NSNumber numberWithInt: 12];
+    NSNumber *val2 = [NSNumber numberWithInt: 17];
     //NSMapTable * map = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableWeakMemory];
     
     NSMapTable * mapTable = [[NSMapTable alloc] init];
     [mapTable setObject:val1 forKey:key1];
     [mapTable setObject:val2 forKey:key2];
     NSLog(@"mapTable is %@", mapTable);
-    //NSLog(@"removing key2");
-    //NSLog(@"mapTable is %@", mapTable);
+}
+
+//NSMutableSet, similar to java's Hashset
+-(void) NSSetTests{
+    NSArray *myArr = @[@"Hello", @"World", @"Hello"];
+    NSSet * words = [NSSet setWithArray:myArr];
+    //NSSet * words = [NSSet setWithObjects:@"m", "m", "hello", "ou", nil
+    NSLog(@"words is %@", words);
+    for (id item in words){
+        NSLog(@"Iitem is %@", item);
+    }
+
+    
+    
+    NSMutableSet *container = [[NSMutableSet alloc] init];
+    [container addObject:@"a"];
+    [container addObject:@"b"];
+    if([container containsObject:@"a"]){
+        NSLog(@"container has \"a\"");
+    }
     
 }
 -(void) testOfString{
@@ -94,11 +127,10 @@
     NSString* str = @"Hello world KAYAK";
     NSLog(@"str[1] is %c",[str characterAtIndex: 1]); //'e'
     NSString *subString = [str substringWithRange:NSMakeRange(0, 8)];
-    NSLog(@"sbustring is %@", subString);
+    NSLog(@"sbustring (0, 8)is %@", subString);
     NSString *sub2 = [str substringFromIndex:1];
     NSString *sub3 = [str substringToIndex:14];
-    
-    
+
     //from NSString to NSmutableString
     NSMutableString* comb = [subString mutableCopy];
     char c = [str characterAtIndex:12];
@@ -107,16 +139,24 @@
     NSLog(@"sbu2 is: %@**sub3 is %@**comb is %@", sub2, sub3, comb);
     
     
-    NSString * s1 = @"hello world";
-    
+    NSMutableString *s1 = [@"hello world" mutableCopy];
+    [s1 insertString:@"**" atIndex:5] ;
+    NSLog(@"s1 is :%@", s1);
+ 
     NSRange range = NSMakeRange(2,8);
+    
     //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
     NSString *input = @"berry, tomato, apple";
     if ([input rangeOfString:@"apple"].location != NSNotFound) {
         NSLog(@"We have apple");
     }
-
     
+    
+    NSString *a1 = @"go";
+    NSString *a2 = @"ahead";
+    NSString *a3 = [a1 stringByAppendingString:@" "];
+    NSString *a4 = [a3 stringByAppendingString:a2];//s1 + @" " + s2;
+    NSLog(@"s4:%@", a4);//"go ahead"
     
 }
 - (void) testOfLinkedList{
@@ -169,9 +209,7 @@
     
     Blockies *blockies = [[Blockies alloc] init];
     [blockies blockTests];
-    
-
-    
+  
 }
 
 //-(NSArray*) productWithoutSelf: (NSArray*) arr{

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020823951BE938A9009FABC4 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = 020823941BE938A9009FABC4 /* Pair.m */; settings = {ASSET_TAGS = (); }; };
 		02192EA81B59950F00375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA41B59950F00375F52 /* LLNode.m */; };
 		02192EAC1B59967200375F52 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EAB1B59967200375F52 /* Misc.m */; };
 		02226ABC1B852AAE006826F9 /* BTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02226ABB1B852AAE006826F9 /* BTreeNode.m */; };
+		027998FA1BE0404000555BC9 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 027998F91BE0404000555BC9 /* Queue.m */; settings = {ASSET_TAGS = (); }; };
 		028A3FCA1B6C30B900EF21F8 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A3FC91B6C30B900EF21F8 /* Blockies.m */; };
 		028A3FCB1B6C30B900EF21F8 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A3FC91B6C30B900EF21F8 /* Blockies.m */; };
 		02B6D52C1B7A72BE00EC0A33 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B6D52B1B7A72BE00EC0A33 /* Stack.m */; };
@@ -34,11 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020823931BE938A9009FABC4 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
+		020823941BE938A9009FABC4 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 		02192EA31B59950F00375F52 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNode.h; sourceTree = "<group>"; };
 		02192EA41B59950F00375F52 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNode.m; sourceTree = "<group>"; };
 		02192EAB1B59967200375F52 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
 		02226ABA1B852AAE006826F9 /* BTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTreeNode.h; sourceTree = "<group>"; };
 		02226ABB1B852AAE006826F9 /* BTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTreeNode.m; sourceTree = "<group>"; };
+		027998F81BE0404000555BC9 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		027998F91BE0404000555BC9 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		028A3FC81B6C30B900EF21F8 /* Blockies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blockies.h; sourceTree = "<group>"; };
 		028A3FC91B6C30B900EF21F8 /* Blockies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blockies.m; sourceTree = "<group>"; };
 		02B6D52A1B7A72BE00EC0A33 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		02192EA11B59950F00375F52 /* MiscFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				020823931BE938A9009FABC4 /* Pair.h */,
+				020823941BE938A9009FABC4 /* Pair.m */,
 				02B6D52D1B7A775700EC0A33 /* Misc.h */,
 				02192EAB1B59967200375F52 /* Misc.m */,
 				02192EA21B59950F00375F52 /* Node */,
@@ -107,6 +115,8 @@
 		02192EA51B59950F00375F52 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				027998F81BE0404000555BC9 /* Queue.h */,
+				027998F91BE0404000555BC9 /* Queue.m */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
@@ -287,7 +297,9 @@
 				028A3FCA1B6C30B900EF21F8 /* Blockies.m in Sources */,
 				37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */,
 				37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */,
+				027998FA1BE0404000555BC9 /* Queue.m in Sources */,
 				02192EAC1B59967200375F52 /* Misc.m in Sources */,
+				020823951BE938A9009FABC4 /* Pair.m in Sources */,
 				37B6A6B41B2696B500BB623F /* main.m in Sources */,
 				02192EA81B59950F00375F52 /* LLNode.m in Sources */,
 				02226ABC1B852AAE006826F9 /* BTreeNode.m in Sources */,

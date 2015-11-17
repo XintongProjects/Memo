@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Stack : NSObject{
-    NSMutableArray *stack;
+    //NSMutableArray *stack;
 }
+@property (strong, nonatomic) NSMutableArray *stackContainer;
 
 -(void)push:(id)object;
 -(id)pop;

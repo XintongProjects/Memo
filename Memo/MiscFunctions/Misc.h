@@ -20,10 +20,14 @@
 
 -(NSMutableArray *)printSpiral:(int**) matrix withRow :(int)row andCol:(int) col;
 
--(NSString *) reverseString: (NSString*) s;
+//-(NSString *) reverseString: (NSString*) s;
 
 - (void) reverseString: (char *)str start: (int) low end:(int)hi;
 - (void) reverseWords: (char *) words;
+
+- (void) findAllPairs;
+- (void) randomNumbers;
+
 @end
 
 
