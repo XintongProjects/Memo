@@ -32,9 +32,8 @@
 - (void)createGraph;
 - (GraphNode*)cloneGraph:(GraphNode*) root;
 - (GraphNode *)cloneGraphHelper:(GraphNode *)root withMapping: (NSMutableDictionary *)dict;
-// remove duplicated strings in an array of strings
-- (NSMutableArray *)removeDuplicates:(NSArray*)inputArr;
-- (NSMutableArray *)randomization:(NSMutableArray*)inputArr;
+- (NSArray *)removeDuplicates:(NSArray*)inputArr;
+- (NSArray *)shuffleArray:(NSArray*)inputArr;
 @end
 
 

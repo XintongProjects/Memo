@@ -10,6 +10,7 @@
 #import "LLNode.h"
 #import "Blockies.h"
 #import "Misc.h"
+#import "NSArray+Shuffle.h"
 
 @interface AppDelegate ()
 
@@ -51,7 +52,8 @@
     [mis isMatchingWords:@"Hello how about are you" mapWith:@"elo h ey"];
     [mis createGraph];
     NSArray *inputArr = [NSArray arrayWithObjects:@"A",@"B", @"E", @"c", @"A", @"A",@"B", @"D", @"c", @"A", nil];
-    inputArr = [mis removeDuplicates:inputArr];
+    inputArr = [ inputArr cbi_shuffleArray:inputArr];
+    NSLog(@"inputApr is %@", inputArr);
     
 }
 -(void) leetCodeTests{

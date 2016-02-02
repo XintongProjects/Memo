@@ -274,17 +274,31 @@
     return  rootCP;
 }
 
-- (NSMutableArray *)removeDuplicates:(NSArray*)inputArr{
+// A method to remove duplicates in an input array.
+- (NSArray *)removeDuplicates:(NSArray*)inputArr{
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:inputArr];
-    NSArray *array = [orderedSet array];
-    NSMutableArray *result = [array mutableCopy];
-    NSLog(@"After removing dupes is %@", result);
+    NSArray *result = [orderedSet array];
+    //NSMutableArray *result = [array mutableCopy];
     return result;
 }
-- (NSMutableArray *)randomization:(NSMutableArray*)inputArr{
-    
-    
-    return inputArr;
+
+// A method to shuffle an array. i.e. to generate random permutation of an array items
+// It utilizes  Fisher–Yates shuffle algorithm which has low standard deviation.
+- (NSArray *)shuffleArray:(NSArray*)inputArr{
+    NSArray *cleanedArr = [self removeDuplicates:inputArr];
+    NSUInteger count = [cleanedArr count];
+    NSMutableArray* tempArr = [cleanedArr mutableCopy];
+    if (count <= 1) {
+        return cleanedArr;
+    }
+    else{
+        // keeps inputArr the same for next run by performing permutation on it's copy.
+        for (NSUInteger i = count - 1; i > 0; i--) {
+            NSInteger swapIndex = arc4random_uniform((u_int32_t )(i + 1));
+            [tempArr exchangeObjectAtIndex:i withObjectAtIndex:swapIndex];
+        }
+    }
+    return [tempArr copy];
 }
 
 @end
