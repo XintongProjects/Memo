@@ -11,10 +11,12 @@
 		02192EA81B59950F00375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA41B59950F00375F52 /* LLNode.m */; };
 		02192EAC1B59967200375F52 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EAB1B59967200375F52 /* Misc.m */; };
 		02226ABC1B852AAE006826F9 /* BTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02226ABB1B852AAE006826F9 /* BTreeNode.m */; };
+		025C3B1C1C0C053C0089E7F8 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 025C3B1B1C0C053C0089E7F8 /* MiscTest.m */; settings = {ASSET_TAGS = (); }; };
 		027998FA1BE0404000555BC9 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 027998F91BE0404000555BC9 /* Queue.m */; settings = {ASSET_TAGS = (); }; };
 		028A3FCA1B6C30B900EF21F8 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A3FC91B6C30B900EF21F8 /* Blockies.m */; };
 		028A3FCB1B6C30B900EF21F8 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A3FC91B6C30B900EF21F8 /* Blockies.m */; };
 		02B6D52C1B7A72BE00EC0A33 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B6D52B1B7A72BE00EC0A33 /* Stack.m */; };
+		02E06D621C04F60F0092E3E2 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E06D611C04F60F0092E3E2 /* GraphNode.m */; settings = {ASSET_TAGS = (); }; };
 		37B6A6B41B2696B500BB623F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B31B2696B500BB623F /* main.m */; };
 		37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B61B2696B500BB623F /* AppDelegate.m */; };
 		37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A6B91B2696B500BB623F /* FirstViewController.m */; };
@@ -43,6 +45,7 @@
 		02192EAB1B59967200375F52 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
 		02226ABA1B852AAE006826F9 /* BTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTreeNode.h; sourceTree = "<group>"; };
 		02226ABB1B852AAE006826F9 /* BTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTreeNode.m; sourceTree = "<group>"; };
+		025C3B1B1C0C053C0089E7F8 /* MiscTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
 		027998F81BE0404000555BC9 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		027998F91BE0404000555BC9 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		028A3FC81B6C30B900EF21F8 /* Blockies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blockies.h; sourceTree = "<group>"; };
@@ -50,6 +53,8 @@
 		02B6D52A1B7A72BE00EC0A33 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		02B6D52B1B7A72BE00EC0A33 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		02B6D52D1B7A775700EC0A33 /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Misc.h; sourceTree = "<group>"; };
+		02E06D601C04F60F0092E3E2 /* GraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphNode.h; sourceTree = "<group>"; };
+		02E06D611C04F60F0092E3E2 /* GraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
 		37B6A6AE1B2696B500BB623F /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B6A6B21B2696B500BB623F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B6A6B31B2696B500BB623F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +113,8 @@
 				02192EA41B59950F00375F52 /* LLNode.m */,
 				02226ABA1B852AAE006826F9 /* BTreeNode.h */,
 				02226ABB1B852AAE006826F9 /* BTreeNode.m */,
+				02E06D601C04F60F0092E3E2 /* GraphNode.h */,
+				02E06D611C04F60F0092E3E2 /* GraphNode.m */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				37B6A6D01B2696B500BB623F /* MemoTests.m */,
+				025C3B1B1C0C053C0089E7F8 /* MiscTest.m */,
 				37B6A6CE1B2696B500BB623F /* Supporting Files */,
 			);
 			path = MemoTests;
@@ -236,7 +244,7 @@
 		37B6A6A61B2696B500BB623F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = XintongBi;
 				TargetAttributes = {
 					37B6A6AD1B2696B500BB623F = {
@@ -298,6 +306,7 @@
 				37B6A6B71B2696B500BB623F /* AppDelegate.m in Sources */,
 				37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */,
 				027998FA1BE0404000555BC9 /* Queue.m in Sources */,
+				02E06D621C04F60F0092E3E2 /* GraphNode.m in Sources */,
 				02192EAC1B59967200375F52 /* Misc.m in Sources */,
 				020823951BE938A9009FABC4 /* Pair.m in Sources */,
 				37B6A6B41B2696B500BB623F /* main.m in Sources */,
@@ -310,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025C3B1C1C0C053C0089E7F8 /* MiscTest.m in Sources */,
 				37B6A6D11B2696B500BB623F /* MemoTests.m in Sources */,
 				028A3FCB1B6C30B900EF21F8 /* Blockies.m in Sources */,
 			);
@@ -365,6 +375,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -428,6 +439,7 @@
 				INFOPLIST_FILE = Memo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -439,6 +451,7 @@
 				INFOPLIST_FILE = Memo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -457,6 +470,7 @@
 				);
 				INFOPLIST_FILE = MemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memo.app/Memo";
 			};
@@ -472,6 +486,7 @@
 				);
 				INFOPLIST_FILE = MemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memo.app/Memo";
 			};

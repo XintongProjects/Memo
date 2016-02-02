@@ -10,7 +10,7 @@
 
 @implementation BTreeNode
 
--(NSMutableArray *) allPaths:(BTreeNode *) root{
+- (NSMutableArray *)allPaths:(BTreeNode *) root{
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     if(root == NULL) return result;
@@ -19,7 +19,7 @@
     return result;
 }
 
--(void) getAllPath: (BTreeNode *) root aPath:(NSString *)path withResult: (NSMutableArray *) result  {
+- (void)getAllPath:(BTreeNode *)root aPath:(NSString *)path withResult: (NSMutableArray *) result  {
     if(root.left == NULL && root.right ==NULL){
         path = [path stringByAppendingFormat:@"%d", root.val];
         [result addObject:path];

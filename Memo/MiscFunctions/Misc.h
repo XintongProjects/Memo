@@ -11,23 +11,30 @@
 //
 //
 //#endif /* Misc_h */
-
+#import "GraphNode.h"
 
 @interface Misc : NSObject{
 }
 
-- (BOOL) isHappyNumber:(int)number;
+- (BOOL)isHappyNumber:(int)number;
 
--(NSMutableArray *)printSpiral:(int**) matrix withRow :(int)row andCol:(int) col;
+- (NSMutableArray *)printSpiral:(int**) matrix withRow:(int)row andCol:(int) col;
 
 //-(NSString *) reverseString: (NSString*) s;
 
-- (void) reverseString: (char *)str start: (int) low end:(int)hi;
-- (void) reverseWords: (char *) words;
+- (void)reverseString: (char *)str start: (int)low end:(int)hi;
+- (void)reverseWords: (char *) words;
 
-- (void) findAllPairs;
-- (void) randomNumbers;
-
+- (void)findAllPairs;
+- (void)randomNumbers;
+- (BOOL)isFuzzyMatch:(NSString *)input filterWith: (NSString *) filter;
+- (BOOL)isMatchingWords: (NSString *)input mapWith: (NSString *)mapping;
+- (void)createGraph;
+- (GraphNode*)cloneGraph:(GraphNode*) root;
+- (GraphNode *)cloneGraphHelper:(GraphNode *)root withMapping: (NSMutableDictionary *)dict;
+// remove duplicated strings in an array of strings
+- (NSMutableArray *)removeDuplicates:(NSArray*)inputArr;
+- (NSMutableArray *)randomization:(NSMutableArray*)inputArr;
 @end
 
 

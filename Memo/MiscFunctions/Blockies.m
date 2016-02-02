@@ -11,7 +11,7 @@
 @implementation Blockies
 
 
--(void) blockTests{
+- (void)blockTests{
     
     
     __block NSInteger localCounter = 42;

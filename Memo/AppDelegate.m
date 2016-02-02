@@ -48,6 +48,10 @@
     Misc *mis = [[Misc alloc] init];
     [mis findAllPairs];
     [mis randomNumbers];
+    [mis isMatchingWords:@"Hello how about are you" mapWith:@"elo h ey"];
+    [mis createGraph];
+    NSArray *inputArr = [NSArray arrayWithObjects:@"A",@"B", @"E", @"c", @"A", @"A",@"B", @"D", @"c", @"A", nil];
+    inputArr = [mis removeDuplicates:inputArr];
     
 }
 -(void) leetCodeTests{
@@ -70,8 +74,8 @@
 }
 
 - (NSString *) multiplyStrings: (NSString *) s1  multiplyWith: (NSString*)s2{
-    int len1 = s1.length;
-    int len2 = s2.length;
+    int len1 = (int)s1.length;
+    int len2 = (int)s2.length;
     
     NSMutableString *ms = [NSMutableString stringWithCapacity:len1+len2];
     
@@ -109,7 +113,7 @@
     //NSSet * words = [NSSet setWithObjects:@"m", "m", "hello", "ou", nil
     NSLog(@"words is %@", words);
     for (id item in words){
-        NSLog(@"Iitem is %@", item);
+        NSLog(@"Item is %@", item);
     }
 
     
@@ -143,7 +147,7 @@
     [s1 insertString:@"**" atIndex:5] ;
     NSLog(@"s1 is :%@", s1);
  
-    NSRange range = NSMakeRange(2,8);
+    //NSRange range = NSMakeRange(2,8);
     
     //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
     NSString *input = @"berry, tomato, apple";

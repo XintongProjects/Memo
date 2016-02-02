@@ -10,5 +10,5 @@
 
 @interface Blockies : NSObject
 
--(void) blockTests;
+- (void)blockTests;
 @end

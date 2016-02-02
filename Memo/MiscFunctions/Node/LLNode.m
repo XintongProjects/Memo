@@ -11,7 +11,7 @@
 
 @implementation LLNode: NSObject
 
--(id) init{
+- (id)init{
     self = [super init];
     // do more initialization work if neede
     if(self){
@@ -21,7 +21,7 @@
     return self;
 }
 
-- (void) printNodes:(LLNode*)head{
+- (void)printNodes:(LLNode*)head{
     LLNode* current = head;
     while (current){
         NSLog(@"%i", (int)current.val);

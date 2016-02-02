@@ -11,9 +11,9 @@
 @interface Queue : NSObject{
 }
 @property (strong, nonatomic) NSMutableArray *queueContainer;
--(void)enqueue:(id) obj;
--(id)dequeue;
--(bool)isEmpty;
--(NSUInteger) size;
+- (void)enqueue:(id) obj;
+- (id)dequeue;
+- (BOOL)isEmpty;
+- (NSUInteger) size;
 
 @end

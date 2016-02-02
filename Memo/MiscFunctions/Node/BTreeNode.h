@@ -15,6 +15,6 @@
 @property (strong, nonatomic) BTreeNode *right;
 @property (assign, nonatomic) int val;
 
--(NSMutableArray *) allPaths:(BTreeNode *) root;
--(void) getAllPath: (BTreeNode *) root aPath:(NSString *)path withResult: (NSMutableArray *) result;
+- (NSMutableArray *)allPaths:(BTreeNode *) root;
+- (void) getAllPath:(BTreeNode *)root aPath:(NSString *)path withResult: (NSMutableArray *) result;
 @end

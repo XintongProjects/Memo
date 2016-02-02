@@ -11,18 +11,21 @@
 @implementation Queue
 
 
--(void)enqueue:(id) obj{
+- (void)enqueue:(id) obj{
     [self.queueContainer insertObject:obj atIndex:0];
 }
--(id)dequeue{
+- (id)dequeue{
     id obj = [self.queueContainer firstObject];
+    if (obj == NULL){
+        ;
+    }
     return obj;
     
 }
--(bool)isEmpty{
+- (BOOL)isEmpty{
     return [self.queueContainer count] == 0;
 }
--(NSUInteger)size{
+- (NSUInteger)size{
     return [self.queueContainer count];
 }
 @end
