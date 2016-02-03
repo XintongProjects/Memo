@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSArray (Shuffle)
+// The following methods use "cbi_" as prefix to avoid namespace conflicts
 - (NSArray *)cbi_removeDuplicates:(NSArray*)inputArr;
 - (NSArray *)cbi_shuffleArray:(NSArray*)inputArr;
 

@@ -25,7 +25,7 @@
     
     dispatch_queue_t downLoadQueue = dispatch_queue_create("Hello", NULL);
     dispatch_async(downLoadQueue, ^{
-        NSLog(@"long work process");
+        NSLog(@"can perform long process here");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // update UI
