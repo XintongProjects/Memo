@@ -27,6 +27,7 @@
 
 - (void)findAllPairs;
 - (void)randomNumbers;
+- (int)perfectSquares: (int) num;
 - (BOOL)isFuzzyMatch:(NSString *)input filterWith: (NSString *) filter;
 - (BOOL)isMatchingWords: (NSString *)input mapWith: (NSString *)mapping;
 - (void)createGraph;

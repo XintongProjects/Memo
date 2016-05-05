@@ -51,6 +51,9 @@
     [mis randomNumbers];
     [mis isMatchingWords:@"Hello how are you about" mapWith:@"elo h ey"];
     [mis createGraph];
+    int n = 100;
+    int a = [mis perfectSquares:n];
+    NSLog(@"Smallest number of sqs is %d", a);
     NSArray *inputArr = [NSArray arrayWithObjects:@"A",@"B", @"E", @"c", @"A", @"A",@"B", @"D", @"c", @"A", nil];
     inputArr = [ inputArr cbi_shuffleArray:inputArr];
     NSLog(@"inputApr is %@", inputArr);

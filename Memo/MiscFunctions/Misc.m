@@ -115,12 +115,34 @@
         [arrNumbers addObject:arrNumbers[r]];
     }
     for (int i = 0; i < (len + len2); i++){
-        NSLog(@"arrNumber[%d] is %@", i, arrNumbers[i]);
+        ;//NSLog(@"arrNumber[%d] is %@", i, arrNumbers[i]);
     }
     
-    int i[] = {'a', 'b', '\0'};
-    printf("***%s",(char *)i);
+    int haha[] = {'a', 'b', '\0'};
+    printf("haha***%s\n",(char *)haha);
     
+}
+
+- (int) perfectSquares: (int) num;{
+    if (num <= 0) return 0;
+    int dp[num + 1];
+    //init all elem
+    for (int i = 0; i <= num; i++){
+        dp[i] = i;
+    }
+    //pre-fill perfect sqrs
+    for (int i = 0; i * i <= num; i++){
+        dp[i * i] = 1;
+    }
+    //real fun
+    for (int i = 2; i <= num; i++){
+        for(int j = 2; j * j < i; j++){
+            dp[i] = MIN(dp[i], dp[i - j*j] + 1);
+        }
+        //NSLog(@"perfect sqrs count for %d: %d", i, dp[i]);
+    }
+    
+    return dp[num];
 }
 // find all pairs in an input int array that adds up to a target value
 - (void)findAllPairs{
