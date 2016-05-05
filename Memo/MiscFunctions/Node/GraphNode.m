@@ -29,14 +29,6 @@
     self.neighbors = [muNeighbors copy];
 }
 
-//- (id)copyWithZone:(NSZone *)zone {
-//    Crime *newCrime = [super copyWithZone:zone];
-//    newCrime->_month = [_month copyWithZone:zone];
-//    newCrime->_category = [_category copyWithZone:zone];
-//    // etc...
-//    return newCrime;
-//}
-
 
 //- (id)copyWithZone:(NSZone *)zone
 //{
@@ -56,7 +48,7 @@
 //}
 
 - (id)copyWithZone:(NSZone *)zone {
-    
+    // did not copy. A bug
     return self;
 }
 

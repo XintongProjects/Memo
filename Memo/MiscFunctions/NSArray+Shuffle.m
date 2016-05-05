@@ -20,8 +20,8 @@
 
 // A method to shuffle an array. i.e. to generate random permutation of an array
 // of objects
-// It utilizes  Fisher–Yates shuffle algorithm which has low standard deviation.
-// Test: Would need to run thousands time to test the number of occurance of each
+// It utilizes Fisher–Yates shuffle algorithm which has low standard deviation.
+// Test: Would need to run thousands times to test the number of occurance of each
 // permutation. If the deviation is less than 2% it would be probobly OK.
 // Fisher–Yates algorithm boasts lower than 0.2% of standard deviation.
 - (NSArray *)cbi_shuffleArray:(NSArray*)inputArr{

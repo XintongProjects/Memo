@@ -11,6 +11,8 @@
 		02192EA81B59950F00375F52 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EA41B59950F00375F52 /* LLNode.m */; };
 		02192EAC1B59967200375F52 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 02192EAB1B59967200375F52 /* Misc.m */; };
 		02226ABC1B852AAE006826F9 /* BTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02226ABB1B852AAE006826F9 /* BTreeNode.m */; };
+		023524831C7D86F4004352CE /* XBAutoreleasepool.m in Sources */ = {isa = PBXBuildFile; fileRef = 023524821C7D86F4004352CE /* XBAutoreleasepool.m */; };
+		023524861C7D89B9004352CE /* NSObject+XBAutoreleasepool.m in Sources */ = {isa = PBXBuildFile; fileRef = 023524851C7D89B9004352CE /* NSObject+XBAutoreleasepool.m */; };
 		025C3B1C1C0C053C0089E7F8 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 025C3B1B1C0C053C0089E7F8 /* MiscTest.m */; };
 		027998FA1BE0404000555BC9 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 027998F91BE0404000555BC9 /* Queue.m */; };
 		0288DFC11C6134B500EF27AC /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0288DFC01C6134B500EF27AC /* NSArray+Shuffle.m */; };
@@ -46,6 +48,10 @@
 		02192EAB1B59967200375F52 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
 		02226ABA1B852AAE006826F9 /* BTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTreeNode.h; sourceTree = "<group>"; };
 		02226ABB1B852AAE006826F9 /* BTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTreeNode.m; sourceTree = "<group>"; };
+		023524811C7D86F4004352CE /* XBAutoreleasepool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAutoreleasepool.h; sourceTree = "<group>"; };
+		023524821C7D86F4004352CE /* XBAutoreleasepool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAutoreleasepool.m; sourceTree = "<group>"; };
+		023524841C7D89B9004352CE /* NSObject+XBAutoreleasepool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+XBAutoreleasepool.h"; path = "Memo/MiscFunctions/NSObject+XBAutoreleasepool.h"; sourceTree = SOURCE_ROOT; };
+		023524851C7D89B9004352CE /* NSObject+XBAutoreleasepool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+XBAutoreleasepool.m"; path = "Memo/MiscFunctions/NSObject+XBAutoreleasepool.m"; sourceTree = SOURCE_ROOT; };
 		025C3B1B1C0C053C0089E7F8 /* MiscTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
 		027998F81BE0404000555BC9 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		027998F91BE0404000555BC9 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
@@ -107,6 +113,10 @@
 				028A3FC91B6C30B900EF21F8 /* Blockies.m */,
 				0288DFBF1C6134B500EF27AC /* NSArray+Shuffle.h */,
 				0288DFC01C6134B500EF27AC /* NSArray+Shuffle.m */,
+				023524841C7D89B9004352CE /* NSObject+XBAutoreleasepool.h */,
+				023524851C7D89B9004352CE /* NSObject+XBAutoreleasepool.m */,
+				023524811C7D86F4004352CE /* XBAutoreleasepool.h */,
+				023524821C7D86F4004352CE /* XBAutoreleasepool.m */,
 			);
 			path = MiscFunctions;
 			sourceTree = "<group>";
@@ -305,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023524861C7D89B9004352CE /* NSObject+XBAutoreleasepool.m in Sources */,
 				02B6D52C1B7A72BE00EC0A33 /* Stack.m in Sources */,
 				37B6A6BD1B2696B500BB623F /* SecondViewController.m in Sources */,
 				0288DFC11C6134B500EF27AC /* NSArray+Shuffle.m in Sources */,
@@ -313,6 +324,7 @@
 				37B6A6BA1B2696B500BB623F /* FirstViewController.m in Sources */,
 				027998FA1BE0404000555BC9 /* Queue.m in Sources */,
 				02E06D621C04F60F0092E3E2 /* GraphNode.m in Sources */,
+				023524831C7D86F4004352CE /* XBAutoreleasepool.m in Sources */,
 				02192EAC1B59967200375F52 /* Misc.m in Sources */,
 				020823951BE938A9009FABC4 /* Pair.m in Sources */,
 				37B6A6B41B2696B500BB623F /* main.m in Sources */,

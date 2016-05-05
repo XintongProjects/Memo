@@ -49,7 +49,7 @@
     Misc *mis = [[Misc alloc] init];
     [mis findAllPairs];
     [mis randomNumbers];
-    [mis isMatchingWords:@"Hello how about are you" mapWith:@"elo h ey"];
+    [mis isMatchingWords:@"Hello how are you about" mapWith:@"elo h ey"];
     [mis createGraph];
     NSArray *inputArr = [NSArray arrayWithObjects:@"A",@"B", @"E", @"c", @"A", @"A",@"B", @"D", @"c", @"A", nil];
     inputArr = [ inputArr cbi_shuffleArray:inputArr];
