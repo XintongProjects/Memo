@@ -14,7 +14,7 @@
 
 -(void) testOfString;
 -(void) testOfLinkedList;
-- (int *) productWithoutSelf: (int*) arr forlength:(int) len andReturnLength:(int *)returnLength;
+-(int *) productWithoutSelf: (int*) arr forlength:(int) len andReturnLength:(int *)returnLength;
 //-(NSArray*) productWithoutSelf: (NSArray*)arr;
 -(void) runtests;
 

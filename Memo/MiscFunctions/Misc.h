@@ -34,7 +34,12 @@
 - (GraphNode*)cloneGraph:(GraphNode*) root;
 - (GraphNode *)cloneGraphHelper:(GraphNode *)root withMapping: (NSMutableDictionary *)dict;
 - (NSArray *)removeDuplicates:(NSArray*)inputArr;
-- (NSArray *)shuffleArray:(NSArray*)inputArr;
+-(NSArray *)shuffleArray:(NSArray*)inputArr;
+-(NSArray *)permute: (NSString *)input;
+-(void) recPermute:(NSMutableArray* )result sofar: (NSMutableString*) sofar andRemaining: (NSMutableString*) remain;
+-(int)factorial: (int) input;
+-(NSString*) sortStringByChar: (NSString*) str;
+-(NSString*) sortStringByChar2: (NSString*) str;
 @end
 
 

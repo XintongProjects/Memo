@@ -15,7 +15,6 @@
 // 17 = 50 = 25 // not happy, because it repeated 25, so it will infinite loop
 @implementation Misc: NSObject
 
-
 - (BOOL) isHappyNumber:(int)number{
     
      return YES;
@@ -274,8 +273,6 @@
 }
 
 - (GraphNode *)cloneGraphHelper:(GraphNode *)root withMapping: (NSMutableDictionary *)dict{
-    NSArray* oldArray = [NSArray arrayWithObjects:@"Hello", @"World", nil];
-    
     //NSArray* trueDeepCopyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:oldArray]];
     
     if (!root) {
@@ -300,6 +297,7 @@
 - (NSArray *)removeDuplicates:(NSArray*)inputArr{
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:inputArr];
     NSArray *result = [orderedSet array];
+
     //NSMutableArray *result = [array mutableCopy];
     return result;
 }
@@ -321,6 +319,106 @@
         }
     }
     return [tempArr copy];
+}
+
+// the following recPermute recusion. Note because obj-c string is pass by reference, so new string is needed each time.
+-(void) recPermute:(NSMutableArray* )result sofar: (NSMutableString*) sofar andRemaining: (NSMutableString*) remain{
+    if([remain isEqualToString:@""]){
+        [result addObject:sofar];
+    }
+    else{
+        for (int i = 0; i < remain.length; i++){
+            NSString* s = [NSString stringWithFormat:@"%c",[remain characterAtIndex:i ]];
+            NSMutableString *newSofar =[sofar mutableCopy];
+            [newSofar appendString:s];
+            NSLog(@"sofar is:%@", sofar);
+            NSMutableString* newRemain = [remain mutableCopy];
+            [newRemain deleteCharactersInRange:NSMakeRange(i, 1)] ;
+            [self recPermute:result sofar:newSofar andRemaining:newRemain];
+        }
+    }
+}
+
+-(NSArray *) permute:(NSString *)input{
+    NSMutableArray *result = [NSMutableArray new];
+    [self recPermute:result sofar:[@"" mutableCopy] andRemaining:[input mutableCopy]];
+    for (int i = 0; i < result.count; i++){
+        NSLog(@"result array is %@", result[i]);
+    }
+    return [result copy];
+}
+
+// the following recursion works great
+-(int)factorial: (int) input{
+    if (input == 1) return 1;
+    else{
+        return input * [self factorial:input - 1];
+    }
+}
+
+-(NSString*) sortStringByChar: (NSString*) str {
+    NSMutableArray *charArray = [NSMutableArray arrayWithCapacity:str.length];
+    for (int i=0; i< str.length; ++i) {
+        NSString *charStr = [str substringWithRange:NSMakeRange(i, 1)];
+        [charArray addObject:charStr];
+    }
+    [charArray sortUsingComparator:^(NSString *a, NSString *b){
+        return [a compare:b];
+    }];
+    NSLog(@"charArray is %@", charArray);
+    NSString* result = [charArray componentsJoinedByString:@""];
+    NSLog(@"result string is %@", result);
+    return result;
+}
+
+-(NSArray *) convertStringToArray:(NSString *) str{
+    NSArray* result = [NSArray new];
+    for (int i = 0; i < str.length; i++){
+        [result arrayByAddingObject:[NSString stringWithFormat:@"%c", [str characterAtIndex:i]]];
+    }
+    return result;
+}
+
+-(NSArray*) sortArray: (NSArray*) arr{
+    
+    return [arr sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+}
+-(NSString*) convertArrayToString: (NSArray*)arr{
+    NSString *combinedStr = [arr componentsJoinedByString:@""];
+    return combinedStr;
+}
+
+-(NSString*) sortStringByChar2: (NSString*) str{
+    
+    NSArray* charArr = [self convertStringToArray:str];
+    NSArray* sortedChar = [self sortArray:charArr];
+    return [self convertArrayToString:sortedChar];
+}
+
+// group all anagrams in input array of strings
+-(NSArray*) groupAll: (NSArray *) stringArr{
+    NSMutableArray* list = [NSMutableArray new];
+    NSMutableDictionary* dict = [NSMutableDictionary new];
+    
+    int len = (int)[stringArr count];
+    if (len == 0) return [list copy];
+    for (int i = 0; i < len; i++){
+        NSString*key = [self sortStringByChar2:stringArr[i]];
+        if(![[dict allKeys] containsObject:key]){
+            NSMutableArray* group = [NSMutableArray arrayWithObject:stringArr[i]];
+            dict[key] = group;
+        }
+        else{
+            NSMutableArray* group = dict[key];
+            [group addObject:stringArr[i]];
+            dict[key] = group;
+        }
+    }
+    [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [list addObject:obj];
+    }];
+    
+    return [list copy];
 }
 
 @end

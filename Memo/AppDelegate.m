@@ -51,6 +51,10 @@
     [mis randomNumbers];
     [mis isMatchingWords:@"Hello how are you about" mapWith:@"elo h ey"];
     [mis createGraph];
+    [mis permute:@"ABCD"];
+    NSString* sorted = [mis sortStringByChar:@"hello"];
+    int fac = [mis factorial:5];
+    NSLog(@"factorial of 5 is %d", fac);
     int n = 100;
     int a = [mis perfectSquares:n];
     NSLog(@"Smallest number of sqs is %d", a);
@@ -152,7 +156,7 @@
     [s1 insertString:@"**" atIndex:5] ;
     NSLog(@"s1 is :%@", s1);
  
-    //NSRange range = NSMakeRange(2,8);
+    NSRange range = NSMakeRange(2,8);
     
     //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
     NSString *input = @"berry, tomato, apple";
