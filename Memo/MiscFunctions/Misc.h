@@ -40,6 +40,8 @@
 -(int)factorial: (int) input;
 -(NSString*) sortStringByChar: (NSString*) str;
 -(NSString*) sortStringByChar2: (NSString*) str;
+-(NSArray*) groupAll: (NSArray *) stringArr;
+-(void) experiments;
 @end
 
 

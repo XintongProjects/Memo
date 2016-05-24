@@ -331,7 +331,7 @@
             NSString* s = [NSString stringWithFormat:@"%c",[remain characterAtIndex:i ]];
             NSMutableString *newSofar =[sofar mutableCopy];
             [newSofar appendString:s];
-            NSLog(@"sofar is:%@", sofar);
+            //NSLog(@"sofar is:%@", sofar);
             NSMutableString* newRemain = [remain mutableCopy];
             [newRemain deleteCharactersInRange:NSMakeRange(i, 1)] ;
             [self recPermute:result sofar:newSofar andRemaining:newRemain];
@@ -343,7 +343,7 @@
     NSMutableArray *result = [NSMutableArray new];
     [self recPermute:result sofar:[@"" mutableCopy] andRemaining:[input mutableCopy]];
     for (int i = 0; i < result.count; i++){
-        NSLog(@"result array is %@", result[i]);
+        //NSLog(@"result array is %@", result[i]);
     }
     return [result copy];
 }
@@ -356,20 +356,6 @@
     }
 }
 
--(NSString*) sortStringByChar: (NSString*) str {
-    NSMutableArray *charArray = [NSMutableArray arrayWithCapacity:str.length];
-    for (int i=0; i< str.length; ++i) {
-        NSString *charStr = [str substringWithRange:NSMakeRange(i, 1)];
-        [charArray addObject:charStr];
-    }
-    [charArray sortUsingComparator:^(NSString *a, NSString *b){
-        return [a compare:b];
-    }];
-    NSLog(@"charArray is %@", charArray);
-    NSString* result = [charArray componentsJoinedByString:@""];
-    NSLog(@"result string is %@", result);
-    return result;
-}
 
 -(NSArray *) convertStringToArray:(NSString *) str{
     NSArray* result = [NSArray new];
@@ -389,36 +375,55 @@
 }
 
 -(NSString*) sortStringByChar2: (NSString*) str{
-    
+    NSString* abq = @"Airbiquity";
+    char abqStr = [abq characterAtIndex:2];
+    NSLog(@"3rd is %c", abqStr);
     NSArray* charArr = [self convertStringToArray:str];
     NSArray* sortedChar = [self sortArray:charArr];
     return [self convertArrayToString:sortedChar];
+}
+
+-(NSString *) sortStringByChar: (NSString*) str{
+    NSMutableArray *myCharArr = [[NSMutableArray alloc] initWithCapacity:str.length];
+    for (int i = 0; i < str.length; i++){
+        NSString* myChar = [str substringWithRange:NSMakeRange(i, 1)];
+        [myCharArr addObject:myChar];
+    }
+    [myCharArr sortUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
+        return [obj1 compare: obj2];
+    }];
+    
+    NSString* result = [myCharArr componentsJoinedByString:@""];
+    return result;
 }
 
 // group all anagrams in input array of strings
 -(NSArray*) groupAll: (NSArray *) stringArr{
     NSMutableArray* list = [NSMutableArray new];
     NSMutableDictionary* dict = [NSMutableDictionary new];
-    
-    int len = (int)[stringArr count];
-    if (len == 0) return [list copy];
-    for (int i = 0; i < len; i++){
-        NSString*key = [self sortStringByChar2:stringArr[i]];
-        if(![[dict allKeys] containsObject:key]){
+    NSUInteger len = [stringArr count];
+    for (NSInteger i = 0; i < len; i++){
+        NSString* key = [self sortStringByChar: stringArr[i]];
+        if (![[dict allKeys] containsObject:key]){
             NSMutableArray* group = [NSMutableArray arrayWithObject:stringArr[i]];
             dict[key] = group;
         }
         else{
-            NSMutableArray* group = dict[key];
-            [group addObject:stringArr[i]];
-            dict[key] = group;
+            [dict[key] addObject:stringArr[i]];
         }
     }
     [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [list addObject:obj];
     }];
-    
     return [list copy];
+}
+
+-(void) experiments{
+    NSString *map = @"abcdefghigklmnopqrstuvwxyz";
+    NSLog(@"char at 5 is %c", [map characterAtIndex:5]);
+    NSMutableString* ms1 = [[NSMutableString alloc] initWithString:map];
+    NSMutableString* ms2 = [NSMutableString stringWithString:map];
+    NSLog(@"ms1:%@ \nms2: %@", ms1, ms2);
 }
 
 @end

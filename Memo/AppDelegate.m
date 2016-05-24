@@ -53,6 +53,7 @@
     [mis createGraph];
     [mis permute:@"ABCD"];
     NSString* sorted = [mis sortStringByChar:@"hello"];
+    NSLog(@"sorted is %@",sorted);
     int fac = [mis factorial:5];
     NSLog(@"factorial of 5 is %d", fac);
     int n = 100;
@@ -61,6 +62,11 @@
     NSArray *inputArr = [NSArray arrayWithObjects:@"A",@"B", @"E", @"c", @"A", @"A",@"B", @"D", @"c", @"A", nil];
     inputArr = [ inputArr cbi_shuffleArray:inputArr];
     NSLog(@"inputApr is %@", inputArr);
+    
+    NSArray *strArr = [NSArray arrayWithObjects: @" ",@" ", @"lader", @"radel", @"eldar", @"hello", @"eat", @"tea", nil];
+    NSArray*result = [mis groupAll:strArr];
+    NSLog(@"After grouping: %d groups :%@", (int)[result count], result);
+    [mis experiments];
     
 }
 -(void) leetCodeTests{
