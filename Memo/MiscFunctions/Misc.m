@@ -11,16 +11,42 @@
 #import "Pair.h"
 #import "GraphNode.h"
 
-// a number can be end up with 1. For example, 12 = 1 + 4  = 25 = 2 + 25 = 27 = 4+49 = 54 = 25+16 = 41 =
-// 17 = 50 = 25 // not happy, because it repeated 25, so it will infinite loop
 @implementation Misc: NSObject
 
+// a number can be end up with 1. For example, 12 = 1*1 + 2*2  = 5*5 = 2*2 + 5*5 = 29 = 4+81 = 64 + 25 =  25+16 = 41 =
+// 17 = 50 = 25 // not happy, because it repeated 25, so it will infinite loop
+
 - (BOOL) isHappyNumber:(int)number{
+    NSMutableSet* set = [[NSMutableSet alloc] init];
+    int sum = 0;
+    while (sum != 1){
+        while (number > 0){
+            sum += pow(number%10, 2);
+            number /= 10;
+        }
+        if (sum == 1) return YES;
+        else{
+            if ([set.allObjects containsObject:[NSNumber numberWithInt:sum]]){
+                return NO;
+            }
+            else{
+                [set addObject:[NSNumber numberWithInt: sum]];
+            }
+        }
+        number = sum;
+        sum = 0;
+    }
     
-     return YES;
-    
+    return YES;
 }
 
+- (NSArray*) intersect: (NSArray*) arr1 with: (NSArray*)arr2{
+    NSMutableSet *set1 = [NSMutableSet setWithArray:arr1];
+    NSSet *set2 = [NSSet setWithArray:arr2];
+    [set1 intersectsSet:set2];
+    NSArray* result = [set1 allObjects];
+    return result;
+}
 //Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
 //-(void) printSpiral:(int**) matrix row: (int) row col: (int) col{
 - (NSMutableArray *)printSpiral:(int**) matrix withRow :(int)row andCol:(int) col{
@@ -29,8 +55,6 @@
     int rowStart = 0, rowEnd = row - 1;
     int colStart = 0, colEnd = col - 1;
     //int mi[row][col];
-    
-    
     while (rowStart <= rowEnd && colStart <= colEnd){
         
         for (int i = colStart; i < colEnd; i++)
@@ -418,6 +442,40 @@
     return [list copy];
 }
 
+
+//350. Intersection of Two Arrays II
+- (NSArray*) intersectionOf2Arries: (NSArray*) arr1 and: (NSArray*) arr2{
+    NSMutableArray* result = [NSMutableArray new];
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    for (int i = 0; i < arr1.count; i++){
+        if(dict[arr1[i]] != nil){
+            int val = [dict[arr1[i]] intValue] + 1;
+            dict[arr1[i]] = [NSNumber numberWithInteger: val];
+        }
+        else{
+            dict[arr1[i]]= [NSNumber numberWithInteger: 1];
+        }
+    }
+    for (int i = 0; i < arr2.count; i++){
+        if(dict[arr2[i]]){
+            //add to result, decrement value of dict[arr2[i]] by 1
+            [result addObject:dict[arr2[i]]];
+            int val = [dict[arr2[i]] intValue];
+            val--;
+            if (val == 0){
+                [dict removeObjectForKey:arr2[i]];
+            }
+        }
+    }
+    return [result copy];
+}
+
+- (NSArray *) topKfrequent: (NSArray*) arr{
+    NSMutableArray* res = [NSMutableArray new];
+    [res addObjectsFromArray:arr];
+    
+    return [res copy];
+}
 -(void) experiments{
     NSString *map = @"abcdefghigklmnopqrstuvwxyz";
     NSLog(@"char at 5 is %c", [map characterAtIndex:5]);

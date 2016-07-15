@@ -52,6 +52,19 @@
     [mis isMatchingWords:@"Hello how are you about" mapWith:@"elo h ey"];
     [mis createGraph];
     [mis permute:@"ABCD"];
+    
+    int arr[10] = {1, 68, 0, 10, 11, 77, 12, 18, 19, 28};
+    for (int i = 0; i < 10; i++){
+        if([mis isHappyNumber:arr[i]]){
+            NSLog(@"%d is happy", arr[i]);
+        }else{
+            NSLog(@"%d is not happy", arr[i]);
+        }
+        
+    }
+    
+    
+    
     NSString* sorted = [mis sortStringByChar:@"hello"];
     NSLog(@"sorted is %@",sorted);
     int fac = [mis factorial:5];
@@ -67,7 +80,6 @@
     NSArray*result = [mis groupAll:strArr];
     NSLog(@"After grouping: %d groups :%@", (int)[result count], result);
     [mis experiments];
-    
 }
 -(void) leetCodeTests{
     
@@ -163,6 +175,9 @@
     NSLog(@"s1 is :%@", s1);
  
     NSRange range = NSMakeRange(2,8);
+    NSString * sub4 = [s1 substringWithRange:range];
+    [s1 appendString:sub4];
+    
     
     //NSString does not have a method like containsString:. Instead, rangeOfString: can be used to check for an NSNotFound location value:
     NSString *input = @"berry, tomato, apple";
