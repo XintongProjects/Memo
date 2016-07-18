@@ -17,6 +17,7 @@
 		021435801D398FC5004913DC /* Swift2GardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214357F1D398FC5004913DC /* Swift2GardenUITests.swift */; };
 		0214358E1D39916F004913DC /* FunStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214358D1D39916F004913DC /* FunStuff.swift */; };
 		021435901D39A8B3004913DC /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214358F1D39A8B3004913DC /* TreeNode.swift */; };
+		021435921D3D8754004913DC /* Leets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021435911D3D8754004913DC /* Leets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		021435811D398FC5004913DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0214358D1D39916F004913DC /* FunStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunStuff.swift; sourceTree = "<group>"; };
 		0214358F1D39A8B3004913DC /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		021435911D3D8754004913DC /* Leets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				0214355C1D398FC5004913DC /* AppDelegate.swift */,
 				0214355E1D398FC5004913DC /* ViewController.swift */,
+				021435911D3D8754004913DC /* Leets.swift */,
 				0214358F1D39A8B3004913DC /* TreeNode.swift */,
 				021435601D398FC5004913DC /* Main.storyboard */,
 				021435661D398FC5004913DC /* Assets.xcassets */,
@@ -270,6 +273,7 @@
 				0214358E1D39916F004913DC /* FunStuff.swift in Sources */,
 				021435901D39A8B3004913DC /* TreeNode.swift in Sources */,
 				021435651D398FC5004913DC /* Swift2Garden.xcdatamodeld in Sources */,
+				021435921D3D8754004913DC /* Leets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +500,7 @@
 				021435861D398FC5004913DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		021435871D398FC5004913DC /* Build configuration list for PBXNativeTarget "Swift2GardenTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				021435891D398FC5004913DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0214358A1D398FC5004913DC /* Build configuration list for PBXNativeTarget "Swift2GardenUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +518,7 @@
 				0214358C1D398FC5004913DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
