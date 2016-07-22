@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let data : [Float:Float] = [0:0,1:1,2:1.414,3:2.732,4:2,5:5.236,6:3.469,7:2.693,8:5.828,9:3.201]
+        let max = data.values.maxElement()
+        print("max is \(max)")
         return true
     }
 
