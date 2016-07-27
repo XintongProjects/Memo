@@ -100,3 +100,16 @@ func processFirstName (){
         firstNames.append(val!)
     }
 }
+//314
+func verticalOrder (root: TreeNode?) ->[[Int]]{
+    var results:[[Int]] = [[]]
+    var col = 0
+    var list:[Int] = []
+    var dict: Dictionary <Int, [Int]> = [col:list]
+    traverseTree(root, dict)
+    return results
+}
+// for 314
+func traverseTree(root: TreeNode?, inout dict:Dictionary<Int, [Int]>){
+    
+}

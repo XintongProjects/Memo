@@ -114,7 +114,7 @@
 - (BOOL) isValidInteger: (NSString*) num{
     for (int i = 0; i < num.length; i++){
         if([num characterAtIndex:i] < '0' || [num characterAtIndex:i] > '9') return NO;
-        
+            
     }
     return YES;
 }
@@ -142,7 +142,7 @@
     for (id item in words){
         NSLog(@"Item is %@", item);
     }
-    
+
     
     
     NSMutableSet *container = [[NSMutableSet alloc] init];
@@ -161,7 +161,7 @@
     NSLog(@"sbustring (0, 8)is %@", subString);
     NSString *sub2 = [str substringFromIndex:1];
     NSString *sub3 = [str substringToIndex:14];
-    
+
     //from NSString to NSmutableString
     NSMutableString* comb = [subString mutableCopy];
     char c = [str characterAtIndex:12];
@@ -173,7 +173,7 @@
     NSMutableString *s1 = [@"hello world" mutableCopy];
     [s1 insertString:@"**" atIndex:5] ;
     NSLog(@"s1 is :%@", s1);
-    
+ 
     NSRange range = NSMakeRange(2,8);
     NSString * sub4 = [s1 substringWithRange:range];
     [s1 appendString:sub4];
@@ -204,7 +204,7 @@
     node2.next = node3;
     node3.next = NULL;
     [head printNodes: head];
-    
+
 }
 
 - (int *) productWithoutSelf: (int*) arr forlength:(int) len andReturnLength:(int *)returnLength{
@@ -243,14 +243,14 @@
     
     Blockies *blockies = [[Blockies alloc] init];
     [blockies blockTests];
-    
+  
 }
 
 //-(NSArray*) productWithoutSelf: (NSArray*) arr{
 //    int len = (int)[arr count];
 //    NSMutableArray *temp = [[NSMutableArray alloc] initWithCapacity:len];
 //    temp[0] = 15;
-//
+//    
 //    return [temp copy];
 //}
 /////////////////////////

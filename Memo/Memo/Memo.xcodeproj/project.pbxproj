@@ -15,6 +15,18 @@
 		3740D7061D493DAB00AEA791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3740D7041D493DAB00AEA791 /* LaunchScreen.storyboard */; };
 		3740D7111D493DAB00AEA791 /* MemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7101D493DAB00AEA791 /* MemoTests.m */; };
 		3740D71C1D493DAB00AEA791 /* MemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D71B1D493DAB00AEA791 /* MemoUITests.m */; };
+		3740D7301D49403300AEA791 /* LLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D72F1D49403300AEA791 /* LLNode.m */; };
+		3740D7401D49407300AEA791 /* Blockies.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7331D49407300AEA791 /* Blockies.m */; };
+		3740D7411D49407300AEA791 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7361D49407300AEA791 /* Misc.m */; };
+		3740D7421D49407300AEA791 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7381D49407300AEA791 /* NSArray+Shuffle.m */; };
+		3740D7431D49407300AEA791 /* NSObject+XBAutoreleasepool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D73A1D49407300AEA791 /* NSObject+XBAutoreleasepool.m */; };
+		3740D7441D49407300AEA791 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D73C1D49407300AEA791 /* Pair.m */; };
+		3740D7451D49407300AEA791 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740D73D1D49407300AEA791 /* Utilities.swift */; };
+		3740D7461D49407300AEA791 /* XBAutoreleasepool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D73F1D49407300AEA791 /* XBAutoreleasepool.m */; };
+		3740D74B1D4940B000AEA791 /* BTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7481D4940B000AEA791 /* BTreeNode.m */; };
+		3740D74C1D4940B000AEA791 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D74A1D4940B000AEA791 /* GraphNode.m */; };
+		3740D7511D4940E400AEA791 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7501D4940E400AEA791 /* Queue.m */; };
+		3740D7541D4940F700AEA791 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D7531D4940F700AEA791 /* Stack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +63,31 @@
 		3740D7171D493DAB00AEA791 /* MemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3740D71B1D493DAB00AEA791 /* MemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoUITests.m; sourceTree = "<group>"; };
 		3740D71D1D493DAB00AEA791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3740D72E1D49403300AEA791 /* LLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLNode.h; path = Utilities/Node/LLNode.h; sourceTree = "<group>"; };
+		3740D72F1D49403300AEA791 /* LLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLNode.m; path = Utilities/Node/LLNode.m; sourceTree = "<group>"; };
+		3740D7311D49407200AEA791 /* Memo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memo-Bridging-Header.h"; sourceTree = "<group>"; };
+		3740D7321D49407300AEA791 /* Blockies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blockies.h; path = MiscFunctions/Blockies.h; sourceTree = "<group>"; };
+		3740D7331D49407300AEA791 /* Blockies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Blockies.m; path = MiscFunctions/Blockies.m; sourceTree = "<group>"; };
+		3740D7341D49407300AEA791 /* Memo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Memo-Bridging-Header.h"; path = "MiscFunctions/Memo-Bridging-Header.h"; sourceTree = "<group>"; };
+		3740D7351D49407300AEA791 /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Misc.h; path = MiscFunctions/Misc.h; sourceTree = "<group>"; };
+		3740D7361D49407300AEA791 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Misc.m; path = MiscFunctions/Misc.m; sourceTree = "<group>"; };
+		3740D7371D49407300AEA791 /* NSArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Shuffle.h"; path = "MiscFunctions/NSArray+Shuffle.h"; sourceTree = "<group>"; };
+		3740D7381D49407300AEA791 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Shuffle.m"; path = "MiscFunctions/NSArray+Shuffle.m"; sourceTree = "<group>"; };
+		3740D7391D49407300AEA791 /* NSObject+XBAutoreleasepool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+XBAutoreleasepool.h"; path = "MiscFunctions/NSObject+XBAutoreleasepool.h"; sourceTree = "<group>"; };
+		3740D73A1D49407300AEA791 /* NSObject+XBAutoreleasepool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+XBAutoreleasepool.m"; path = "MiscFunctions/NSObject+XBAutoreleasepool.m"; sourceTree = "<group>"; };
+		3740D73B1D49407300AEA791 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pair.h; path = MiscFunctions/Pair.h; sourceTree = "<group>"; };
+		3740D73C1D49407300AEA791 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pair.m; path = MiscFunctions/Pair.m; sourceTree = "<group>"; };
+		3740D73D1D49407300AEA791 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = MiscFunctions/Utilities.swift; sourceTree = "<group>"; };
+		3740D73E1D49407300AEA791 /* XBAutoreleasepool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XBAutoreleasepool.h; path = MiscFunctions/XBAutoreleasepool.h; sourceTree = "<group>"; };
+		3740D73F1D49407300AEA791 /* XBAutoreleasepool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XBAutoreleasepool.m; path = MiscFunctions/XBAutoreleasepool.m; sourceTree = "<group>"; };
+		3740D7471D4940B000AEA791 /* BTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTreeNode.h; path = MiscFunctions/Node/BTreeNode.h; sourceTree = "<group>"; };
+		3740D7481D4940B000AEA791 /* BTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTreeNode.m; path = MiscFunctions/Node/BTreeNode.m; sourceTree = "<group>"; };
+		3740D7491D4940B000AEA791 /* GraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphNode.h; path = MiscFunctions/Node/GraphNode.h; sourceTree = "<group>"; };
+		3740D74A1D4940B000AEA791 /* GraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphNode.m; path = MiscFunctions/Node/GraphNode.m; sourceTree = "<group>"; };
+		3740D74F1D4940E400AEA791 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = MiscFunctions/Queue/Queue.h; sourceTree = "<group>"; };
+		3740D7501D4940E400AEA791 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = MiscFunctions/Queue/Queue.m; sourceTree = "<group>"; };
+		3740D7521D4940F700AEA791 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = MiscFunctions/Stack/Stack.h; sourceTree = "<group>"; };
+		3740D7531D4940F700AEA791 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stack.m; path = MiscFunctions/Stack/Stack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +118,7 @@
 		3740D6EA1D493DAB00AEA791 = {
 			isa = PBXGroup;
 			children = (
+				3740D72D1D49401A00AEA791 /* Utilities */,
 				3740D6F51D493DAB00AEA791 /* Memo */,
 				3740D70F1D493DAB00AEA791 /* MemoTests */,
 				3740D71A1D493DAB00AEA791 /* MemoUITests */,
@@ -138,6 +176,38 @@
 				3740D71D1D493DAB00AEA791 /* Info.plist */,
 			);
 			path = MemoUITests;
+			sourceTree = "<group>";
+		};
+		3740D72D1D49401A00AEA791 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3740D7521D4940F700AEA791 /* Stack.h */,
+				3740D7531D4940F700AEA791 /* Stack.m */,
+				3740D74F1D4940E400AEA791 /* Queue.h */,
+				3740D7501D4940E400AEA791 /* Queue.m */,
+				3740D7471D4940B000AEA791 /* BTreeNode.h */,
+				3740D7481D4940B000AEA791 /* BTreeNode.m */,
+				3740D7491D4940B000AEA791 /* GraphNode.h */,
+				3740D74A1D4940B000AEA791 /* GraphNode.m */,
+				3740D7321D49407300AEA791 /* Blockies.h */,
+				3740D7331D49407300AEA791 /* Blockies.m */,
+				3740D7341D49407300AEA791 /* Memo-Bridging-Header.h */,
+				3740D7351D49407300AEA791 /* Misc.h */,
+				3740D7361D49407300AEA791 /* Misc.m */,
+				3740D7371D49407300AEA791 /* NSArray+Shuffle.h */,
+				3740D7381D49407300AEA791 /* NSArray+Shuffle.m */,
+				3740D7391D49407300AEA791 /* NSObject+XBAutoreleasepool.h */,
+				3740D73A1D49407300AEA791 /* NSObject+XBAutoreleasepool.m */,
+				3740D73B1D49407300AEA791 /* Pair.h */,
+				3740D73C1D49407300AEA791 /* Pair.m */,
+				3740D73D1D49407300AEA791 /* Utilities.swift */,
+				3740D73E1D49407300AEA791 /* XBAutoreleasepool.h */,
+				3740D73F1D49407300AEA791 /* XBAutoreleasepool.m */,
+				3740D72E1D49403300AEA791 /* LLNode.h */,
+				3740D72F1D49403300AEA791 /* LLNode.m */,
+				3740D7311D49407200AEA791 /* Memo-Bridging-Header.h */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +340,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3740D7431D49407300AEA791 /* NSObject+XBAutoreleasepool.m in Sources */,
+				3740D74C1D4940B000AEA791 /* GraphNode.m in Sources */,
+				3740D7441D49407300AEA791 /* Pair.m in Sources */,
+				3740D7541D4940F700AEA791 /* Stack.m in Sources */,
+				3740D74B1D4940B000AEA791 /* BTreeNode.m in Sources */,
 				3740D6FE1D493DAB00AEA791 /* ViewController.m in Sources */,
+				3740D7301D49403300AEA791 /* LLNode.m in Sources */,
+				3740D7401D49407300AEA791 /* Blockies.m in Sources */,
+				3740D7511D4940E400AEA791 /* Queue.m in Sources */,
+				3740D7421D49407300AEA791 /* NSArray+Shuffle.m in Sources */,
+				3740D7461D49407300AEA791 /* XBAutoreleasepool.m in Sources */,
+				3740D7411D49407300AEA791 /* Misc.m in Sources */,
 				3740D6FB1D493DAB00AEA791 /* AppDelegate.m in Sources */,
+				3740D7451D49407300AEA791 /* Utilities.swift in Sources */,
 				3740D6F81D493DAB00AEA791 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,10 +495,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Memo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.Memo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Memo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -424,10 +509,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Memo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.Memo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Memo-Bridging-Header.h";
 			};
 			name = Release;
 		};
