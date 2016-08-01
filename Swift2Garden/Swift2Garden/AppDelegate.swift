@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let data : [Float:Float] = [0:0,1:1,2:1.414,3:2.732,4:2,5:5.236,6:3.469,7:2.693,8:5.828,9:3.201]
         let max = data.values.maxElement()
         print("max is \(max)")
+        processFirstName()
+        
+        getHint("187", "178")
+        let line: String = "(1,6), (6,7), (2,7), (9,1)"
+        isSqure(line)
+        
+        
         return true
     }
 
