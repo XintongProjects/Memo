@@ -25,8 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         getHint("187", "178")
         let line: String = "(1,6), (6,7), (2,7), (9,1)"
         isSqure(line)
+        let s = sortedCharsInString("welcome")
+        let words = ["eat", "tea", "tan", "ate", "nat", "bat"]
+        let myatoi = myAtoi("2147483647")
+        print(myatoi)
         
         
+        let list:[[String]] = groupAnagrams(words)
+        print(list)
         return true
     }
 

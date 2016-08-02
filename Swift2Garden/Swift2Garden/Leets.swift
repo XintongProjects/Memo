@@ -328,9 +328,83 @@ func wordPattern(pattern: String, _ str: String) -> Bool {
     let strArray = str.componentsSeparatedByString(" ")
     var dictP = [Character : String]()
     var dictS = [String : Character]()
-    for pChar in pattern.characters{
-        
-    }
-    
+//    for pChar in pattern.characters{
+//        
+ //   }
     return false
+}
+func sortedCharsInString (str:String) -> String{
+    var sortedStr = String(Array(str.characters.sort()))
+    print(sortedStr)
+    //let words: Set = ["alert", "alter", "later", "seal", "sale", "bob", "odd"]
+    return sortedStr
+}
+
+func findAnagramsOfWordInDictionary(word:String, words:[String]) ->[String]{
+    var list = [String]()
+    
+    
+    return list
+}
+
+func isAnagram(s: String, _ t: String) -> Bool {
+    // ["alert", "alter", "later", "seal", "sale", "bob", "odd"]
+    guard s.characters.count == t.characters.count else {
+        return false
+    }
+    return s.characters.sort() == t.characters.sort()
+}
+func groupAnagrams(strs: [String]) -> [[String]] {
+    var results = [[String]]()
+    var dict = [String:[String]]()
+    // add words into dict
+    for item in strs {
+        let str = String(Array(item.characters.sort()))
+        if dict[str] == nil {
+            var value = [String]()
+            value.append(item)
+            dict[str] = value
+        }
+        else {
+            dict[str]?.append(item)
+        }
+    }
+    for val in dict.values {
+        results.append(val)
+    }
+    return results
+}
+
+func myAtoi(str: String) -> Int {
+    let charStr = Array(str.characters)
+    var result = 0
+    let len = charStr.count
+    var index = 0
+    var sign = 1
+    while index < len && charStr[index] == " "{
+        index += 1
+    }
+    if index < len && (charStr[index] == "-" || charStr[index] == "+" ){
+        if charStr[index] == "-" {
+            sign = -1
+        }
+        else if (charStr[index] == "+"){
+            sign = 1
+        }
+        index += 1
+    }
+    while index < len && charStr[index] >= "0" && charStr[index] <= "9" {
+        guard result < Int.max/10 -  Int(String(charStr[index]))! else{
+            return 0
+        }
+        result = result * 10 + Int(String(charStr[index]))!
+        index += 1
+        if result * sign > 2147483647 {
+            return 2147483647
+        }
+        else if result * sign < -2147483648{
+            return -2147483648
+        }
+    }
+    return sign * result
 }
