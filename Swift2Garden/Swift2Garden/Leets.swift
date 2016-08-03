@@ -148,7 +148,7 @@ func processFirstName (){
     }
 //while let line: String = readLine() {
 //    let line = "5\n0 2\n6 67\n43 71\n39 107\n189 140\n0"
-    let lines = "3\n0 0\n1 1\n2 3\n0"
+//    let lines = "3\n0 0\n1 1\n2 3\n0"
 
 //    let inputLines:[String] = lines.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
 //    print("inputLines:\(inputLines)")
@@ -322,29 +322,32 @@ func isMatch(s: String, _ p: String) -> Bool {
     return dp[sLen][pLen];
 }
 
-// 290
+// 290 TODO
 func wordPattern(pattern: String, _ str: String) -> Bool {
-    let letters = [Character] (pattern.characters)
-    let strArray = str.componentsSeparatedByString(" ")
-    var dictP = [Character : String]()
-    var dictS = [String : Character]()
-//    for pChar in pattern.characters{
-//        
- //   }
+//    let letters = [Character] (pattern.characters)
+//    let strArray = str.componentsSeparatedByString(" ")
+//    var dictP = [Character : String]()
+//    var dictS = [String : Character]()
+////    for pChar in pattern.characters{
+////        
+// //   }
     return false
 }
 func sortedCharsInString (str:String) -> String{
-    var sortedStr = String(Array(str.characters.sort()))
-    print(sortedStr)
-    //let words: Set = ["alert", "alter", "later", "seal", "sale", "bob", "odd"]
+    let sortedStr = String(Array(str.characters.sort()))
     return sortedStr
 }
 
 func findAnagramsOfWordInDictionary(word:String, words:[String]) ->[String]{
-    var list = [String]()
-    
-    
-    return list
+    let sorted = word.characters.sort()
+    var result = [String]()
+    for item in words {
+        if item.characters.sort() == sorted {
+            result.append(item)
+        }
+    }
+    print(result)
+    return result
 }
 
 func isAnagram(s: String, _ t: String) -> Bool {
@@ -375,6 +378,24 @@ func groupAnagrams(strs: [String]) -> [[String]] {
     return results
 }
 
+//reverse int, e.g. 1234 -> 4321, need to get positive or negative
+func reverseInt(input: Int) -> Int {
+    var sign = 1
+    var num = input
+    if num < 0 {
+        sign = -1
+        num = 0 - num // convert to positive
+    }
+    var result: Int = 0
+    while num > 0 {
+        result = result * 10 + num % 10
+        num = num / 10
+    }
+    return sign * result
+}
+
+
+// mainly about clarification, "    +-2  ", "42abc", smaller than "-2147483648"  greater than: "2147483647"
 func myAtoi(str: String) -> Int {
     let charStr = Array(str.characters)
     var result = 0
@@ -408,3 +429,26 @@ func myAtoi(str: String) -> Int {
     }
     return sign * result
 }
+
+// leet 98. Validate Binary Search Tree
+func isValidBST(root: TreeNode?) -> Bool {
+    return isValidBST(root, Int.min, Int.max)
+}
+
+func isValidBST(root: TreeNode?, _ min:Int, _ max:Int) -> Bool {
+    if (root == nil) {
+        return true
+    }
+    else {
+        return root!.val > min && root!.val < max && isValidBST(root!.left, min, root!.val) && isValidBST(root!.right, root!.val, max)
+    }
+}
+
+func numIslands(grid: [[Character]]) -> Int {
+    var num = 0
+    let row = grid.count
+    let col = grid[0].count
+    
+    return num
+}
+

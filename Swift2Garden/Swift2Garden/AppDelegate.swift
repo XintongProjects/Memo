@@ -26,13 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let line: String = "(1,6), (6,7), (2,7), (9,1)"
         isSqure(line)
         let s = sortedCharsInString("welcome")
+        print(s)
         let words = ["eat", "tea", "tan", "ate", "nat", "bat"]
         let myatoi = myAtoi("2147483647")
         print(myatoi)
-        
-        
-        let list:[[String]] = groupAnagrams(words)
+        let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
+        print(groupAnagrams(words))
         return true
     }
 
