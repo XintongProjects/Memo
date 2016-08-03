@@ -8,26 +8,6 @@
 
 import Foundation
 
-//public class BTreeNode{
-//    var val: Int
-//    var left: BTreeNode
-//    var right: BTreeNode
-//    
-//    
-//    init(value: Int, leftNode: BTreeNode, rightNode:BTreeNode) {
-//        // perform some initialization here
-//        val = value
-//        left = leftNode
-//        right = rightNode
-//    }
-//}
-class Codec{
-    func serialize(root: TreeNode) -> String{
-    
-        return ""
-    }
-}
-
 public class TreeNode{
     public var val: Int
     public var left: TreeNode?
@@ -39,6 +19,18 @@ public class TreeNode{
         self.right = nil
     }
 }
+/**
+ * Definition for singly-linked list.
+ */
+public class ListNode {
+    public var val: Int
+    public var next: ListNode?
+    public init(_ val: Int) {
+        self.val = val
+        self.next = nil
+    }
+}
+
 
 public class TNode{ //TrinaryNode
     var val: Int

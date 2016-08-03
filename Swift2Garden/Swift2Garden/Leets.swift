@@ -443,12 +443,73 @@ func isValidBST(root: TreeNode?, _ min:Int, _ max:Int) -> Bool {
         return root!.val > min && root!.val < max && isValidBST(root!.left, min, root!.val) && isValidBST(root!.right, root!.val, max)
     }
 }
-
+// char '0' and '1'
 func numIslands(grid: [[Character]]) -> Int {
+    var map = grid
     var num = 0
-    let row = grid.count
-    let col = grid[0].count
+    let row = map.count
+    if row == 0 {
+        return 0
+    }
+    let col = map[0].count
     
+    for i in 0 ..< row {
+        for j in 0 ..< col {
+            if map[i][j] == "1" {
+                num += 1
+                traverseNeighbors(&map, i, j)
+            }
+        }
+    }
     return num
 }
+
+func traverseNeighbors (inout map: [[Character]], _ m: Int, _ n:Int){
+    let row = map.count
+    let col = map[0].count
+    while m >= 0 && m < row && n >= 0 && n < col && map[m][n] == "1" {
+        map[m][n] = "2"
+        let a = [-1, 0, 0, 1]
+        let b = [0, -1, 1, 0]
+        for i in 0 ..< 4 {
+            traverseNeighbors(&map, m + a[i], n + b[i])
+        }
+    }
+}
+
+func mergeTwoLists(l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+    if l1 == nil {
+        return l2
+    }
+    if l2 == nil {
+        return l1
+    }
+    var cur1 = l1
+    var cur2 = l2
+    let head = ListNode(0)
+    var cur3 = head
+    while (cur1 != nil && cur2 != nil){
+        if cur1?.val < cur2!.val {
+            cur3.next = cur1
+            cur1 = cur1?.next
+        }
+        else{
+            cur3.next = cur2
+            cur2 = cur2?.next
+        }
+        cur3 = cur3.next!
+    }
+    if cur1 == nil {
+        cur3.next = cur2
+    }
+    else if cur2 == nil {
+        cur3.next = cur1
+    }
+    return head.next
+}
+
+
+
+
+
 
