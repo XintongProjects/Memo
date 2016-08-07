@@ -508,8 +508,63 @@ func mergeTwoLists(l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     return head.next
 }
 
+func findFirstUniqueChar (str: String) -> Character?{
+    let arr = Array(str.characters)
+    var dict = [Character:Int]()
+    for char in arr {
+        if dict[char] != nil {
+            dict[char] = 1 + dict[char]!
+        }
+        else {
+            dict[char] = 1
+        }
+    }
+    for i in 0 ..< arr.count {
+        if dict[arr[i]] == 1 {
+            return arr[i]
+        }
+    }
+    return nil
+}
 
+// Kth Smallest Element in a Sorted Matrix
+// assume k < row * col
+// using priority queue logic, need to sort before dequeue the smallest
+func kthSmallest(matrix: [[Int]], _ k: Int) -> Int {
+    guard !matrix.isEmpty else {
+        print("Empty matrix")
+        return Int.min
+    }
+    var priQueue = [Entry]()
+    var total = 0
+    let p = Entry(row: 0, col: 0, value: matrix[0][0])
+    priQueue.append(p)
+    var top = p
+    while total < k  && !priQueue.isEmpty {
+        top = priQueue.removeFirst()
+        
+        if top.n + 1 < matrix.count {
+            priQueue.append(Entry(row: top.m, col: top.n + 1, value: matrix[top.m][top.n + 1]))
+        }
+        if top.m + 1 < matrix.count {
+            priQueue.append(Entry(row: top.m + 1, col: top.n, value: matrix[top.m + 1][top.n]))
+        }
+        priQueue.sortInPlace({$0.val > $1.val})
+        total += 1
+    }
+    return top.val
+}
 
+public class Entry {
+    var m = 0
+    var n = 0
+    var val = 0
+    init(row:Int, col:Int, value:Int) {
+        self.m = row
+        self.n = col
+        self.val = value
+    }
+}
 
 
 

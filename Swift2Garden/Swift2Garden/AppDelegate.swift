@@ -33,6 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
         print(groupAnagrams(words))
+        let u = findFirstUniqueChar("today is the most wonderful day")
+        print("first unique char is \(u)")
+        
+        let mat = [[1,2],[3,4]]
+        print (kthSmallest(mat,2))
         return true
     }
 
