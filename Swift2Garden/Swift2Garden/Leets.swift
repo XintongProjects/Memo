@@ -338,6 +338,29 @@ func sortedCharsInString (str:String) -> String{
     return sortedStr
 }
 
+func findDominatorInArray(arr:[Int]) ->Int{
+    guard arr.count > 0 else {
+        return Int.min
+    }
+    var result = arr[0]
+    var dict = [Int: Int]()
+    for item in arr {
+        if dict[item] == nil {
+            dict[item] = 1
+        }
+        else {
+            dict[item] = dict[item]! + 1
+        }
+    }
+    // get the key with max value
+    for (key, value) in dict {
+        if value == dict.values.maxElement() {
+            result = key
+        }
+    }
+    return result
+}
+
 func findAnagramsOfWordInDictionary(word:String, words:[String]) ->[String]{
     let sorted = word.characters.sort()
     var result = [String]()
@@ -430,6 +453,12 @@ func myAtoi(str: String) -> Int {
     return sign * result
 }
 
+func myItoA(n: Int) -> String
+{
+    let s = [""]
+    print(s)
+    return String(n)
+}
 // leet 98. Validate Binary Search Tree
 func isValidBST(root: TreeNode?) -> Bool {
     return isValidBST(root, Int.min, Int.max)

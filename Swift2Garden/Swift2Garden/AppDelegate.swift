@@ -33,6 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
         print(groupAnagrams(words))
+        print(myItoA(-15))
+        let value = 99
+        // Convert Int to a UnicodeScalar.
+        let u = UnicodeScalar(value)
+        // Convert UnicodeScalar to a Character.
+        let char = Character(u)
+        
+        // Write results.
+        print("char:\(char)**")
+
+        
         return true
     }
 
