@@ -614,7 +614,6 @@ public class LaTest {
 	}
 
 	// #159leetcode[159] Longest Substring with At Most Two Distinct Characters
-	// Tested in main
 	public static int longestSubStringwith2Chars(String s) {
 		if (s.length() == 0)
 			return 0;
@@ -1566,6 +1565,22 @@ public class LaTest {
 		}
 
 	}
+	public static String iToA(int n){
+		int sign = 1;
+		if (n < 0) {
+			sign = -1;
+			n = -n;
+		}
+		StringBuilder sb = new StringBuilder();
+		while (n > 0) {
+			sb.append((char)(n % 10 + '0'));
+			n /= 10;
+		}
+		if (sign == -1) {
+			sb.append('-');
+		}
+		return sb.reverse().toString();
+	}
 
 	public static void main(String[] args) throws Exception {
 		String permuTest = "ABCD";
@@ -1630,6 +1645,8 @@ public class LaTest {
 		int paths = uniquePathsWithObstacles(foo);
 
 		System.out.println("paths: " + paths);
+		System.out.println("***************");
+		System.out.println("iToA:" + iToA(15));
 	}
 
 }
