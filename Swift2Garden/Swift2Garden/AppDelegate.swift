@@ -25,14 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         getHint("187", "178")
         let line: String = "(1,6), (6,7), (2,7), (9,1)"
         isSqure(line)
-        let s = sortedCharsInString("welcome")
+        var s = sortedCharsInString("welcome")
         print(s)
+        s = s.substringFromIndex(s.startIndex.advancedBy(1))
+        print(s)
+        
         let words = ["eat", "tea", "tan", "ate", "nat", "bat"]
         let myatoi = myAtoi("2147483647")
         print(myatoi)
         let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
         print(groupAnagrams(words))
+<<<<<<< HEAD
         print(myItoA(-15))
         let value = 99
         // Convert Int to a UnicodeScalar.
@@ -44,6 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("char:\(char)**")
 
         
+=======
+        let u = findFirstUniqueChar("today is the most wonderful day")
+        print("first unique char is \(u)")
+        
+        
+        let mat = [[1,2],[3,4]]
+        print (kthSmallest(mat,2))
+>>>>>>> 505d99a2c4af3732c170e5134dcc1e24155574f3
         return true
     }
 

@@ -537,8 +537,128 @@ func mergeTwoLists(l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     return head.next
 }
 
+func findFirstUniqueChar (str: String) -> Character?{
+    let arr = Array(str.characters)
+    var dict = [Character:Int]()
+    for char in arr {
+        if dict[char] != nil {
+            dict[char] = 1 + dict[char]!
+        }
+        else {
+            dict[char] = 1
+        }
+    }
+    for i in 0 ..< arr.count {
+        if dict[arr[i]] == 1 {
+            return arr[i]
+        }
+    }
+    return nil
+}
 
+// Kth Smallest Element in a Sorted Matrix
+// assume k < row * col
+// using priority queue logic, need to sort before dequeue the smallest
+func kthSmallest(matrix: [[Int]], _ k: Int) -> Int {
+    guard !matrix.isEmpty else {
+        print("Empty matrix")
+        return Int.min
+    }
+    var priQueue = [Entry]()
+    var total = 0
+    let p = Entry(row: 0, col: 0, value: matrix[0][0])
+    priQueue.append(p)
+    var top = p
+    while total < k  && !priQueue.isEmpty {
+        top = priQueue.removeFirst()
+        
+        if top.n + 1 < matrix.count {
+            priQueue.append(Entry(row: top.m, col: top.n + 1, value: matrix[top.m][top.n + 1]))
+        }
+        if top.m + 1 < matrix.count {
+            priQueue.append(Entry(row: top.m + 1, col: top.n, value: matrix[top.m + 1][top.n]))
+        }
+        priQueue.sortInPlace({$0.val > $1.val})
+        total += 1
+    }
+    return top.val
+}
 
+public class Entry {
+    var m = 0
+    var n = 0
+    var val = 0
+    init(row:Int, col:Int, value:Int) {
+        self.m = row
+        self.n = col
+        self.val = value
+    }
+}
 
+//107   BFS
+func levelOrderBottom(root: TreeNode?) -> [[Int]] {
+    var result = [[Int]]()
+    if root == nil {
+        return result
+    }
+    var queue = [TreeNode?]()
+    queue.append(root)
+    while (!queue.isEmpty){
+        var levelNodes = [Int]()
+        let levelSize = queue.count
+        for _ in 0 ..< levelSize {
+            let node = queue.removeFirst()
+            levelNodes.append((node?.val)!)
+            if (node?.left != nil){
+                queue.append(node?.left)
+            }
+            if (node?.right != nil){
+                queue.append(node?.right)
+            }
+        }
+        result.insert(levelNodes, atIndex: 0)
+    }
+    return result
+}
 
+//107 DFS solution
+func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
+    var result = [[Int]]()
+    if root == nil {
+        return result
+    }
+
+    return result
+}
+//helper for 107
+func levelOrderDFS(root: TreeNode?, result: [[Int]], level: Int) {
+    
+}
+
+// 79 word search
+func exist(board: [[Character]], _ word: String) -> Bool {
+    let target = Array(word.characters)
+    if board.count * board[0].count < target.count {
+        return false
+    }
+    for i in 0 ..< board.count {
+        for j in 0 ..< board[0].count {
+            if board[i][j] == target[0]{
+                if existDFS(board, target, row:i, col: j) {
+                    return true
+                }
+            }
+        }
+    }
+    return false
+}
+
+func existDFS(board: [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
+    guard (row >= 0 || row < board.count || col >= 0 || col < board[0].count) else{
+        return false
+    }
+    
+    
+    return false
+}
 
