@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
         print(groupAnagrams(words))
-<<<<<<< HEAD
         print(myItoA(-15))
         let value = 99
         // Convert Int to a UnicodeScalar.
@@ -46,16 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Write results.
         print("char:\(char)**")
-
-        
-=======
-        let u = findFirstUniqueChar("today is the most wonderful day")
-        print("first unique char is \(u)")
-        
-        
+        print("first unique char is \(findFirstUniqueChar("today is the most wonderful day"))")    
         let mat = [[1,2],[3,4]]
         print (kthSmallest(mat,2))
->>>>>>> 505d99a2c4af3732c170e5134dcc1e24155574f3
+
         return true
     }
 
