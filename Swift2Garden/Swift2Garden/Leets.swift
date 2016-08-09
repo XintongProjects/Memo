@@ -566,5 +566,70 @@ public class Entry {
     }
 }
 
+//107   BFS
+func levelOrderBottom(root: TreeNode?) -> [[Int]] {
+    var result = [[Int]]()
+    if root == nil {
+        return result
+    }
+    var queue = [TreeNode?]()
+    queue.append(root)
+    while (!queue.isEmpty){
+        var levelNodes = [Int]()
+        let levelSize = queue.count
+        for _ in 0 ..< levelSize {
+            let node = queue.removeFirst()
+            levelNodes.append((node?.val)!)
+            if (node?.left != nil){
+                queue.append(node?.left)
+            }
+            if (node?.right != nil){
+                queue.append(node?.right)
+            }
+        }
+        result.insert(levelNodes, atIndex: 0)
+    }
+    return result
+}
 
+//107 DFS solution
+func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
+    var result = [[Int]]()
+    if root == nil {
+        return result
+    }
+
+    return result
+}
+//helper for 107
+func levelOrderDFS(root: TreeNode?, result: [[Int]], level: Int) {
+    
+}
+
+// 79 word search
+func exist(board: [[Character]], _ word: String) -> Bool {
+    let target = Array(word.characters)
+    if board.count * board[0].count < target.count {
+        return false
+    }
+    for i in 0 ..< board.count {
+        for j in 0 ..< board[0].count {
+            if board[i][j] == target[0]{
+                if existDFS(board, target, row:i, col: j) {
+                    return true
+                }
+            }
+        }
+    }
+    return false
+}
+
+func existDFS(board: [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
+    guard (row >= 0 || row < board.count || col >= 0 || col < board[0].count) else{
+        return false
+    }
+    
+    
+    return false
+}
 

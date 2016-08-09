@@ -18,7 +18,25 @@ public class TreeNode{
         self.left = nil
         self.right = nil
     }
+    
+    func treeHeight (root: TreeNode?) -> Int {
+        if (root == nil) {
+           return 0
+        }
+        return max(treeHeight(root!.left) + 1, treeHeight(root!.right) + 1)
+    }
+    
+    func isBalanced(root: TreeNode?) -> Bool {
+        if (root == nil) {
+            return true
+        }
+        return abs(treeHeight(root?.left) - treeHeight(root?.right)) <= 1 && isBalanced(root?.left) && isBalanced(root?.right)
+        
+    }
+    
+
 }
+
 /**
  * Definition for singly-linked list.
  */
