@@ -48,6 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("first unique char is \(findFirstUniqueChar("today is the most wonderful day"))")    
         let mat = [[1,2],[3,4]]
         print (kthSmallest(mat,2))
+        
+        var dpc:[[Character]] = Array(count: 5, repeatedValue:Array(count:3, repeatedValue:" "))
+        
+        print ("*\(dpc[4][2])**")
+        experiments()
 
         return true
     }

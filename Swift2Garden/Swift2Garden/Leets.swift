@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 求矩阵中房间到门的最短距离. 以门为起始点。
 func wallsAndGates(inout rooms: [[Int]]) {
     guard (rooms.count > 0) else{
         return
@@ -22,7 +23,7 @@ func wallsAndGates(inout rooms: [[Int]]) {
         }
     }
 }
-
+// DFS
 func wallsAndGatesHelper(inout rooms: [[Int]], _ row: Int, _ col: Int, _ i: Int, _ j: Int, _ val: Int){
     rooms[i][j] = val
     let index: [Int] = [-1, 0, 1, 0, -1]
@@ -40,20 +41,20 @@ func wallsAndGatesBFS(inout rooms: [[Int]]) {
     guard (rooms.count > 0) else{
         return
     }
-    var queue:[Int] = [];
+    var queue = [Int]();
     let row = rooms.count
     let col = rooms[0].count
     for i in 0 ..< row {
         for j in 0 ..< col {
             if rooms[i][j] == 0 {
-                queue.append(i*col + j)
+                queue.append(i*col + j) // encode row and col number using one number
             }
         }
     }
     let index = [-1, 0, 1, 0, -1]
     while queue.count > 0 {
         //remove the first element in queue, and check if it's 4 adjencents is bigger than the popped value + 1
-        let i = queue[0] / col
+        let i = queue[0] / col // decode row and col number based on the number previously encoded
         let j = queue[0] % col
         queue.removeAtIndex(0)
         for q in 0 ..< 4 {
@@ -70,39 +71,21 @@ func wallsAndGatesBFS(inout rooms: [[Int]]) {
     }
 }
 
-func processFirstName (){
-    let people: [[String:String]] = [
-        [
-            "firstName": "Calvin",
-            "lastName": "Newton"
-        ],
-        [
-            "firstName": "Garry",
-            "lastName": "Mckenzie"
-        ],
-        [
-            "firstName": "Leah",
-            "lastName": "Rivera"
-        ],
-        [
-            "firstName": "Sonja",
-            "lastName": "Moreno"
-        ],
-        [
-            "firstName": "Noel",
-            "lastName": "Bowen"
-        ]
-    ]
+// random syntax or func check
+func experiments() {
     
-    var firstNames: [String] = []
-    for person in people {
-        let val = person["firstName"]
-        firstNames.append(val!)
-    }
-    
-    let string1 = "hello world light"
-    let strArr = string1.componentsSeparatedByString(" ")
+    let string1 = "hello world light light"
+    var strArr = string1.componentsSeparatedByString(" ")
+    strArr = strArr.reverse()
     print (strArr)
+    let set = Set(strArr)
+    print(set)
+    let arrSet = Array(set)
+    print(arrSet)
+    
+    for index in (0..<5).reverse() {
+        print(index)
+    }
     
     while let line: String = readLine() {
         var num:Int? = Int(line)
@@ -111,7 +94,7 @@ func processFirstName (){
         print(ans)
     }
     
-    
+    // check if input pairs can form a valid graph
     while let line: String = readLine() {
         let pairs = line.componentsSeparatedByString(";")
         let count = pairs.count
@@ -146,79 +129,102 @@ func processFirstName (){
             print("BAD")
         }
     }
-//while let line: String = readLine() {
-//    let line = "5\n0 2\n6 67\n43 71\n39 107\n189 140\n0"
-//    let lines = "3\n0 0\n1 1\n2 3\n0"
+    //while let line: String = readLine() {
+    //    let line = "5\n0 2\n6 67\n43 71\n39 107\n189 140\n0"
+    //    let lines = "3\n0 0\n1 1\n2 3\n0"
+    
+    //    let inputLines:[String] = lines.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+    //    print("inputLines:\(inputLines)")
+    //    let numPoints = inputLines.count - 2
+    //    // get a list of points from inputLines
+    //    var points:[[Double]] = [[]]
+    //    for i in 1 ... numPoints {
+    //        let pointString:[String] = inputLines[i].componentsSeparatedByString(" ")
+    //        var point = Array(count:2, repeatedValue:0.0)
+    //        point[0] = Double(pointString[0])!
+    //        point[1] = Double(pointString[1])!
+    //        points.append(point)
+    //    }
+    //    //An empty element is added first
+    //    points.removeFirst()
+    //    print("points:\(points)")
+    //    //calculate shortest path between 2 points. O(N square). Note self to self is 0
+    //    var minDist = 10000.0
+    //    for i in 0 ..< (points.count - 1) {
+    //        for j in 0 ..< points.count {
+    //
+    //            let dist =  sqrt(pow(points[j][0] - points[i][0], 2) + pow(points[j][1] - points[i][1], 2))
+    //            if (dist != 0 && dist < minDist) {
+    //                minDist = dist
+    //            }
+    //        }
+    //    }
+    //    if minDist < 10000.0 {
+    //        let dist = Double(round(10000*minDist)/10000)
+    //        print("\(dist)")
+    //    }
+    //    else{
+    //        print("INFINITY")
+    //    }
+    //
+    //    let line: String = "(1,6), (6,7), (2,7), (9,1)"
+    //    var isSqure = false
+    //    var newString = line.stringByReplacingOccurrencesOfString("), ", withString: ";")
+    //    newString = newString.stringByReplacingOccurrencesOfString("(", withString: "")
+    //    newString = newString.stringByReplacingOccurrencesOfString(")", withString: "") // to deal with a special case
+    //    let points = newString.componentsSeparatedByString(";")
+    //    print(points)
+    //    let num = points.count
+    //    guard (num == 4) else{
+    //        return
+    //    }
+    //    var arrOfInput = [Double]()
+    //    for item in points {
+    //
+    //    }
+    
+    //}
+    //    let sentence = "Line 1\nLine 2\nLine 3\n"
+    //    var sentenceLines:[String] = []
+    //    //sentence.enumerateLines { sentenceLines.append($0.line) }
+    //    sentenceLines = sentence.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+    //    ////////
+    //    var inputArr:[String] = []
+    //    sentence.enumerateLines {inputArr.append($0.line)}
+    //    
+    //    print(sentenceLines)
+    //    print(inputArr)
+}
 
-//    let inputLines:[String] = lines.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-//    print("inputLines:\(inputLines)")
-//    let numPoints = inputLines.count - 2
-//    // get a list of points from inputLines
-//    var points:[[Double]] = [[]]
-//    for i in 1 ... numPoints {
-//        let pointString:[String] = inputLines[i].componentsSeparatedByString(" ")
-//        var point = Array(count:2, repeatedValue:0.0)
-//        point[0] = Double(pointString[0])!
-//        point[1] = Double(pointString[1])!
-//        points.append(point)
-//    }
-//    //An empty element is added first
-//    points.removeFirst()
-//    print("points:\(points)")
-//    //calculate shortest path between 2 points. O(N square). Note self to self is 0
-//    var minDist = 10000.0
-//    for i in 0 ..< (points.count - 1) {
-//        for j in 0 ..< points.count {
-//            
-//            let dist =  sqrt(pow(points[j][0] - points[i][0], 2) + pow(points[j][1] - points[i][1], 2))
-//            if (dist != 0 && dist < minDist) {
-//                minDist = dist
-//            }
-//        }
-//    }
-//    if minDist < 10000.0 {
-//        let dist = Double(round(10000*minDist)/10000)
-//        print("\(dist)")
-//    }
-//    else{
-//        print("INFINITY")
-//    }
-//    
-//    let line: String = "(1,6), (6,7), (2,7), (9,1)"
-//    var isSqure = false
-//    var newString = line.stringByReplacingOccurrencesOfString("), ", withString: ";")
-//    newString = newString.stringByReplacingOccurrencesOfString("(", withString: "")
-//    newString = newString.stringByReplacingOccurrencesOfString(")", withString: "") // to deal with a special case
-//    let points = newString.componentsSeparatedByString(";")
-//    print(points)
-//    let num = points.count
-//    guard (num == 4) else{
-//        return
-//    }
-//    var arrOfInput = [Double]()
-//    for item in points {
-//        
-//    }
+func processFirstName (){
+    let people: [[String:String]] = [
+        [
+            "firstName": "Calvin",
+            "lastName": "Newton"
+        ],
+        [
+            "firstName": "Garry",
+            "lastName": "Mckenzie"
+        ],
+        [
+            "firstName": "Leah",
+            "lastName": "Rivera"
+        ],
+        [
+            "firstName": "Sonja",
+            "lastName": "Moreno"
+        ],
+        [
+            "firstName": "Noel",
+            "lastName": "Bowen"
+        ]
+    ]
     
-    
-    
-        
-    
-        
-        
-//}
-//    let sentence = "Line 1\nLine 2\nLine 3\n"
-//    var sentenceLines:[String] = []
-//    //sentence.enumerateLines { sentenceLines.append($0.line) }
-//    sentenceLines = sentence.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-//    ////////
-//    var inputArr:[String] = []
-//    sentence.enumerateLines {inputArr.append($0.line)}
-//    
-//    print(sentenceLines)
-//    print(inputArr)
-    
-    
+    var firstNames: [String] = []
+    for person in people {
+        let val = person["firstName"]
+        firstNames.append(val!)
+    }
 }
 
 func isSqure(line:String){
@@ -258,13 +264,17 @@ func isSqure(line:String){
 func getHint(secret: String, _ guess: String) -> String {
     var bull = 0
     var cow = 0
-    let s = secret.characters.map{String($0) }
+    let s = secret.characters.map{String($0)} //["1", "8", "7"]
+    //let s2 = Array(arrayLiteral: String(secret.characters))//["187"]
     let g = guess.characters.map{String($0)}
+    //let g2 = Array(arrayLiteral:String(guess.characters))//guess.characters.map{String($0)}
+
+    
     let len = s.count
     var num:[Int] = [0,0,0,0,0,0,0,0,0,0]
     for i in 0 ..< len {
         if s[i] == g[i] {
-            bull+=1
+            bull += 1
         }
         else{
             let indexS:Int? = Int(s[i])
@@ -281,10 +291,11 @@ func getHint(secret: String, _ guess: String) -> String {
         
     }
     let str = "\(bull) bulls \(cow) cows"
+    print(str)
     return str
 }
 
-//The following passed 411/450 test cases, still fails at
+//The following passed 411/450 test cases, still fails at some 
 func isMatch(s: String, _ p: String) -> Bool {
     let charS = s.characters.map{String($0)}
     let charP = p.characters.map{String($0)}
@@ -333,6 +344,36 @@ func wordPattern(pattern: String, _ str: String) -> Bool {
 // //   }
     return false
 }
+
+// 128. It needs to find numbers that are consequtive. It does not matter if they are next to each other in the original array. Things can get better and better!
+func longestConsecutive(nums: [Int]) -> Int {
+    var set = Set(nums) // I love Swift
+    var max = 0
+    for i in 0 ..< nums.count {
+        if (set.contains(nums[i])) {
+            var left = nums[i] - 1
+            var right = nums[i] + 1
+            set.remove(nums[i])
+            
+            while set.contains(left) {
+                set.remove(left)
+                left -= 1
+            }
+            while set.contains(right) {
+                set.remove(right)
+                right += 1
+            }
+            
+            let distance = right - left - 1
+            if distance > max {
+                max = distance
+            }
+        }
+    }
+    return max
+}
+
+
 func sortedCharsInString (str:String) -> String{
     let sortedStr = String(Array(str.characters.sort()))
     return sortedStr
@@ -595,7 +636,8 @@ public class Entry {
     }
 }
 
-//107   BFS
+//107 Binary Tree Level Order Traversal II
+//BFS
 func levelOrderBottom(root: TreeNode?) -> [[Int]] {
     var result = [[Int]]()
     if root == nil {
@@ -653,6 +695,7 @@ func exist(board: [[Character]], _ word: String) -> Bool {
     return false
 }
 
+// helper for 79
 func existDFS(board: [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
     guard (row >= 0 || row < board.count || col >= 0 || col < board[0].count) else{
         return false
@@ -661,4 +704,77 @@ func existDFS(board: [[Character]], _ target: [Character], row: Int, col: Int) -
     
     return false
 }
+
+func coinChange(coins: [Int], _ amount: Int) -> Int {
+    guard amount > 0 else {
+        return 0
+    }
+    var dp:[Int] = Array(count: amount + 1, repeatedValue: Int.max)
+    dp[0] = 0
+    for i in 1 ... amount {
+        for coin in coins {
+            if (i >= coin && dp[i - coin] != Int.max){
+                dp[i] = min(dp[i], 1 + dp[i - coin])
+            }
+        }
+    }
+    return dp[amount] != Int.max ? dp[amount] : -1
+}
+
+func invertTree(root: TreeNode?) -> TreeNode? {
+    if root == nil {
+        return nil
+    }
+    let temp = root!.left
+    root!.left = invertTree(root!.right)
+    root!.right = invertTree(temp)
+    invertTree(root!.left)
+    
+    return root
+}
+
+/*
+ 
+ Q: Given a pattern and a string str, find if str follows the same pattern.
+ 
+ 1. pattern = "abba", str = "qualtrics rocks rocks qualtrics" should return true.
+ 2. pattern = "baab", str = "we qualtrics qualtrics rocks" should return false.
+ 3. pattern = "aaaa", str = "rocks qualtrics qualtrics rocks" should return false.
+ 4. pattern = "abba", str = "qualtrics qualtrics qualtrics qualtrics" should return false.
+ 
+ */
+
+func isMatch (pattern: String, str: String) -> Bool {
+    let patternArr = Array(pattern.characters)
+    let strArr = str.componentsSeparatedByString(" ")
+    if (patternArr.count != strArr.count) {
+        return false
+    }
+    var dictionary = [String : Character]()
+    var dictionary2 = [Character : String]()
+    
+    for i in 0 ..< patternArr.count {
+        if dictionary[strArr[i]] != nil {
+            if (patternArr[i] != dictionary[strArr[i]]) {
+                return false
+            }
+        }
+        else{
+            dictionary[strArr[i]] = patternArr[i]
+        }
+        
+        if dictionary2[patternArr[i]] != nil {
+            if (strArr[i] != dictionary2[patternArr[i]]){
+                return false
+            }
+        }
+        else{
+            dictionary2[patternArr[i]] = strArr[i]
+        }
+    }
+    return true
+}
+
+
+
 
