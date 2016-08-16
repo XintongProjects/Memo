@@ -50,7 +50,7 @@ public class ListNode {
 }
 
 
-public class TNode{ //TrinaryNode
+public class TNode{ //TernaryNode binary, ternary, tri
     var val: Int
     var left: TNode?
     var middle: TNode?
@@ -73,7 +73,7 @@ public class TNode{ //TrinaryNode
     }
 }
 
-public class TTree { // Trinary Tree
+public class TTree { // Trinary Tree, ternary
     var root: TNode?
     
     init (rootNode: TNode) {

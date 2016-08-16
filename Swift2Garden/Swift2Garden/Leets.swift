@@ -71,21 +71,89 @@ func wallsAndGatesBFS(inout rooms: [[Int]]) {
     }
 }
 
-// random syntax or func check
-func experiments() {
-    
+//string manipulations
+func stringsExperiment() {
     let string1 = "hello world light light"
     var strArr = string1.componentsSeparatedByString(" ")
     strArr = strArr.reverse()
-    print (strArr)
+    print (strArr) // ["light", "light", "world", "hello"]
     let set = Set(strArr)
-    print(set)
+    print(set) //["light", "hello", "world"]
     let arrSet = Array(set)
-    print(arrSet)
+    print(arrSet) //["light", "hello", "world"]
     
-    for index in (0..<5).reverse() {
-        print(index)
+//    for index in (0..<5).reverse()
+//    {
+//        print(index) // 4 3 2 1 0
+//    }
+    let str = "ABCDEFG"
+    let index = str.startIndex.advancedBy(2)
+    print(str[index]) //"C"
+    print(str.substringToIndex(index)) //AB
+    print(str.substringFromIndex(index)) // CDEFG
+    print(str.substringFromIndex(str.startIndex.advancedBy(3)))// DEFG
+}
+
+//permutation, ask if allow duplicates. Can consider using set
+public func permuteString(str: String)-> [String] {
+    var result = [String]()
+    var input = str
+    var sofar = ""
+    recPermuteString(&sofar, rest: &input, result: &result)
+    // get rid of duplicates
+    let set = Set(result)
+    result.removeAll()
+    for item in set {
+        result.append(item)
     }
+    print(result)
+    return result
+}
+
+private func recPermuteString(inout sofar: String, inout rest: String, inout result:[String]) {
+    if rest == "" {
+        result.append(sofar)
+    }
+    else{
+        for i in 0 ..< rest.characters.count {
+            let index = rest.startIndex.advancedBy(i)
+            var cur = sofar + String(rest[index])
+            let remainIndex = rest.startIndex.advancedBy(i+1)
+            var remain = rest.substringToIndex(index) + rest.substringFromIndex(remainIndex)
+            recPermuteString(&cur, rest: &remain, result: &result)
+        }
+    }
+}
+
+//permute string using set
+public func permuteStringViaSet(str: String) -> [String] {
+    var set = Set<String>()
+    var input = str
+    var sofar = ""
+    recPermuteStringViaSet(&sofar, rest: &input, result: &set)
+    var result = [String]()
+    for item in set {
+        result.append(item)
+    }
+    print(result)
+    return result
+}
+
+private func recPermuteStringViaSet(inout sofar: String, inout rest: String, inout result: Set<String>){
+    if rest == "" {
+        result.insert(sofar)
+    }
+    for i in 0 ..< rest.characters.count {
+        let index = rest.startIndex.advancedBy(i)
+        let remainIndex = rest.startIndex.advancedBy(i+1)
+        var current = sofar + String(rest[index])
+        var remain = rest.substringToIndex(index) + rest.substringFromIndex(remainIndex)
+        recPermuteStringViaSet(&current, rest: &remain, result: &result)
+    }
+}
+
+// random syntax or func check
+func experiments() {
     
     while let line: String = readLine() {
         var num:Int? = Int(line)
@@ -241,14 +309,14 @@ func isSqure(line:String){
         print(false)
         return
     }
-    //applies rule of right angle
+    //应用勾股玄定理
     let d01 = pow(nums[2] - nums[0], 2) + pow(nums[3] - nums[1], 2)
     let d02 = pow(nums[4] - nums[0], 2) + pow(nums[5] - nums[1], 2)
     let d03 = pow(nums[6] - nums[0], 2) + pow(nums[7] - nums[1], 2)
     let d12 = pow(nums[4] - nums[2], 2) + pow(nums[5] - nums[3], 2)
     let d13 = pow(nums[6] - nums[2], 2) + pow(nums[7] - nums[3], 2)
     let d23 = pow(nums[6] - nums[4], 2) + pow(nums[7] - nums[5], 2)
-    
+    //note: in 2d space, make sure the 2 triangles are not the same. 
     if d01 == d02 && d03 == d01 + d02 {
         isSqure = d23 == d13 && d23 == d01
     }
@@ -410,9 +478,9 @@ func findAnagramsOfWordInDictionary(word:String, words:[String]) ->[String]{
             result.append(item)
         }
     }
-    print(result)
     return result
 }
+
 
 func isAnagram(s: String, _ t: String) -> Bool {
     // ["alert", "alter", "later", "seal", "sale", "bob", "odd"]

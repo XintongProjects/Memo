@@ -44,15 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let char = Character(u)
         
         // Write results.
-        print("char:\(char)**")
-        print("first unique char is \(findFirstUniqueChar("today is the most wonderful day"))")    
+        //print("char:\(char)**") //c**
+        //print("first unique char is \(findFirstUniqueChar("today is the most wonderful day"))") //first unique char is Optional("i")
         let mat = [[1,2],[3,4]]
-        print (kthSmallest(mat,2))
+        //print (kthSmallest(mat,2))//3
         
         var dpc:[[Character]] = Array(count: 5, repeatedValue:Array(count:3, repeatedValue:" "))
         
-        print ("*\(dpc[4][2])**")
+        //print ("*\(dpc[4][2])**") //* **
         experiments()
+        stringsExperiment()
+        permuteString("ACC")
+        permuteStringViaSet("MNN")
 
         return true
     }
