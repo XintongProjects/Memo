@@ -731,7 +731,7 @@ func levelOrderBottom(root: TreeNode?) -> [[Int]] {
     return result
 }
 
-//107 DFS solution
+//107 DFS solution TODO
 func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
     var result = [[Int]]()
     if root == nil {
@@ -740,7 +740,7 @@ func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
 
     return result
 }
-//helper for 107
+//helper for 107 TODO
 func levelOrderDFS(root: TreeNode?, result: [[Int]], level: Int) {
     
 }
@@ -751,10 +751,11 @@ func exist(board: [[Character]], _ word: String) -> Bool {
     if board.count * board[0].count < target.count {
         return false
     }
+    var mat = board
     for i in 0 ..< board.count {
         for j in 0 ..< board[0].count {
             if board[i][j] == target[0]{
-                if existDFS(board, target, row:i, col: j) {
+                if existDFS(&mat, target, row:i, col: j) {
                     return true
                 }
             }
@@ -764,13 +765,27 @@ func exist(board: [[Character]], _ word: String) -> Bool {
 }
 
 // helper for 79
-func existDFS(board: [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
-    guard (row >= 0 || row < board.count || col >= 0 || col < board[0].count) else{
+// word search in board
+func existDFS(inout board: [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
+    guard (row >= 0 && row < board.count && col >= 0 && col < board[0].count) else{
         return false
     }
-    
-    
-    return false
+    if board[row][col] != target[0] {
+        return false
+    }
+    if target.count == 1 {
+        return true
+    }
+    let temp = board[row][col]
+    board[row][col] = " "
+    var word = target
+    word.removeFirst()
+    let result = existDFS(&board, word, row: row - 1, col: col) ||
+        existDFS(&board, word, row: row, col: col - 1) ||
+        existDFS(&board, word, row: row, col: col + 1) ||
+        existDFS(&board, word, row: row + 1, col: col)
+    board[row][col] = temp
+    return result
 }
 
 func coinChange(coins: [Int], _ amount: Int) -> Int {
