@@ -8,6 +8,30 @@
 
 import Foundation
 
+//use one-d dp, top down. Bottom up will return same result.
+func minPathSum(grid: [[Int]]) -> Int {
+    let row = grid.count
+    guard row > 0 else{
+        return 0
+    }
+    let col = grid[0].count
+    var dp = Array(count: col, repeatedValue: 0)
+    dp[0] = grid[0][0]
+    for i in 1 ..< col {
+        dp[i] = dp[i - 1] + grid[0][i]
+    }
+    for i in 1 ..< row {
+        for j in 0 ..< col {
+            if (j == 0) {
+                dp[j] = dp[j] + grid[i][j]
+            }
+            else {
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
+            }
+        }
+    }
+    return dp[col - 1]
+}
 // 求矩阵中房间到门的最短距离. 以门为起始点。
 func wallsAndGates(inout rooms: [[Int]]) {
     guard (rooms.count > 0) else{
@@ -77,10 +101,13 @@ func stringsExperiment() {
     var strArr = string1.componentsSeparatedByString(" ")
     strArr = strArr.reverse()
     print (strArr) // ["light", "light", "world", "hello"]
+    let stringRepresentation = strArr.joinWithSeparator("-")
+    print(stringRepresentation)
     let set = Set(strArr)
     print(set) //["light", "hello", "world"]
     let arrSet = Array(set)
     print(arrSet) //["light", "hello", "world"]
+    
     
 //    for index in (0..<5).reverse()
 //    {
@@ -91,7 +118,8 @@ func stringsExperiment() {
     print(str[index]) //"C"
     print(str.substringToIndex(index)) //AB
     print(str.substringFromIndex(index)) // CDEFG
-    print(str.substringFromIndex(str.startIndex.advancedBy(3)))// DEFG
+    let index2 = str.startIndex.advancedBy(3)
+    print(str.substringFromIndex(index2))// DEFG
 }
 
 //permutation, ask if allow duplicates. Can consider using set

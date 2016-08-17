@@ -56,6 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         stringsExperiment()
         permuteString("ACC")
         permuteStringViaSet("MNN")
+        let grid = [[1,3,1],[1,5,1],[4,2,1]]
+        print(minPathSum(grid))
 
         return true
     }
