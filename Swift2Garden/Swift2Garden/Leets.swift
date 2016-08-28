@@ -8,7 +8,8 @@
 
 import Foundation
 
-//use one-d dp, top down. Bottom up will return same result.
+//use one-d dp, top down. Bottom up will return same result. O(n) space nxn time given input is n*n grid
+//optimized from 2d dp
 func minPathSum(grid: [[Int]]) -> Int {
     let row = grid.count
     guard row > 0 else{
@@ -652,7 +653,7 @@ func mergeTwoLists(l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     }
     var cur1 = l1
     var cur2 = l2
-    let head = ListNode(0)
+    let head = ListNode(0) // made a dummy node for ease of manipulation
     var cur3 = head
     while (cur1 != nil && cur2 != nil){
         if cur1?.val < cur2!.val {
@@ -715,13 +716,14 @@ func kthSmallest(matrix: [[Int]], _ k: Int) -> Int {
         if top.m + 1 < matrix.count {
             priQueue.append(Entry(row: top.m + 1, col: top.n, value: matrix[top.m + 1][top.n]))
         }
+        //TOME: sort objects by property
         priQueue.sortInPlace({$0.val > $1.val})
         total += 1
     }
     return top.val
 }
-
-public class Entry {
+// this class is for func kthSmallest
+private class Entry {
     var m = 0
     var n = 0
     var val = 0
@@ -886,6 +888,17 @@ func isMatch (pattern: String, str: String) -> Bool {
     return true
 }
 
+func verticalOrder(root: TreeNode?) -> [[Int]]{
+    var res = [[Int]]()
+    if (root == nil) {
+        return res
+    }
+    var priQueueNode = [TreeNode?]()
+    var priQueueValue = [Int]()
+    var map = [Int : [Int]]()
+    
+    return res
+}
 
 
 

@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         isSqure(line)
         var s = sortedCharsInString("welcome")
         print(s)
+        print(String(s.characters.reverse()))
         s = s.substringFromIndex(s.startIndex.advancedBy(1))
         print(s)
         
