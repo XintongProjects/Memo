@@ -33,8 +33,16 @@ public class TreeNode{
         return abs(treeHeight(root?.left) - treeHeight(root?.right)) <= 1 && isBalanced(root?.left) && isBalanced(root?.right)
         
     }
-    
+}
 
+// graph node
+public class UndirectedGraphNode {
+    var label: Int
+    var neighbors: [UndirectedGraphNode]
+    init (_ x: Int) {
+        self.label = x;
+        self.neighbors = [UndirectedGraphNode]();
+    }
 }
 
 /**
@@ -149,5 +157,6 @@ public class TTree { // Trinary Tree, ternary
         }
         return node.val
     }
+
     
 }

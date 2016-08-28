@@ -8,6 +8,7 @@
 
 import Foundation
 
+//find smallest path from top left to bottom-right of a matrix
 //use one-d dp, top down. Bottom up will return same result.
 func minPathSum(grid: [[Int]]) -> Int {
     let row = grid.count
@@ -32,6 +33,7 @@ func minPathSum(grid: [[Int]]) -> Int {
     }
     return dp[col - 1]
 }
+
 // 求矩阵中房间到门的最短距离. 以门为起始点。
 func wallsAndGates(inout rooms: [[Int]]) {
     guard (rooms.count > 0) else{
@@ -47,6 +49,7 @@ func wallsAndGates(inout rooms: [[Int]]) {
         }
     }
 }
+
 // DFS
 func wallsAndGatesHelper(inout rooms: [[Int]], _ row: Int, _ col: Int, _ i: Int, _ j: Int, _ val: Int){
     rooms[i][j] = val
@@ -759,15 +762,15 @@ func levelOrderBottom(root: TreeNode?) -> [[Int]] {
     return result
 }
 
-//107 DFS solution TODO
-func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
-    var result = [[Int]]()
-    if root == nil {
-        return result
-    }
-
-    return result
-}
+////107 DFS solution TODO
+//func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
+//    var result = [[Int]]()
+//    if root == nil {
+//        return result
+//    }
+//
+//    return result
+//}
 //helper for 107 TODO
 func levelOrderDFS(root: TreeNode?, result: [[Int]], level: Int) {
     
@@ -886,6 +889,51 @@ func isMatch (pattern: String, str: String) -> Bool {
     return true
 }
 
+//func combinationSum(candidates: [Int], _ target: Int) -> [[Int]] {
+//    var results = [[Int]]()
+//    var current = [Int]()
+//    var cand = candidates
+//    cand.sortInPlace()
+//    combinationSumHelper(cand, target, results: &results, cur: &current, start: 0)
+//    return results
+//}
+//
+//// back tracking. Need to remove the last char to exhusrt other combinations
+//func combinationSumHelper(candidates: [Int], _ target: Int, inout results: [[Int]], inout cur:[Int], start: Int){
+//    for i in start ..< candidates.count {
+//        if (target > candidates[i]) {
+//            cur.append(candidates[i])
+//            combinationSumHelper(candidates, target - candidates[i], results: &results, cur: &cur , start: i)
+//            cur.removeLast()
+//        }
+//        else if target == candidates[i]{
+//            cur.append(candidates[i])
+//            results.append(cur)
+//            cur.removeLast()
+//        }
+//    }
+//}
+func combinationSum(candidates: [Int], _ target: Int) -> [[Int]] {
+    var results = [[Int]]()
+    var current = [Int]()
+    var cand = candidates
+    cand.sortInPlace()
+    combinationSumHelper(cand, target, results: &results, cur: &current, start: 0)
+    return results
+}
 
-
+// back tracking.
+func combinationSumHelper(candidates: [Int], _ target: Int, inout results: [[Int]], inout cur:[Int], start: Int){
+    if (target == 0){
+        results.append(cur)
+        return
+    }
+    for i in start ..< candidates.count {
+        if (target > candidates[i]) {
+            cur.append(candidates[i])
+            combinationSumHelper(candidates, target - candidates[i], results: &results, cur: &cur , start: i)
+            cur.removeLast()//Need to remove the last char to exhusrt other combinations
+        }
+    }
+}
 

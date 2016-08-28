@@ -36,29 +36,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
         print(groupAnagrams(words))
-        print(myItoA(-15))
-        let value = 99
-        // Convert Int to a UnicodeScalar.
-        let u = UnicodeScalar(value)
-        // Convert UnicodeScalar to a Character.
-        let char = Character(u)
-        
+//        print(myItoA(-15))
+//        let value = 99 // leter "c" is at 99
+//        // Convert Int to a UnicodeScalar.
+//        let u = UnicodeScalar(value)
+//        // Convert UnicodeScalar to a Character.
+//        let char = Character(u)
+//        
         // Write results.
         //print("char:\(char)**") //c**
         //print("first unique char is \(findFirstUniqueChar("today is the most wonderful day"))") //first unique char is Optional("i")
-        let mat = [[1,2],[3,4]]
-        //print (kthSmallest(mat,2))//3
-        
-        var dpc:[[Character]] = Array(count: 5, repeatedValue:Array(count:3, repeatedValue:" "))
-        
-        //print ("*\(dpc[4][2])**") //* **
+//        let mat = [[1,2],[3,4]]
+//        print (kthSmallest(mat,2))//3
+//        
+//        var dpc:[[Character]] = Array(count: 5, repeatedValue:Array(count:3, repeatedValue:" "))
+//        
+//        print ("*\(dpc[4][2])**") //* **
         experiments()
         stringsExperiment()
         permuteString("ACC")
         permuteStringViaSet("MNN")
         let grid = [[1,3,1],[1,5,1],[4,2,1]]
         print(minPathSum(grid))
-
+        
+//        let count = 10
+//        var sum = 0
+//        var skipSum = 0
+//        for i in 0 ... 10 {
+//            sum += i
+//        }
+//        for i in 0.stride(to: count + 1, by: 2){
+//            skipSum += i
+//        }
+//        print("sum:\(sum) skipSum:\(skipSum)")
         return true
     }
 
