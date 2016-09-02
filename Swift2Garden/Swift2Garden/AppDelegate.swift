@@ -21,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let max = data.values.maxElement()
         print("max is \(max)")
         processFirstName()
+        let testS = "12345678"
+        //let startIndex = testS.startIndex.advancedBy(2) //testS.[testS.startIndex.advancedBy(2)] is "3"
+        let testSub = testS[testS.startIndex.advancedBy(1)...testS.startIndex.advancedBy(3)]
+        print(testSub )
+        let code = "1008"
+        if (isValidCode(code)){
+            print("\(code) is valid")
+        }
+        print("total decodeWay: \(numDecodings(code))")
         
         getHint("187", "178")
         let line: String = "(1,6), (6,7), (2,7), (9,1)"
@@ -32,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(s)
         
         let words = ["eat", "tea", "tan", "ate", "nat", "bat"]
-        let myatoi = myAtoi("2147483647")
+        let myatoi = myAtoi("8879")//myAtoi("2147483647")
         print(myatoi)
         let list = findAnagramsOfWordInDictionary("eat", words: words)
         print(list)
@@ -54,22 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
 //        print ("*\(dpc[4][2])**") //* **
         experiments()
+        stringExperiments()
         stringsExperiment()
         permuteString("ACC")
         permuteStringViaSet("MNN")
         let grid = [[1,3,1],[1,5,1],[4,2,1]]
         print(minPathSum(grid))
         
-//        let count = 10
-//        var sum = 0
-//        var skipSum = 0
-//        for i in 0 ... 10 {
-//            sum += i
-//        }
-//        for i in 0.stride(to: count + 1, by: 2){
-//            skipSum += i
-//        }
-//        print("sum:\(sum) skipSum:\(skipSum)")
         return true
     }
 

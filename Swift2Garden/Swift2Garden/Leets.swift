@@ -8,8 +8,8 @@
 
 import Foundation
 
-//use one-d dp, top down. Bottom up will return same result. O(n) space nxn time given input is n*n grid
 //optimized from 2d dp
+//use one-d dp, top down. Bottom up will return same result. O(n) space nxn time given input is n*n grid
 func minPathSum(grid: [[Int]]) -> Int {
     let row = grid.count
     guard row > 0 else{
@@ -18,9 +18,11 @@ func minPathSum(grid: [[Int]]) -> Int {
     let col = grid[0].count
     var dp = Array(count: col, repeatedValue: 0)
     dp[0] = grid[0][0]
+    // init based on first row
     for i in 1 ..< col {
         dp[i] = dp[i - 1] + grid[0][i]
     }
+    // fun starts
     for i in 1 ..< row {
         for j in 0 ..< col {
             if (j == 0) {
@@ -108,7 +110,14 @@ func stringsExperiment() {
     print(set) //["light", "hello", "world"]
     let arrSet = Array(set)
     print(arrSet) //["light", "hello", "world"]
-    
+    let num1 = Int("127")
+    let num2 = Int("abc")
+    if (num2 == nil){
+        print("Invalid format")
+    }
+    if (num1 > num2) {
+        print("\(num1)> \(num2)")
+    }
     
 //    for index in (0..<5).reverse()
 //    {
@@ -559,6 +568,7 @@ func reverseInt(input: Int) -> Int {
 // mainly about clarification, "    +-2  ", "42abc", smaller than "-2147483648"  greater than: "2147483647"
 func myAtoi(str: String) -> Int {
     let charStr = Array(str.characters)
+    //print(charStr) //str "8879" -> charStr["8", "8", "7", "9"]
     var result = 0
     let len = charStr.count
     var index = 0
@@ -761,15 +771,15 @@ func levelOrderBottom(root: TreeNode?) -> [[Int]] {
     return result
 }
 
-//107 DFS solution TODO
-func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
-    var result = [[Int]]()
-    if root == nil {
-        return result
-    }
-
-    return result
-}
+////107 DFS solution TODO
+//func levelOrderBottomDFS(root: TreeNode?) -> [[Int]] {
+//    var result = [[Int]]()
+//    if root == nil {
+//        return result
+//    }
+//
+//    return result
+//}
 //helper for 107 TODO
 func levelOrderDFS(root: TreeNode?, result: [[Int]], level: Int) {
     
@@ -893,12 +903,89 @@ func verticalOrder(root: TreeNode?) -> [[Int]]{
     if (root == nil) {
         return res
     }
-    var priQueueNode = [TreeNode?]()
-    var priQueueValue = [Int]()
+    var queue = [ColomnTreeNode?]()
     var map = [Int : [Int]]()
-    
+    let node = ColomnTreeNode(root!, 0)
+    queue.append(node)
+    while !queue.isEmpty {
+        let pop = queue.removeFirst()
+        let col = pop!.col;
+        let val = pop!.node.val
+        // insert pop's children
+        if(pop?.node.left != nil){
+            let leftColNode = ColomnTreeNode((pop?.node.left)!, (pop?.col)! - 1)
+            queue.append(leftColNode)
+        }
+        if (pop?.node.right != nil){
+            let rightColNode = ColomnTreeNode((pop?.node.right)!, pop!.col + 1)
+            queue.append(rightColNode)
+        }
+        //put pop's value in hashmap/dictionary
+        if (map[col] == nil){
+            var list = [Int]()
+            
+            list.append(val)
+            map[col] = list
+        }
+        else{ // append
+            var list = map[col]
+            list?.append(val)
+            map[col] = list
+        }
+    }
+    // populate result from hashtable
+    // find the max and min value of all the keys in the hash/dict
+    var max = Int.min
+    var min = Int.max
+    for (key, _) in map {
+        if key > max {
+            max = key
+        }
+        if(key < min){
+            min = key
+        }
+    }
+    for i in min ... max {
+        res.append(map[i]!)
+    }
     return res
 }
 
+//Helper func for decode ways A,B..Z is 1,2...26
+func isValidCode(s: String) -> Bool{
+    guard(Int(s) != nil && s[s.startIndex] != "0") else {
+        return false
+    }
+    let num = Int(s)
+    return (num >= 1 && num <= 26)
+}
+
+// decode way
+func numDecodings(s: String) -> Int{
+    let len = s.characters.count
+    if (len == 0) {return 0}
+    var dp = Array(count: len + 1, repeatedValue:0)
+    dp[0] = 1
+    if !isValidCode(String(s[s.startIndex])){
+        return 0 // early return
+    }
+    else{
+        dp[1] = 1;
+    }
+    for i in 1 ..< len {
+        let sub1 = String(s[s.startIndex.advancedBy(i)])
+        let sub2 = s[s.startIndex.advancedBy(i-1)...s.startIndex.advancedBy(i)]
+        if !isValidCode(sub1) && !isValidCode(sub2){
+            return 0 // early return
+        }
+        if isValidCode(sub1) {
+            dp[i+1] = dp[i+1] + dp[i]
+        }
+        if isValidCode(sub2) {
+            dp[i+1] = dp[i+1] + dp[i-1]
+        }
+    }
+    return dp[len]
+}
 
 

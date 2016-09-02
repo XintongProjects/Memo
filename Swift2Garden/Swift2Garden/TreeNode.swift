@@ -34,6 +34,15 @@ public class TreeNode{
         
     }
 }
+public class ColomnTreeNode{
+    public var node: TreeNode
+    public var col: Int
+    
+    public init(_ node: TreeNode , _ val: Int){
+        self.col = val
+        self.node = node
+    }
+}
 
 // graph node
 public class UndirectedGraphNode {
@@ -81,7 +90,7 @@ public class TNode{ //TernaryNode binary, ternary, tri
     }
 }
 
-public class TTree { // Trinary Tree, ternary
+public class TTree { // Trinary Tree, ternary, zillow
     var root: TNode?
     
     init (rootNode: TNode) {
