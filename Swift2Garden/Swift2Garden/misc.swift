@@ -18,3 +18,15 @@ import Foundation
 //            skipSum += i
 //        }
 //        print("sum:\(sum) skipSum:\(skipSum)")
+func reverseList(head: ListNode?) -> ListNode? {
+    var cur: ListNode? = head
+    var pre: ListNode? = nil
+    var fast: ListNode? = nil
+    while (cur != nil){
+        fast = cur?.next
+        cur?.next = pre
+        pre = cur
+        cur = fast
+    }
+    return pre
+}

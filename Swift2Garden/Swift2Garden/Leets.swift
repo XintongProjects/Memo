@@ -988,4 +988,18 @@ func numDecodings(s: String) -> Int{
     return dp[len]
 }
 
+func sumNumbers(root: TreeNode?) -> Int {
+    var sum = 0;
+    return helperSum(root, &sum);
+}
+func helperSum(node: TreeNode?, inout _ sum: Int) -> Int{
+    if(node == nil) {
+        return 0;
+    }
+    sum = sum * 10 + node!.val;
+    if (node!.left == nil && node!.right == nil){
+        return sum;
+    }
+    return helperSum(node!.left, &sum) + helperSum(node!.right, &sum);
+}
 
