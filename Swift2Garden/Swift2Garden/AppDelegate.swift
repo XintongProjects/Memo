@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         permuteStringViaSet("MNN")
         let grid = [[1,3,1],[1,5,1],[4,2,1]]
         print(minPathSum(grid))
+        print(multiply("99", "9"))
         
         return true
     }
