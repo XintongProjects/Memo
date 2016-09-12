@@ -1022,4 +1022,90 @@ func isOneEditDistance(s:String, _ t:String) -> Bool {
     return false;
 }
 
+func sumNumbers(root: TreeNode?) -> Int {
+    var sum = 0; // swift does not modification of parameters unless using inout.
+                // but inout cannot be applied to a constant number. So has to declare a var sum
+    return helperSum(root, &sum);
+}
+func helperSum(node: TreeNode?, inout _ sum: Int) -> Int{
+    if(node == nil) {
+        return 0;
+    }
+    sum = sum * 10 + node!.val;
+    if (node!.left == nil && node!.right == nil){
+        return sum;
+    }
+    return helperSum(node!.left, &sum) + helperSum(node!.right, &sum);
+}
+//multiply two big numbers
+func multiply(num1: String, _ num2: String) -> String {
+    let count1 = num1.characters.count
+    let count2 = num2.characters.count
+    
+    var result = ""
+    let len = count1 + count2
+    var pos = Array(count:len, repeatedValue:0)
+    var nums1 = Array(count: count1, repeatedValue:0)
+    var nums2 = Array(count: count2, repeatedValue:0)
+    for i in 0 ..< count1 {
+        // the following convert char at to String, then to Int. need unwrap optional
+        nums1[i] = Int(String(num1[num1.startIndex.advancedBy(i)]))!
+        //the following convert substring of length 1 to Int. need unwrap optional too
+        //        let range = num1.startIndex.advancedBy(i) ..< num1.startIndex.advancedBy(i+1)
+        //        nums1[i] = Int(num1[range])!
+        
+    }
+    for i in 0 ..< count2 {
+        nums2[i] = Int(String(num2[num2.startIndex.advancedBy(i)]))!
+    }
+    for i in (0 ..< count1).reverse() {
+        for j in (0 ..< count2).reverse() {
+            let multi = nums1[i] * nums2[j]
+            pos[i+j+1] += multi
+        }
+    }
+    // do carry
+    for i in (1 ..< len).reverse() {
+        pos[i-1] += pos[i] / 10
+        pos[i] = pos[i] % 10
+    }
+    for i in 0 ..< len {
+        print(pos[i])
+    }
+
+    // convert each element to String and append to solution
+    // skip the first few "0" paddings in the front
+    var start = 0
+    while (start < len && pos[start] == 0){
+        start += 1
+    }
+    if (start == len){
+        return "0"
+    }
+    for i in start ..< len {
+        print(result)
+        result += String(pos[i])
+    }
+    return result
+}
+
+func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+    // build a plain graph
+    var graph = [Int: [Int]]()
+    for i in 0 ..< numCourses {
+        graph[i] = [Int]()
+    }
+    //add adj for keys if applicable
+    for i in 0 ..< prerequisites.count {
+        graph[prerequisites[i][0]]?.append(prerequisites[i][1])
+    }
+    // if has cycle, return false
+    for i in 0 ..< prerequisites.count{
+        while graph[prerequisites[i][0]]!.count != 0{
+        
+            
+        }
+    }
+    return true
+}
 
