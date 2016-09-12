@@ -987,5 +987,39 @@ func numDecodings(s: String) -> Int{
     }
     return dp[len]
 }
+// one edit distance
+func isOneEditDistance(s:String, _ t:String) -> Bool {
+    let lens = s.characters.count
+    let lent = t.characters.count
+    if (lens > lent){
+        return isOneEditDistance(t, s)
+    }
+    if (lent - lens) > 1 {
+        return false
+    }
+    if(lens == lent){
+        var count = 0
+        for i in 0 ..< lens {
+            if s[s.startIndex.advancedBy(i)] != t[t.startIndex.advancedBy(i)]{
+                count += 1
+            }
+            if count > 1 {
+                return false
+            }
+        }
+        return count == 1
+    }
+    else{ // lens + 1 == lent
+        for i in 0 ..< lens {
+            if s[s.startIndex.advancedBy(i)] != t[t.startIndex.advancedBy(i)] {// encountered the first different char
+                let s1 = s.substringFromIndex(s.startIndex.advancedBy(i))
+                let s2 = t.substringFromIndex(t.startIndex.advancedBy(i+1))
+                return s1 == s2
+            }
+            return true
+        }
+    }
+    return false;
+}
 
 

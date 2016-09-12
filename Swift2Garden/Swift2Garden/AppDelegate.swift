@@ -69,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         permuteStringViaSet("MNN")
         let grid = [[1,3,1],[1,5,1],[4,2,1]]
         print(minPathSum(grid))
+        if(isOneEditDistance("a", "ab")){
+            print("YES");
+        }
         
         return true
     }
