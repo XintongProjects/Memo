@@ -1089,23 +1089,87 @@ func multiply(num1: String, _ num2: String) -> String {
     return result
 }
 
+//find cycle in di-graph, course schedule 1 leet 207
 func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
-    // build a plain graph
-    var graph = [Int: [Int]]()
+    //build up garph. Each course is a key in the graph dictionary
+    var graph = [Int:Set<Int>]()
     for i in 0 ..< numCourses {
-        graph[i] = [Int]()
+        graph[i] = Set<Int>()
     }
-    //add adj for keys if applicable
-    for i in 0 ..< prerequisites.count {
-        graph[prerequisites[i][0]]?.append(prerequisites[i][1])
-    }
-    // if has cycle, return false
+    //adding graph dependency
     for i in 0 ..< prerequisites.count{
-        while graph[prerequisites[i][0]]!.count != 0{
-        
-            
+        graph[prerequisites[i][0]]!.insert(prerequisites[i][1])
+    }
+    //for each class, if it has cycle, return false
+    var visited = Array(count: numCourses, repeatedValue:0)
+    for i in 0 ..<  prerequisites.count {
+        if hasCycle(prerequisites[i][1], graph, &visited) {
+            return false
         }
     }
     return true
 }
+func hasCycle(key: Int, _ graph: [Int:Set<Int>], inout _ visited:[Int]) -> Bool {
+    if visited[key] == 1 { //visited previously, and encountered again during dfs, so it's a cycle
+        return true
+    }
+    if visited[key] == 2 { //finished all DFS and come to itself, so it's good.
+        return false
+    }
+    visited[key] = 1 // this is the starting vertex being visited
+    
+    // for each element in the value set (the depedencies of the course) of the key(the course number)
+    for item in graph[key]!{
+        if hasCycle(item, graph, &visited){
+            return true
+        }
+    }
+    visited[key] = 2 //after all the DFS and it has no cycle, mark it as 2, indicating a no-cycle visited
+    return false
+}
 
+
+//course schedule 2. leet 210
+func findOrder(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
+    var res = [Int]() // result
+    // this time using 2d array to build graph
+    var graph = [[Int]](count: numCourses, repeatedValue:[Int]())
+    //add dependency to the graph
+    for i in 0 ..< prerequisites.count {
+        graph[prerequisites[i][0]].append(prerequisites[i][1])
+    }
+    var visited = [Int](count: numCourses, repeatedValue: 0)//0-visited, 1-visiting, 2-visited
+    for i in 0 ..< numCourses {
+        if topoDFS(i,graph, &visited, &res) == false {//i.e. found cycle
+            return [Int]()//空的结果
+        }
+        //the dfs with continue and fill the res with right order
+    }
+    return res
+}
+
+/* if the graph has cycle, return false, else return true.
+ DFS topological sort
+ */
+func topoDFS(key: Int, _ graph:[[Int]], inout _ visited:[Int], inout _ res:[Int] ) ->Bool{
+    if visited[key] == 1 {
+        return false // find cycle
+    }
+    if visited[key] == 2{
+        return true // no cycle, and is done with this node
+    }
+    //set visited from 0 to 1
+    visited[key] = 1
+    // for all it's edges do dfs
+    if(graph[key].count > 0){
+        for item in graph[key]{
+            if topoDFS(item, graph, &visited, &res) == false{
+                return false
+            }
+        }
+    }
+    // after done with all dfs, append the current key to result
+    visited[key] = 2
+    res.append(key)
+    return true
+}

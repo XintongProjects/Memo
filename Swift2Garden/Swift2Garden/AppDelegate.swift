@@ -74,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("YES");
         }
         print(multiply("99", "9"))
+        print("find order is \(findOrder(3, [[2,1], [1,0]]))")
         
         return true
     }
