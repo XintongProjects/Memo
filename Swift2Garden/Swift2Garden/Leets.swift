@@ -1148,7 +1148,7 @@ func findOrder(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
 }
 
 /* if the graph has cycle, return false, else return true.
- DFS topological sort
+ DFS topological sort, schedule 2
  */
 func topoDFS(key: Int, _ graph:[[Int]], inout _ visited:[Int], inout _ res:[Int] ) ->Bool{
     if visited[key] == 1 {
@@ -1182,7 +1182,7 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     var res = [Int]()
     // build graph
     //add dependency & get which elements not haing dependency, i.e. can start first
-    var graph = [Int:[Int]]() // cannot use set as value, as it will break indegree's logic
+    var graph = [Int:[Int]]() // cannot use set as value in BFS, as it will break indegree's logic
     for i in 0 ..< numCourses {
         graph[i] = [Int]()
     }
@@ -1220,8 +1220,82 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
 }
 
 //Leetcode 269 Alien Dictionary
-func alienOrder (words: [String]) -> String{
-    var res = ""
+/*
+ Given the following words in dictionary,
+ 
+ [
+ "wrt",
+ "wrf",
+ "er",
+ "ett",
+ "rftt"
+ ]
+ 
+ The correct order is: "wertf".
+ */
+func alienOrder(words: [String]) -> String {
+    if words.count == 0 {
+        return ""
+    }
+    if words.count == 0 {
+        return words[0]
+    }
+    var res = String()
+    var graph = [Character : [Character]]()
+    var visited = [Character : Int]() // used to find cycle when traverse each char
+    //set up initial graph
+    for i in 0 ..< words.count {
+        for j in 0 ..< words[i].characters.count {
+            graph[words[i][words[i].startIndex.advancedBy(j)]] = [Character]()
+        }
+    }
+    //add edges to graph
+    for i in 1 ..< words.count {
+        addEdgeds(words[i - 1], words[i], &graph)
+    }
+    //starting topological sort, similar to schecule 2
+    for key in graph.keys{
+        visited[key] = 0
+    }
+    for key in graph.keys {
+        if alienSort(key, graph, &visited, &res) == false {// find cycle
+            return ""
+        }
+    }
     
     return res
+}
+
+func alienSort(key:Character, _ graph:[Character : [Character]], inout _ visited:[Character : Int], inout _ res:String) -> Bool {
+    if visited[key] == 1 {
+        return false // find cycle
+    }
+    if visited[key] == 2 {
+        return true // finished visiting this key and no cycle
+    }
+    //starting visit current key's dependency
+    visited[key] = 1
+    if graph[key]?.count > 0 {
+        for item in graph[key]! {
+            if alienSort(item, graph, &visited, &res) == false {
+                return false // find cycle
+            }
+        }
+    }
+    res = String(key) + res
+    visited[key] = 2 //It's not being visited again during DFS. mark it as 2.
+    return true
+}
+
+//it's for Alien dict
+func addEdgeds(first:String, _ second:String, inout _ graph:[Character : [Character]]) {
+    let len:Int = min(first.characters.count, second.characters.count)
+    for i in 0 ..< len {
+        let firstC = first[first.startIndex.advancedBy(i)]
+        let secondC = second[second.startIndex.advancedBy(i)]
+        if firstC != secondC {
+            graph[firstC]?.append(secondC)
+            break
+        }
+    }
 }
