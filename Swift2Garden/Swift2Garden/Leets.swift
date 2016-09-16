@@ -1128,8 +1128,7 @@ func hasCycle(key: Int, _ graph: [Int:Set<Int>], inout _ visited:[Int]) -> Bool 
     return false
 }
 
-
-//course schedule 2. leet 210
+//course schedule 2. leet 210, using DFS
 func findOrder(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     var res = [Int]() // result
     // this time using 2d array to build graph
@@ -1172,4 +1171,50 @@ func topoDFS(key: Int, _ graph:[[Int]], inout _ visited:[Int], inout _ res:[Int]
     visited[key] = 2
     res.append(key)
     return true
+}
+
+//course schedule 2. leet 210, using BFS
+//1. put all courses that no body depends on it into queue, add to the head of result(or reverse in the end)
+//2. pop the queue, and add courses that are depended on it into queue. Map[key] is course(child)
+//    map[value] is a list of courses that it depends on(parent)
+
+func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
+    var res = [Int]()
+    // build graph
+    //add dependency & get which elements not haing dependency, i.e. can start first
+    var graph = [Int:[Int]]() // cannot use set as value, as it will break indegree's logic
+    for i in 0 ..< numCourses {
+        graph[i] = [Int]()
+    }
+    // indegree recordes how many courses depend on it
+    var indegree = [Int](count: numCourses, repeatedValue:0)
+    for i in 0 ..< prerequisites.count {
+        graph[prerequisites[i][0]]?.append(prerequisites[i][1])
+        indegree[prerequisites[i][1]] += 1
+    }
+    print(indegree)
+    // put all courses that do not depend on other cource into Queue. Also put them in res
+    var queue = [Int]()
+    for i in 0 ..< numCourses{
+        if indegree[i] == 0 {
+            queue.append(i)
+            res.insert(i, atIndex: 0)
+        }
+    }
+    var count = numCourses
+    while queue.count > 0 {
+        let cur = queue.removeFirst()
+        for item in graph[cur]!{
+            indegree[item] -= 1
+            if(indegree[item] == 0) {
+                queue.append(item)
+                res.insert(item, atIndex: 0)
+            }
+        }
+        count -= 1
+    }
+    if(count != 0) {// circle, count < 0
+        return [Int]()
+    }
+    return res
 }

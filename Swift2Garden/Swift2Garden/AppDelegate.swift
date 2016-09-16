@@ -74,7 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("YES");
         }
         print(multiply("99", "9"))
-        print("find order is \(findOrder(3, [[2,1], [1,0]]))")
+        print("find order is \(findOrder(3, [[2,1], [1,0]]))") //[[5,8],[3,5],[1,9],[4,5],[0,2],[1,9],[7,8],[4,9]]
+        print("find order bfs:\(findOrderBFS(10, [[5,8],[3,5],[1,9],[4,5],[0,2],[1,9],[7,8],[4,9]]))")
         
         return true
     }
