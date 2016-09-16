@@ -1218,3 +1218,10 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     }
     return res
 }
+
+//Leetcode 269 Alien Dictionary
+func alienOrder (words: [String]) -> String{
+    var res = ""
+    
+    return res
+}
