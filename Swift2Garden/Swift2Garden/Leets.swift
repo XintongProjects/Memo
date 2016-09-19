@@ -7,16 +7,54 @@
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 //optimized from 2d dp
 //use one-d dp, top down. Bottom up will return same result. O(n) space nxn time given input is n*n grid
-func minPathSum(grid: [[Int]]) -> Int {
+func minPathSum(_ grid: [[Int]]) -> Int {
     let row = grid.count
     guard row > 0 else{
         return 0
     }
     let col = grid[0].count
-    var dp = Array(count: col, repeatedValue: 0)
+    var dp = Array(repeating: 0, count: col)
     dp[0] = grid[0][0]
     // init based on first row
     for i in 1 ..< col {
@@ -36,7 +74,7 @@ func minPathSum(grid: [[Int]]) -> Int {
     return dp[col - 1]
 }
 // 求矩阵中房间到门的最短距离. 以门为起始点。
-func wallsAndGates(inout rooms: [[Int]]) {
+func wallsAndGates(_ rooms: inout [[Int]]) {
     guard (rooms.count > 0) else{
         return
     }
@@ -51,7 +89,7 @@ func wallsAndGates(inout rooms: [[Int]]) {
     }
 }
 // DFS
-func wallsAndGatesHelper(inout rooms: [[Int]], _ row: Int, _ col: Int, _ i: Int, _ j: Int, _ val: Int){
+func wallsAndGatesHelper(_ rooms: inout [[Int]], _ row: Int, _ col: Int, _ i: Int, _ j: Int, _ val: Int){
     rooms[i][j] = val
     let index: [Int] = [-1, 0, 1, 0, -1]
     let value = val + 1
@@ -64,7 +102,7 @@ func wallsAndGatesHelper(inout rooms: [[Int]], _ row: Int, _ col: Int, _ i: Int,
     }
 }
 
-func wallsAndGatesBFS(inout rooms: [[Int]]) {
+func wallsAndGatesBFS(_ rooms: inout [[Int]]) {
     guard (rooms.count > 0) else{
         return
     }
@@ -83,7 +121,7 @@ func wallsAndGatesBFS(inout rooms: [[Int]]) {
         //remove the first element in queue, and check if it's 4 adjencents is bigger than the popped value + 1
         let i = queue[0] / col // decode row and col number based on the number previously encoded
         let j = queue[0] % col
-        queue.removeAtIndex(0)
+        queue.remove(at: 0)
         for q in 0 ..< 4 {
             let r = i + index[q]
             let c = j + index[q+1]
@@ -101,10 +139,10 @@ func wallsAndGatesBFS(inout rooms: [[Int]]) {
 //string manipulations
 func stringsExperiment() {
     let string1 = "hello world light light"
-    var strArr = string1.componentsSeparatedByString(" ")
-    strArr = strArr.reverse()
+    var strArr = string1.components(separatedBy: " ")
+    strArr = strArr.reversed()
     print (strArr) // ["light", "light", "world", "hello"]
-    let stringRepresentation = strArr.joinWithSeparator("-")
+    let stringRepresentation = strArr.joined(separator: "-")
     print(stringRepresentation)
     let set = Set(strArr)
     print(set) //["light", "hello", "world"]
@@ -124,16 +162,16 @@ func stringsExperiment() {
 //        print(index) // 4 3 2 1 0
 //    }
     let str = "ABCDEFG"
-    let index = str.startIndex.advancedBy(2)
+    let index = str.characters.index(str.startIndex, offsetBy: 2)
     print(str[index]) //"C"
-    print(str.substringToIndex(index)) //AB
-    print(str.substringFromIndex(index)) // CDEFG
-    let index2 = str.startIndex.advancedBy(3)
-    print(str.substringFromIndex(index2))// DEFG
+    print(str.substring(to: index)) //AB
+    print(str.substring(from: index)) // CDEFG
+    let index2 = str.characters.index(str.startIndex, offsetBy: 3)
+    print(str.substring(from: index2))// DEFG
 }
 
 //permutation, ask if allow duplicates. Can consider using set
-public func permuteString(str: String)-> [String] {
+public func permuteString(_ str: String)-> [String] {
     var result = [String]()
     var input = str
     var sofar = ""
@@ -148,23 +186,23 @@ public func permuteString(str: String)-> [String] {
     return result
 }
 
-private func recPermuteString(inout sofar: String, inout rest: String, inout result:[String]) {
+private func recPermuteString(_ sofar: inout String, rest: inout String, result:inout [String]) {
     if rest == "" {
         result.append(sofar)
     }
     else{
         for i in 0 ..< rest.characters.count {
-            let index = rest.startIndex.advancedBy(i)
+            let index = rest.characters.index(rest.startIndex, offsetBy: i)
             var cur = sofar + String(rest[index])
-            let remainIndex = rest.startIndex.advancedBy(i+1)
-            var remain = rest.substringToIndex(index) + rest.substringFromIndex(remainIndex)
+            let remainIndex = rest.characters.index(rest.startIndex, offsetBy: i+1)
+            var remain = rest.substring(to: index) + rest.substring(from: remainIndex)
             recPermuteString(&cur, rest: &remain, result: &result)
         }
     }
 }
 
 //permute string using set
-public func permuteStringViaSet(str: String) -> [String] {
+public func permuteStringViaSet(_ str: String) -> [String] {
     var set = Set<String>()
     var input = str
     var sofar = ""
@@ -177,15 +215,15 @@ public func permuteStringViaSet(str: String) -> [String] {
     return result
 }
 
-private func recPermuteStringViaSet(inout sofar: String, inout rest: String, inout result: Set<String>){
+private func recPermuteStringViaSet(_ sofar: inout String, rest: inout String, result: inout Set<String>){
     if rest == "" {
         result.insert(sofar)
     }
     for i in 0 ..< rest.characters.count {
-        let index = rest.startIndex.advancedBy(i)
-        let remainIndex = rest.startIndex.advancedBy(i+1)
+        let index = rest.characters.index(rest.startIndex, offsetBy: i)
+        let remainIndex = rest.characters.index(rest.startIndex, offsetBy: i+1)
         var current = sofar + String(rest[index])
-        var remain = rest.substringToIndex(index) + rest.substringFromIndex(remainIndex)
+        var remain = rest.substring(to: index) + rest.substring(from: remainIndex)
         recPermuteStringViaSet(&current, rest: &remain, result: &result)
     }
 }
@@ -196,18 +234,18 @@ func experiments() {
     while let line: String = readLine() {
         var num:Int? = Int(line)
         num = num! * num!
-        let ans =  String(num)
+        let ans =  String(describing: num)
         print(ans)
     }
     
     // check if input pairs can form a valid graph
     while let line: String = readLine() {
-        let pairs = line.componentsSeparatedByString(";")
+        let pairs = line.components(separatedBy: ";")
         let count = pairs.count
         var dict = [String : String]()
         for i in 0 ..< count {
             //insert each pair into a dictionary
-            let pair = pairs[i].componentsSeparatedByString("-")
+            let pair = pairs[i].components(separatedBy: "-")
             dict[pair[0]] = pair[1]
         }
         //validate the chain
@@ -215,7 +253,7 @@ func experiments() {
         var key = "BEGIN"
         while (dict[key] != nil){
             let value = dict[key]
-            dict.removeValueForKey(key)
+            dict.removeValue(forKey: key)
             if value != "END"{
                 
                 key = value!
@@ -333,7 +371,7 @@ func processFirstName (){
     }
 }
 
-func isSqure(line:String){
+func isSqure(_ line:String){
     let line: String = "(1,6), (6,7), (2,7), (9,1)"
     var isSqure = false
     let charOfLine = line.characters.map{String($0)}
@@ -367,7 +405,7 @@ func isSqure(line:String){
     print(isSqure)
 }
 
-func getHint(secret: String, _ guess: String) -> String {
+func getHint(_ secret: String, _ guess: String) -> String {
     var bull = 0
     var cow = 0
     let s = secret.characters.map{String($0)} //["1", "8", "7"]
@@ -402,13 +440,12 @@ func getHint(secret: String, _ guess: String) -> String {
 }
 
 //The following passed 411/450 test cases, still fails at some 
-func isMatch(s: String, _ p: String) -> Bool {
+func isMatch(_ s: String, _ p: String) -> Bool {
     let charS = s.characters.map{String($0)}
     let charP = p.characters.map{String($0)}
     let sLen = charS.count
     let pLen = charP.count
-    var dp = Array(count:sLen+1, repeatedValue:
-        Array(count:pLen + 1, repeatedValue:false))
+    var dp = Array(repeating: Array(repeating: false, count: pLen + 1), count: sLen+1)
     dp[0][0] = true
     // init special case for *, when it can be treated as empty when previous is a match
     for i in 0 ..< pLen {
@@ -440,7 +477,7 @@ func isMatch(s: String, _ p: String) -> Bool {
 }
 
 // 290 TODO
-func wordPattern(pattern: String, _ str: String) -> Bool {
+func wordPattern(_ pattern: String, _ str: String) -> Bool {
 //    let letters = [Character] (pattern.characters)
 //    let strArray = str.componentsSeparatedByString(" ")
 //    var dictP = [Character : String]()
@@ -452,7 +489,7 @@ func wordPattern(pattern: String, _ str: String) -> Bool {
 }
 
 // 128. It needs to find numbers that are consequtive. It does not matter if they are next to each other in the original array. Things can get better and better!
-func longestConsecutive(nums: [Int]) -> Int {
+func longestConsecutive(_ nums: [Int]) -> Int {
     var set = Set(nums) // I love Swift
     var max = 0
     for i in 0 ..< nums.count {
@@ -480,12 +517,12 @@ func longestConsecutive(nums: [Int]) -> Int {
 }
 
 
-func sortedCharsInString (str:String) -> String{
-    let sortedStr = String(Array(str.characters.sort()))
+func sortedCharsInString (_ str:String) -> String{
+    let sortedStr = String(Array(str.characters.sorted()))
     return sortedStr
 }
 
-func findDominatorInArray(arr:[Int]) ->Int{
+func findDominatorInArray(_ arr:[Int]) ->Int{
     guard arr.count > 0 else {
         return Int.min
     }
@@ -501,18 +538,18 @@ func findDominatorInArray(arr:[Int]) ->Int{
     }
     // get the key with max value
     for (key, value) in dict {
-        if value == dict.values.maxElement() {
+        if value == dict.values.max() {
             result = key
         }
     }
     return result
 }
 
-func findAnagramsOfWordInDictionary(word:String, words:[String]) ->[String]{
-    let sorted = word.characters.sort()
+func findAnagramsOfWordInDictionary(_ word:String, words:[String]) ->[String]{
+    let sorted = word.characters.sorted()
     var result = [String]()
     for item in words {
-        if item.characters.sort() == sorted {
+        if item.characters.sorted() == sorted {
             result.append(item)
         }
     }
@@ -520,19 +557,19 @@ func findAnagramsOfWordInDictionary(word:String, words:[String]) ->[String]{
 }
 
 
-func isAnagram(s: String, _ t: String) -> Bool {
+func isAnagram(_ s: String, _ t: String) -> Bool {
     // ["alert", "alter", "later", "seal", "sale", "bob", "odd"]
     guard s.characters.count == t.characters.count else {
         return false
     }
-    return s.characters.sort() == t.characters.sort()
+    return s.characters.sorted() == t.characters.sorted()
 }
-func groupAnagrams(strs: [String]) -> [[String]] {
+func groupAnagrams(_ strs: [String]) -> [[String]] {
     var results = [[String]]()
     var dict = [String:[String]]()
     // add words into dict
     for item in strs {
-        let str = String(Array(item.characters.sort()))
+        let str = String(Array(item.characters.sorted()))
         if dict[str] == nil {
             var value = [String]()
             value.append(item)
@@ -549,7 +586,7 @@ func groupAnagrams(strs: [String]) -> [[String]] {
 }
 
 //reverse int, e.g. 1234 -> 4321, need to get positive or negative
-func reverseInt(input: Int) -> Int {
+func reverseInt(_ input: Int) -> Int {
     var sign = 1
     var num = input
     if num < 0 {
@@ -566,7 +603,7 @@ func reverseInt(input: Int) -> Int {
 
 
 // mainly about clarification, "    +-2  ", "42abc", smaller than "-2147483648"  greater than: "2147483647"
-func myAtoi(str: String) -> Int {
+func myAtoi(_ str: String) -> Int {
     let charStr = Array(str.characters)
     //print(charStr) //str "8879" -> charStr["8", "8", "7", "9"]
     var result = 0
@@ -601,18 +638,18 @@ func myAtoi(str: String) -> Int {
     return sign * result
 }
 
-func myItoA(n: Int) -> String
+func myItoA(_ n: Int) -> String
 {
     let s = [""]
     print(s)
     return String(n)
 }
 // leet 98. Validate Binary Search Tree
-func isValidBST(root: TreeNode?) -> Bool {
+func isValidBST(_ root: TreeNode?) -> Bool {
     return isValidBST(root, Int.min, Int.max)
 }
 
-func isValidBST(root: TreeNode?, _ min:Int, _ max:Int) -> Bool {
+func isValidBST(_ root: TreeNode?, _ min:Int, _ max:Int) -> Bool {
     if (root == nil) {
         return true
     }
@@ -621,7 +658,7 @@ func isValidBST(root: TreeNode?, _ min:Int, _ max:Int) -> Bool {
     }
 }
 // char '0' and '1'
-func numIslands(grid: [[Character]]) -> Int {
+func numIslands(_ grid: [[Character]]) -> Int {
     var map = grid
     var num = 0
     let row = map.count
@@ -641,7 +678,7 @@ func numIslands(grid: [[Character]]) -> Int {
     return num
 }
 
-func traverseNeighbors (inout map: [[Character]], _ m: Int, _ n:Int){
+func traverseNeighbors (_ map: inout [[Character]], _ m: Int, _ n:Int){
     let row = map.count
     let col = map[0].count
     while m >= 0 && m < row && n >= 0 && n < col && map[m][n] == "1" {
@@ -654,7 +691,7 @@ func traverseNeighbors (inout map: [[Character]], _ m: Int, _ n:Int){
     }
 }
 
-func mergeTwoLists(l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     if l1 == nil {
         return l2
     }
@@ -685,7 +722,7 @@ func mergeTwoLists(l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     return head.next
 }
 
-func findFirstUniqueChar (str: String) -> Character?{
+func findFirstUniqueChar (_ str: String) -> Character?{
     let arr = Array(str.characters)
     var dict = [Character:Int]()
     for char in arr {
@@ -707,7 +744,7 @@ func findFirstUniqueChar (str: String) -> Character?{
 // Kth Smallest Element in a Sorted Matrix
 // assume k < row * col
 // using priority queue logic, need to sort before dequeue the smallest
-func kthSmallest(matrix: [[Int]], _ k: Int) -> Int {
+func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {
     guard !matrix.isEmpty else {
         print("Empty matrix")
         return Int.min
@@ -727,7 +764,7 @@ func kthSmallest(matrix: [[Int]], _ k: Int) -> Int {
             priQueue.append(Entry(row: top.m + 1, col: top.n, value: matrix[top.m + 1][top.n]))
         }
         //TOME: sort objects by property
-        priQueue.sortInPlace({$0.val > $1.val})
+        priQueue.sort(by: {$0.val > $1.val})
         total += 1
     }
     return top.val
@@ -746,7 +783,7 @@ private class Entry {
 
 //107 Binary Tree Level Order Traversal II
 //BFS
-func levelOrderBottom(root: TreeNode?) -> [[Int]] {
+func levelOrderBottom(_ root: TreeNode?) -> [[Int]] {
     var result = [[Int]]()
     if root == nil {
         return result
@@ -766,7 +803,7 @@ func levelOrderBottom(root: TreeNode?) -> [[Int]] {
                 queue.append(node?.right)
             }
         }
-        result.insert(levelNodes, atIndex: 0)
+        result.insert(levelNodes, at: 0)
     }
     return result
 }
@@ -781,12 +818,12 @@ func levelOrderBottom(root: TreeNode?) -> [[Int]] {
 //    return result
 //}
 //helper for 107 TODO
-func levelOrderDFS(root: TreeNode?, result: [[Int]], level: Int) {
+func levelOrderDFS(_ root: TreeNode?, result: [[Int]], level: Int) {
     
 }
 
 // 79 word search
-func exist(board: [[Character]], _ word: String) -> Bool {
+func exist(_ board: [[Character]], _ word: String) -> Bool {
     let target = Array(word.characters)
     if board.count * board[0].count < target.count {
         return false
@@ -806,7 +843,7 @@ func exist(board: [[Character]], _ word: String) -> Bool {
 
 // helper for 79
 // word search in board
-func existDFS(inout board: [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
+func existDFS(_ board: inout [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
     guard (row >= 0 && row < board.count && col >= 0 && col < board[0].count) else{
         return false
     }
@@ -828,11 +865,11 @@ func existDFS(inout board: [[Character]], _ target: [Character], row: Int, col: 
     return result
 }
 
-func coinChange(coins: [Int], _ amount: Int) -> Int {
+func coinChange(_ coins: [Int], _ amount: Int) -> Int {
     guard amount > 0 else {
         return 0
     }
-    var dp:[Int] = Array(count: amount + 1, repeatedValue: Int.max)
+    var dp:[Int] = Array(repeating: Int.max, count: amount + 1)
     dp[0] = 0
     for i in 1 ... amount {
         for coin in coins {
@@ -844,15 +881,13 @@ func coinChange(coins: [Int], _ amount: Int) -> Int {
     return dp[amount] != Int.max ? dp[amount] : -1
 }
 
-func invertTree(root: TreeNode?) -> TreeNode? {
-    if root == nil {
+func invertTree(_ root: TreeNode?) -> TreeNode? {
+    guard root != nil else{
         return nil
     }
     let temp = root!.left
     root!.left = invertTree(root!.right)
     root!.right = invertTree(temp)
-    invertTree(root!.left)
-    
     return root
 }
 
@@ -867,9 +902,9 @@ func invertTree(root: TreeNode?) -> TreeNode? {
  
  */
 
-func isMatch (pattern: String, str: String) -> Bool {
+func isMatch (_ pattern: String, str: String) -> Bool {
     let patternArr = Array(pattern.characters)
-    let strArr = str.componentsSeparatedByString(" ")
+    let strArr = str.components(separatedBy: " ")
     if (patternArr.count != strArr.count) {
         return false
     }
@@ -898,7 +933,7 @@ func isMatch (pattern: String, str: String) -> Bool {
     return true
 }
 
-func verticalOrder(root: TreeNode?) -> [[Int]]{
+func verticalOrder(_ root: TreeNode?) -> [[Int]]{
     var res = [[Int]]()
     if (root == nil) {
         return res
@@ -952,7 +987,7 @@ func verticalOrder(root: TreeNode?) -> [[Int]]{
 }
 
 //Helper func for decode ways A,B..Z is 1,2...26
-func isValidCode(s: String) -> Bool{
+func isValidCode(_ s: String) -> Bool{
     guard(Int(s) != nil && s[s.startIndex] != "0") else {
         return false
     }
@@ -961,10 +996,10 @@ func isValidCode(s: String) -> Bool{
 }
 
 // decode way
-func numDecodings(s: String) -> Int{
+func numDecodings(_ s: String) -> Int{
     let len = s.characters.count
     if (len == 0) {return 0}
-    var dp = Array(count: len + 1, repeatedValue:0)
+    var dp = Array(repeating: 0, count: len + 1)
     dp[0] = 1
     if !isValidCode(String(s[s.startIndex])){
         return 0 // early return
@@ -973,8 +1008,8 @@ func numDecodings(s: String) -> Int{
         dp[1] = 1;
     }
     for i in 1 ..< len {
-        let sub1 = String(s[s.startIndex.advancedBy(i)])
-        let sub2 = s[s.startIndex.advancedBy(i-1)...s.startIndex.advancedBy(i)]
+        let sub1 = String(s[s.characters.index(s.startIndex, offsetBy: i)])
+        let sub2 = s[s.characters.index(s.startIndex, offsetBy: i-1)...s.characters.index(s.startIndex, offsetBy: i)]
         if !isValidCode(sub1) && !isValidCode(sub2){
             return 0 // early return
         }
@@ -988,7 +1023,7 @@ func numDecodings(s: String) -> Int{
     return dp[len]
 }
 // one edit distance
-func isOneEditDistance(s:String, _ t:String) -> Bool {
+func isOneEditDistance(_ s:String, _ t:String) -> Bool {
     let lens = s.characters.count
     let lent = t.characters.count
     if (lens > lent){
@@ -1000,7 +1035,7 @@ func isOneEditDistance(s:String, _ t:String) -> Bool {
     if(lens == lent){
         var count = 0
         for i in 0 ..< lens {
-            if s[s.startIndex.advancedBy(i)] != t[t.startIndex.advancedBy(i)]{
+            if s[s.characters.index(s.startIndex, offsetBy: i)] != t[t.characters.index(t.startIndex, offsetBy: i)]{
                 count += 1
             }
             if count > 1 {
@@ -1011,9 +1046,9 @@ func isOneEditDistance(s:String, _ t:String) -> Bool {
     }
     else{ // lens + 1 == lent
         for i in 0 ..< lens {
-            if s[s.startIndex.advancedBy(i)] != t[t.startIndex.advancedBy(i)] {// encountered the first different char
-                let s1 = s.substringFromIndex(s.startIndex.advancedBy(i))
-                let s2 = t.substringFromIndex(t.startIndex.advancedBy(i+1))
+            if s[s.characters.index(s.startIndex, offsetBy: i)] != t[t.characters.index(t.startIndex, offsetBy: i)] {// encountered the first different char
+                let s1 = s.substring(from: s.characters.index(s.startIndex, offsetBy: i))
+                let s2 = t.substring(from: t.characters.index(t.startIndex, offsetBy: i+1))
                 return s1 == s2
             }
             return true
@@ -1022,12 +1057,12 @@ func isOneEditDistance(s:String, _ t:String) -> Bool {
     return false;
 }
 
-func sumNumbers(root: TreeNode?) -> Int {
+func sumNumbers(_ root: TreeNode?) -> Int {
     var sum = 0; // swift does not modification of parameters unless using inout.
                 // but inout cannot be applied to a constant number. So has to declare a var sum
     return helperSum(root, &sum);
 }
-func helperSum(node: TreeNode?, inout _ sum: Int) -> Int{
+func helperSum(_ node: TreeNode?, _ sum: inout Int) -> Int{
     if(node == nil) {
         return 0;
     }
@@ -1038,34 +1073,34 @@ func helperSum(node: TreeNode?, inout _ sum: Int) -> Int{
     return helperSum(node!.left, &sum) + helperSum(node!.right, &sum);
 }
 //multiply two big numbers
-func multiply(num1: String, _ num2: String) -> String {
+func multiply(_ num1: String, _ num2: String) -> String {
     let count1 = num1.characters.count
     let count2 = num2.characters.count
     
     var result = ""
     let len = count1 + count2
-    var pos = Array(count:len, repeatedValue:0)
-    var nums1 = Array(count: count1, repeatedValue:0)
-    var nums2 = Array(count: count2, repeatedValue:0)
+    var pos = Array(repeating: 0, count: len)
+    var nums1 = Array(repeating: 0, count: count1)
+    var nums2 = Array(repeating: 0, count: count2)
     for i in 0 ..< count1 {
         // the following convert char at to String, then to Int. need unwrap optional
-        nums1[i] = Int(String(num1[num1.startIndex.advancedBy(i)]))!
+        nums1[i] = Int(String(num1[num1.characters.index(num1.startIndex, offsetBy: i)]))!
         //the following convert substring of length 1 to Int. need unwrap optional too
         //        let range = num1.startIndex.advancedBy(i) ..< num1.startIndex.advancedBy(i+1)
         //        nums1[i] = Int(num1[range])!
         
     }
     for i in 0 ..< count2 {
-        nums2[i] = Int(String(num2[num2.startIndex.advancedBy(i)]))!
+        nums2[i] = Int(String(num2[num2.characters.index(num2.startIndex, offsetBy: i)]))!
     }
-    for i in (0 ..< count1).reverse() {
-        for j in (0 ..< count2).reverse() {
+    for i in (0 ..< count1).reversed() {
+        for j in (0 ..< count2).reversed() {
             let multi = nums1[i] * nums2[j]
             pos[i+j+1] += multi
         }
     }
     // do carry
-    for i in (1 ..< len).reverse() {
+    for i in (1 ..< len).reversed() {
         pos[i-1] += pos[i] / 10
         pos[i] = pos[i] % 10
     }
@@ -1090,7 +1125,7 @@ func multiply(num1: String, _ num2: String) -> String {
 }
 
 //find cycle in di-graph, course schedule 1 leet 207
-func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+func canFinish(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
     //build up garph. Each course is a key in the graph dictionary
     var graph = [Int:Set<Int>]()
     for i in 0 ..< numCourses {
@@ -1101,7 +1136,7 @@ func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
         graph[prerequisites[i][0]]!.insert(prerequisites[i][1])
     }
     //for each class, if it has cycle, return false
-    var visited = Array(count: numCourses, repeatedValue:0)
+    var visited = Array(repeating: 0, count: numCourses)
     for i in 0 ..<  prerequisites.count {
         if hasCycle(prerequisites[i][1], graph, &visited) {
             return false
@@ -1109,7 +1144,7 @@ func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
     }
     return true
 }
-func hasCycle(key: Int, _ graph: [Int:Set<Int>], inout _ visited:[Int]) -> Bool {
+func hasCycle(_ key: Int, _ graph: [Int:Set<Int>], _ visited:inout [Int]) -> Bool {
     if visited[key] == 1 { //visited previously, and encountered again during dfs, so it's a cycle
         return true
     }
@@ -1129,15 +1164,15 @@ func hasCycle(key: Int, _ graph: [Int:Set<Int>], inout _ visited:[Int]) -> Bool 
 }
 
 //course schedule 2. leet 210, using DFS
-func findOrder(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
+func findOrder(_ numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     var res = [Int]() // result
     // this time using 2d array to build graph
-    var graph = [[Int]](count: numCourses, repeatedValue:[Int]())
+    var graph = [[Int]](repeating: [Int](), count: numCourses)
     //add dependency to the graph
     for i in 0 ..< prerequisites.count {
         graph[prerequisites[i][0]].append(prerequisites[i][1])
     }
-    var visited = [Int](count: numCourses, repeatedValue: 0)//0-visited, 1-visiting, 2-visited
+    var visited = [Int](repeating: 0, count: numCourses)//0-visited, 1-visiting, 2-visited
     for i in 0 ..< numCourses {
         if topoDFS(i,graph, &visited, &res) == false {//i.e. found cycle
             return [Int]()//空的结果
@@ -1150,7 +1185,7 @@ func findOrder(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
 /* if the graph has cycle, return false, else return true.
  DFS topological sort, schedule 2
  */
-func topoDFS(key: Int, _ graph:[[Int]], inout _ visited:[Int], inout _ res:[Int] ) ->Bool{
+func topoDFS(_ key: Int, _ graph:[[Int]], _ visited:inout [Int], _ res:inout [Int] ) ->Bool{
     if visited[key] == 1 {
         return false // find cycle
     }
@@ -1178,7 +1213,7 @@ func topoDFS(key: Int, _ graph:[[Int]], inout _ visited:[Int], inout _ res:[Int]
 //2. pop the queue, and add courses that are depended on it into queue. Map[key] is course(child)
 //    map[value] is a list of courses that it depends on(parent)
 
-func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
+func findOrderBFS(_ numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     var res = [Int]()
     // build graph
     //add dependency & get which elements not haing dependency, i.e. can start first
@@ -1187,7 +1222,7 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
         graph[i] = [Int]()
     }
     // indegree recordes how many courses depend on it
-    var indegree = [Int](count: numCourses, repeatedValue:0)
+    var indegree = [Int](repeating: 0, count: numCourses)
     for i in 0 ..< prerequisites.count {
         graph[prerequisites[i][0]]?.append(prerequisites[i][1])
         indegree[prerequisites[i][1]] += 1
@@ -1198,7 +1233,7 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     for i in 0 ..< numCourses{
         if indegree[i] == 0 {
             queue.append(i)
-            res.insert(i, atIndex: 0)
+            res.insert(i, at: 0)
         }
     }
     var count = numCourses
@@ -1208,7 +1243,7 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
             indegree[item] -= 1
             if(indegree[item] == 0) {
                 queue.append(item)
-                res.insert(item, atIndex: 0)
+                res.insert(item, at: 0)
             }
         }
         count -= 1
@@ -1233,7 +1268,7 @@ func findOrderBFS(numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
  
  The correct order is: "wertf".
  */
-func alienOrder(words: [String]) -> String {
+func alienOrder(_ words: [String]) -> String {
     if words.count == 0 {
         return ""
     }
@@ -1246,7 +1281,7 @@ func alienOrder(words: [String]) -> String {
     //set up initial graph
     for i in 0 ..< words.count {
         for j in 0 ..< words[i].characters.count {
-            graph[words[i][words[i].startIndex.advancedBy(j)]] = [Character]()
+            graph[words[i][words[i].characters.index(words[i].startIndex, offsetBy: j)]] = [Character]()
         }
     }
     //add edges to graph
@@ -1266,7 +1301,7 @@ func alienOrder(words: [String]) -> String {
     return res
 }
 
-func alienSort(key:Character, _ graph:[Character : [Character]], inout _ visited:[Character : Int], inout _ res:String) -> Bool {
+func alienSort(_ key:Character, _ graph:[Character : [Character]], _ visited:inout [Character : Int], _ res:inout String) -> Bool {
     if visited[key] == 1 {
         return false // find cycle
     }
@@ -1288,11 +1323,11 @@ func alienSort(key:Character, _ graph:[Character : [Character]], inout _ visited
 }
 
 //it's for Alien dict
-func addEdgeds(first:String, _ second:String, inout _ graph:[Character : [Character]]) {
+func addEdgeds(_ first:String, _ second:String, _ graph:inout [Character : [Character]]) {
     let len:Int = min(first.characters.count, second.characters.count)
     for i in 0 ..< len {
-        let firstC = first[first.startIndex.advancedBy(i)]
-        let secondC = second[second.startIndex.advancedBy(i)]
+        let firstC = first[first.characters.index(first.startIndex, offsetBy: i)]
+        let secondC = second[second.characters.index(second.startIndex, offsetBy: i)]
         if firstC != secondC {
             graph[firstC]?.append(secondC)
             break

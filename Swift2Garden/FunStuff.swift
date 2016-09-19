@@ -10,7 +10,7 @@ import Foundation
 //A generic defination of Stack. Indeed Swift should provid this by default
 struct Stack <Element>{
     var items = [Element]()
-    mutating func push (item: Element){
+    mutating func push (_ item: Element){
         items.append(item)
     }
     mutating func pop() -> Element?{
@@ -38,7 +38,7 @@ struct Stack <Element>{
 //A generic defination of Queue. Indeed Swift should provid this by default
 struct Queue <Element>{
     var items = [Element]()
-    mutating func offer (item: Element){
+    mutating func offer (_ item: Element){
         items.append(item)
     }
     mutating func poll() -> Element?{

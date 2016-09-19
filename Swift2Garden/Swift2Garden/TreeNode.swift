@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class TreeNode{
-    public var val: Int
-    public var left: TreeNode?
-    public var right: TreeNode?
+open class TreeNode{
+    open var val: Int
+    open var left: TreeNode?
+    open var right: TreeNode?
     
     public init(_ val: Int){
         self.val = val
@@ -19,14 +19,14 @@ public class TreeNode{
         self.right = nil
     }
     
-    func treeHeight (root: TreeNode?) -> Int {
+    func treeHeight (_ root: TreeNode?) -> Int {
         if (root == nil) {
            return 0
         }
         return max(treeHeight(root!.left) + 1, treeHeight(root!.right) + 1)
     }
     
-    func isBalanced(root: TreeNode?) -> Bool {
+    func isBalanced(_ root: TreeNode?) -> Bool {
         if (root == nil) {
             return true
         }
@@ -34,9 +34,9 @@ public class TreeNode{
         
     }
 }
-public class ColomnTreeNode{
-    public var node: TreeNode
-    public var col: Int
+open class ColomnTreeNode{
+    open var node: TreeNode
+    open var col: Int
     
     public init(_ node: TreeNode , _ val: Int){
         self.col = val
@@ -45,7 +45,7 @@ public class ColomnTreeNode{
 }
 
 // graph node
-public class UndirectedGraphNode {
+open class UndirectedGraphNode {
     var label: Int
     var neighbors: [UndirectedGraphNode]
     init (_ x: Int) {
@@ -57,9 +57,9 @@ public class UndirectedGraphNode {
 /**
  * Definition for singly-linked list.
  */
-public class ListNode {
-    public var val: Int
-    public var next: ListNode?
+open class ListNode {
+    open var val: Int
+    open var next: ListNode?
     public init(_ val: Int) {
         self.val = val
         self.next = nil
@@ -67,7 +67,7 @@ public class ListNode {
 }
 
 
-public class TNode{ //TernaryNode binary, ternary, tri
+open class TNode{ //TernaryNode binary, ternary, tri
     var val: Int
     var left: TNode?
     var middle: TNode?
@@ -90,14 +90,14 @@ public class TNode{ //TernaryNode binary, ternary, tri
     }
 }
 
-public class TTree { // Trinary Tree, ternary, zillow
+open class TTree { // Trinary Tree, ternary, zillow
     var root: TNode?
     
     init (rootNode: TNode) {
         self.root = rootNode
     }
     
-    func insert (value: Int) {
+    func insert (_ value: Int) {
         if self.root == nil {
             self.root = TNode(value)
         }
@@ -105,13 +105,13 @@ public class TTree { // Trinary Tree, ternary, zillow
             self.root = insert(value, node: self.root!)
         }
     }
-    func insert (value: Int, node: TNode) -> TNode {
+    func insert (_ value: Int, node: TNode) -> TNode {
         if (value < node.val){
             if(node.left == nil) {
                 node.left = TNode.init(value)
             }
             else{
-                insert(value, node: node.left!)
+                node.left = insert(value, node: node.left!)
             }
         }
         if (value > node.val) {
@@ -119,7 +119,7 @@ public class TTree { // Trinary Tree, ternary, zillow
                 node.right = TNode(value)
             }
             else {
-                insert(value, node: node.right!)
+                node.right = insert(value, node: node.right!)
             }
         }
         else {// ==, middle
@@ -127,15 +127,15 @@ public class TTree { // Trinary Tree, ternary, zillow
                 node.middle = TNode(value)
             }
             else{
-                insert(value, node: node.middle!)
+                node.middle = insert(value, node: node.middle!)
             }
         }
         return node;
     }
-    public func delete (value: Int){
+    open func delete (_ value: Int){
         self.root = delete(value, node: &self.root)
     }
-    private func delete(value: Int, inout node: TNode?) -> TNode{
+    fileprivate func delete(_ value: Int, node: inout TNode?) -> TNode{
         if node != nil {
             if value < node!.val {
                 node!.left = delete(value, node: &node!.left)
@@ -160,7 +160,7 @@ public class TTree { // Trinary Tree, ternary, zillow
         return node!
     }
     
-    public func findMin (inout node: TNode) -> Int {
+    open func findMin (_ node: inout TNode) -> Int {
         while (node.left != nil){
             node = node.left!
         }

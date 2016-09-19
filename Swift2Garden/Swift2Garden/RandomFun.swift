@@ -9,14 +9,14 @@
 import Foundation
 // In swift many random utilities are based on UInt32
 //0~n inclusive
-func randomNum(n: Int) -> Int {
+func randomNum(_ n: Int) -> Int {
     let num = UInt32(n + 1)
     return Int(arc4random_uniform(num))
 }
 
 // random number between start and end, inclusive
 // arc4random_uniform needs positive input
-func randomIntFrom(start: Int, to end: Int) -> Int {
+func randomIntFrom(_ start: Int, to end: Int) -> Int {
     var a = start
     var b = end
     // swap to prevent negative integer crashes
