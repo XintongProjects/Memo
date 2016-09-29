@@ -78,6 +78,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("find order bfs:\(findOrderBFS(10, [[5,8],[3,5],[1,9],[4,5],[0,2],[1,9],[7,8],[4,9]]))")
         let alinwords = ["wrt","wrf","er","ett","rftt"]
         print(alienOrder(alinwords))
+//        let str = "  Taylor    Swift  "
+//        let trimmed = str.trimmingCharacters(in: .whitespacesAndNewlines)
+//        //str.trimmingCharacters(in: .whitespacesAndNewlines)
+//        print(trimmed)
+        print(reverseWords("    Hello     world    "))
+        print(reverseWords(" "))
         return true
     }
 

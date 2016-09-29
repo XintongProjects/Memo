@@ -41,6 +41,7 @@
 -(NSString*) sortStringByChar: (NSString*) str;
 -(NSString*) sortStringByChar2: (NSString*) str;
 -(NSArray*) groupAll: (NSArray *) stringArr;
+-(NSString *) reverseNSWords: (NSString *) input;
 -(void) experiments;
 @end
 

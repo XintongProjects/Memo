@@ -138,7 +138,7 @@ func wallsAndGatesBFS(_ rooms: inout [[Int]]) {
 
 //string manipulations
 func stringsExperiment() {
-    let string1 = "hello world light light"
+    let string1 = "hello world light light   *"
     var strArr = string1.components(separatedBy: " ")
     strArr = strArr.reversed()
     print (strArr) // ["light", "light", "world", "hello"]
@@ -1334,3 +1334,64 @@ func addEdgeds(_ first:String, _ second:String, _ graph:inout [Character : [Char
         }
     }
 }
+
+// 403 frog jump cross river
+func canCross_recursive(_ stones: [Int]) -> Bool {
+    if stones.count < 2 || stones[1] != 1 {
+        return false
+    }
+    if stones.count == 2 {
+        return true
+    }
+    return canCrossDFS(1, 1, stones)
+}
+func canCrossDFS(_ start: Int, _ step: Int, _ stones: [Int] ) -> Bool {
+    if (start == stones.count - 1){
+        return true
+    }
+    for i in start + 1 ..< stones.count {
+        if stones[i] == stones[start] + step + 1 || stones[i] == stones[start] + step - 1 || stones[i] == stones[start] + step {
+            if canCrossDFS(i, stones[i] - stones[start],  stones){
+                return true
+            }
+            
+        }
+    }
+    return false
+}
+
+//403. Frog Jump using DP
+func canCross(_ stones: [Int]) -> Bool{
+    //make a dp table, and each table has a set of steps that can reach it from previous jump
+    let len = stones.count
+    if len < 2 || stones[1] != 1{
+        return false
+    }
+    
+    var dp = [Int: Set<Int>]()
+    for i in 0 ..< len {
+        dp[stones[i]] = Set<Int>()
+    }
+    dp[stones[0]]?.insert(0)
+    dp[stones[1]]?.insert(1)
+    
+    for i in 1 ..< len {
+        for item in dp[stones[i]]!{
+            let same = item
+            let plus1 = same + 1;
+            let minus1 = same - 1
+            if dp[stones[i] + same] != nil{
+                dp[stones[i] + same]!.insert(same)
+            }
+            if dp[stones[i] + plus1] != nil{
+                dp[stones[i] + plus1]!.insert(plus1)
+            }
+            if dp[stones[i] + minus1] != nil{
+                dp[stones[i] + minus1]!.insert(minus1)
+            }
+        }
+    }
+    return dp[stones[len - 1]]!.isEmpty
+}
+
+

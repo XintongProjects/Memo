@@ -103,6 +103,20 @@
     }
 }
 
+- (NSString *) reverseNSWords: (NSString *) input{
+    NSArray *wordArr = [input componentsSeparatedByString:@" "];
+    int len = (int)[wordArr count];
+    NSMutableArray *reversed = [NSMutableArray new];
+    for (int i = 0; i < len; i++){
+        if  (((NSString *)wordArr[len - 1 - i]).length != 0){
+            [reversed addObject:wordArr[len - 1 - i]];
+        }
+        
+    }
+    NSString *result = [reversed componentsJoinedByString:@" "]; return result;
+}
+
+
 - (NSMutableArray*) findPairsInArray:(int*) arr addsUpTo: (int) target{
     NSMutableArray * results = [[NSMutableArray alloc] init];
     
@@ -482,6 +496,7 @@
     NSMutableString* ms1 = [[NSMutableString alloc] initWithString:map];
     NSMutableString* ms2 = [NSMutableString stringWithString:map];
     NSLog(@"ms1:%@ \nms2: %@", ms1, ms2);
+    NSLog(@"%@", [self reverseNSWords:@"  hello    world1 "]);
 }
 
 @end

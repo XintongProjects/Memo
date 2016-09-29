@@ -23,7 +23,7 @@ open class TreeNode{
         if (root == nil) {
            return 0
         }
-        return max(treeHeight(root!.left) + 1, treeHeight(root!.right) + 1)
+        return max(treeHeight(root?.left) + 1, treeHeight(root?.right) + 1)
     }
     
     func isBalanced(_ root: TreeNode?) -> Bool {
