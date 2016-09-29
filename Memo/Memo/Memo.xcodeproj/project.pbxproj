@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370AC2801D9DCE00000873DA /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 370AC27F1D9DCE00000873DA /* Car.m */; };
 		3740D6F81D493DAB00AEA791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D6F71D493DAB00AEA791 /* main.m */; };
 		3740D6FB1D493DAB00AEA791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D6FA1D493DAB00AEA791 /* AppDelegate.m */; };
 		3740D6FE1D493DAB00AEA791 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740D6FD1D493DAB00AEA791 /* ViewController.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		370AC27E1D9DCE00000873DA /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		370AC27F1D9DCE00000873DA /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		3740D6F31D493DAB00AEA791 /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3740D6F71D493DAB00AEA791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3740D6F91D493DAB00AEA791 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				3740D72E1D49403300AEA791 /* LLNode.h */,
 				3740D72F1D49403300AEA791 /* LLNode.m */,
 				3740D7311D49407200AEA791 /* Memo-Bridging-Header.h */,
+				370AC27E1D9DCE00000873DA /* Car.h */,
+				370AC27F1D9DCE00000873DA /* Car.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				TargetAttributes = {
 					3740D6F21D493DAB00AEA791 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					3740D70B1D493DAB00AEA791 = {
 						CreatedOnToolsVersion = 7.3;
@@ -346,6 +352,7 @@
 				3740D7541D4940F700AEA791 /* Stack.m in Sources */,
 				3740D74B1D4940B000AEA791 /* BTreeNode.m in Sources */,
 				3740D6FE1D493DAB00AEA791 /* ViewController.m in Sources */,
+				370AC2801D9DCE00000873DA /* Car.m in Sources */,
 				3740D7301D49403300AEA791 /* LLNode.m in Sources */,
 				3740D7401D49407300AEA791 /* Blockies.m in Sources */,
 				3740D7511D4940E400AEA791 /* Queue.m in Sources */,
@@ -502,6 +509,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Memo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -515,6 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com-xintongbi.Memo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Memo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -583,6 +592,7 @@
 				3740D7221D493DAB00AEA791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3740D7231D493DAB00AEA791 /* Build configuration list for PBXNativeTarget "MemoTests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +601,7 @@
 				3740D7251D493DAB00AEA791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3740D7261D493DAB00AEA791 /* Build configuration list for PBXNativeTarget "MemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -599,6 +610,7 @@
 				3740D7281D493DAB00AEA791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

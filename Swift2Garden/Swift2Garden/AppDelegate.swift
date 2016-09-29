@@ -78,6 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("find order bfs:\(findOrderBFS(10, [[5,8],[3,5],[1,9],[4,5],[0,2],[1,9],[7,8],[4,9]]))")
         let alinwords = ["wrt","wrf","er","ett","rftt"]
         print(alienOrder(alinwords))
+        let persons = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
+        print(reconstructQueue(persons))
         return true
     }
 

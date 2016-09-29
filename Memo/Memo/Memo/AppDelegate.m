@@ -11,6 +11,7 @@
 #import "Blockies.h"
 #import "Misc.h"
 #import "NSArray+Shuffle.h"
+#import "Car.h"
 
 @interface AppDelegate ()
 
@@ -80,6 +81,15 @@
     NSArray*result = [mis groupAll:strArr];
     NSLog(@"After grouping: %d groups :%@", (int)[result count], result);
     [mis experiments];
+    Car *myCar = [[Car alloc] init];
+    
+    NSMutableString *brandmake =  [NSMutableString stringWithString:@"Ford"];
+    
+    myCar.make = brandmake;
+    
+    brandmake = [@"Honda" mutableCopy];
+    NSLog(@"my car make is :%@", myCar.make);
+    
 }
 -(void) leetCodeTests{
     

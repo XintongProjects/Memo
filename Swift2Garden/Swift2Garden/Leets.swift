@@ -556,7 +556,6 @@ func findAnagramsOfWordInDictionary(_ word:String, words:[String]) ->[String]{
     return result
 }
 
-
 func isAnagram(_ s: String, _ t: String) -> Bool {
     // ["alert", "alter", "later", "seal", "sale", "bob", "odd"]
     guard s.characters.count == t.characters.count else {
@@ -564,6 +563,7 @@ func isAnagram(_ s: String, _ t: String) -> Bool {
     }
     return s.characters.sorted() == t.characters.sorted()
 }
+
 func groupAnagrams(_ strs: [String]) -> [[String]] {
     var results = [[String]]()
     var dict = [String:[String]]()
@@ -822,17 +822,59 @@ func levelOrderDFS(_ root: TreeNode?, result: [[Int]], level: Int) {
     
 }
 
-// 79 word search
+//// 79 word search solution 1 --relatively slow
+//func exist(_ board: [[Character]], _ word: String) -> Bool {
+//    var target = Array(word.characters)
+//    if board.count * board[0].count < target.count {
+//        return false
+//    }
+//    var mat = board
+//    for i in 0 ..< board.count {
+//        for j in 0 ..< board[0].count {
+//            if board[i][j] == target[0]{
+//                target.removeFirst()
+//                if existDFS(&mat, target, row:i, col: j) {
+//                    return true
+//                }
+//            }
+//        }
+//    }
+//    return false
+//}
+//
+//// helper for 79
+//// word search in board
+//func existDFS(_ board: inout [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
+//    guard (row >= 0 && row < board.count && col >= 0 && col < board[0].count) else{
+//        return false
+//    }
+//    if board[row][col] != target[0] {
+//        return false
+//    }
+//    if target.count == 1 {
+//        return true
+//    }
+//    let temp = board[row][col]
+//    board[row][col] = " "
+//    var word = target
+//    word.removeFirst()
+//    let result = existDFS(&board, word, row: row - 1, col: col) ||
+//        existDFS(&board, word, row: row, col: col - 1) ||
+//        existDFS(&board, word, row: row, col: col + 1) ||
+//        existDFS(&board, word, row: row + 1, col: col)
+//    board[row][col] = temp
+//    return result
+//}
+
+// 79 word search solution 2 - faster, from 546 -> 302
 func exist(_ board: [[Character]], _ word: String) -> Bool {
-    let target = Array(word.characters)
-    if board.count * board[0].count < target.count {
-        return false
-    }
-    var mat = board
+    var wordArr = Array(word.characters)
+    let dir = [-1, 0, 1, 0, -1]
     for i in 0 ..< board.count {
         for j in 0 ..< board[0].count {
-            if board[i][j] == target[0]{
-                if existDFS(&mat, target, row:i, col: j) {
+            var brd = board // deal with Swift's immutability of board
+            if (wordArr[0] == board[i][j]){
+                if existDFS(&brd, wordArr, dir, i, j, 0) {
                     return true
                 }
             }
@@ -841,28 +883,25 @@ func exist(_ board: [[Character]], _ word: String) -> Bool {
     return false
 }
 
-// helper for 79
-// word search in board
-func existDFS(_ board: inout [[Character]], _ target: [Character], row: Int, col: Int) -> Bool {
-    guard (row >= 0 && row < board.count && col >= 0 && col < board[0].count) else{
-        return false
-    }
-    if board[row][col] != target[0] {
-        return false
-    }
-    if target.count == 1 {
+func existDFS(_ board: inout [[Character]], _ word: [Character], _ dir: [Int], _ i: Int, _ j: Int, _ start: Int) -> Bool {
+    if start == word.count {
         return true
     }
-    let temp = board[row][col]
-    board[row][col] = " "
-    var word = target
-    word.removeFirst()
-    let result = existDFS(&board, word, row: row - 1, col: col) ||
-        existDFS(&board, word, row: row, col: col - 1) ||
-        existDFS(&board, word, row: row, col: col + 1) ||
-        existDFS(&board, word, row: row + 1, col: col)
-    board[row][col] = temp
-    return result
+    guard (i >= 0 && i < board.count && j >= 0 && j < board[0].count) else {
+        return false
+    }
+    if board[i][j] != word[start] { // including board[i][j] = "*"
+        return false
+    }
+    let temp = board[i][j]
+    board[i][j] = "*" //to avoid repeated use.
+    for index in 0 ..< 4 {
+        if existDFS(&board, word, dir, i + dir[index], j + dir[index + 1], start + 1) == true {
+            return true
+        }
+    }
+    board[i][j] = temp
+    return false
 }
 
 func coinChange(_ coins: [Int], _ amount: Int) -> Int {
@@ -1333,4 +1372,72 @@ func addEdgeds(_ first:String, _ second:String, _ graph:inout [Character : [Char
             break
         }
     }
+}
+//Leet 403. Frog Jump
+func canCross(_ stones: [Int]) -> Bool {
+    let len = stones.count
+    if len < 2 {return false}
+    if stones[1] != 1 {return false}
+    var dict = [Int: Set<Int>]()
+    //init Hashmap/dict to record how many steps can reach to each stone
+    for i in 0 ..< len {
+        dict[stones[i]] = Set<Int>() //empty set as value
+    }
+    dict[0]?.insert(0)
+    dict[1]?.insert(1)
+
+    for i in 2 ..< len {
+        for item in dict[stones[i - 1]]!{
+            let val1 = item - 1 + stones[i-1]
+            let val2 = item + stones[i-1]
+            let val3 = item + 1 + stones[i-1]
+            if dict[val1] != nil {
+                dict[val1]?.insert(item - 1)
+            }
+            if dict[val2] != nil {
+                dict[val2]?.insert(item)
+            }
+            if dict[val3] != nil {
+                dict[val3]?.insert(item + 1)
+            }
+        }
+    }
+    return !(dict[stones[len - 1]]?.isEmpty)!
+}
+
+//404. Sum of Left Leaves
+func sumOfLeftLeaves(_ root: TreeNode?) -> Int {
+    var sum = 0;
+    return sumDFS(root, &sum)
+    
+}
+func sumDFS(_ root: TreeNode?, _ sum: inout Int) -> Int{
+    if root == nil {
+        sum = 0
+    }
+    if root != nil {
+        var leftsum = 0
+        var rightsum = 0
+        if root?.left != nil {
+            leftsum = sum + (root?.left?.val)! + sumDFS(root?.left, &sum)
+        }
+        if root?.right != nil {
+            rightsum = sum + sumDFS(root?.right, &sum)
+        }
+        sum = leftsum + rightsum
+    }
+    return sum
+}
+
+//406. Queue Reconstruction by Height
+func reconstructQueue(_ people: [[Int]]) -> [[Int]] {
+    //var sorted = array.sort { $0.isPriority == $1.isPriority ? $0.ordering < $1.ordering : $0.isPriority && !$1.isPriority }
+    let sorted :[[Int]] = people.sorted(by: { (p1: [Int], p2: [Int]) -> Bool in
+            if p1[0] == p2[0] {
+                return p1[1] > p2[1]
+            }
+            return p1[0] > p2[0]
+        })
+    
+    return sorted
 }
