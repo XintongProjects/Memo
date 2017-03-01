@@ -87,6 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let persons = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
         print(reconstructQueue(persons))
+        pQueueFun1()
+        let arr = [[1, 2, 3], [4], [5, 6]]
+        combinArrOfArr(arr: arr)
         return true
     }
 

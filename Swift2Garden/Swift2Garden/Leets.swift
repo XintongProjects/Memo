@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Buckets
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -136,6 +137,30 @@ func wallsAndGatesBFS(_ rooms: inout [[Int]]) {
     }
 }
 
+//cartesian product of an array of arrays, a combination
+//Suppose the input is [[1, 2, 3], [4], [5, 6]], the output should be [[1, 4, 5], [1, 4, 6], [2, 4, 5], [2, 4, 6], [3, 4, 5], [3, 4, 6]].
+func combinArrOfArr (arr:[[Int]]) {
+    //let arr = [[1, 2, 3], [4], [5, 6]]
+    var res = [[Int]]()
+    res = combinArrOfArrHelper(arr, 0)
+    print(res)
+    
+}
+
+func combinArrOfArrHelper (_ arr:[[Int]], _ level: Int) -> [[Int]] {
+    if level == arr.count {
+        return [[]]
+    }
+    let next_res: [[Int]] = combinArrOfArrHelper(arr, level + 1)
+    var res = [[Int]]()
+    for item in arr[level] {
+        for array in next_res {
+            res.append([item] + array) // force item into array of one element
+        }
+    }
+    return res
+}
+
 //string manipulations
 func stringsExperiment() {
     let string1 = "hello world light light   *"
@@ -143,7 +168,7 @@ func stringsExperiment() {
     strArr = strArr.reversed()
     print (strArr) // ["light", "light", "world", "hello"]
     let stringRepresentation = strArr.joined(separator: "-")
-    print(stringRepresentation)
+    print(stringRepresentation) //light-light-world-hello
     let set = Set(strArr)
     print(set) //["light", "hello", "world"]
     let arrSet = Array(set)
@@ -151,10 +176,10 @@ func stringsExperiment() {
     let num1 = Int("127")
     let num2 = Int("abc")
     if (num2 == nil){
-        print("Invalid format")
+        print("Invalid format") //Invalid format
     }
     if (num1 > num2) {
-        print("\(num1)> \(num2)")
+        print("\(num1)> \(num2)") //Optional(127)> nil
     }
     
 //    for index in (0..<5).reverse()
@@ -1341,7 +1366,7 @@ func alienOrder(_ words: [String]) -> String {
     return res
 }
 
-func alienSort(_ key:Character, _ graph:[Character : [Character]], _ visited:inout [Character : Int], _ res:inout String) -> Bool {
+func alienSort(_ key:Character, _ graph: [Character : [Character]], _ visited: inout [Character : Int], _ res:inout String) -> Bool {
     if visited[key] == 1 {
         return false // find cycle
     }
@@ -1375,6 +1400,7 @@ func addEdgeds(_ first:String, _ second:String, _ graph:inout [Character : [Char
     }
 }
 
+<<<<<<< Updated upstream
 // 403 frog jump cross river
 func canCross_recursive(_ stones: [Int]) -> Bool {
     if stones.count < 2 || stones[1] != 1 {
@@ -1501,4 +1527,14 @@ func reconstructQueue(_ people: [[Int]]) -> [[Int]] {
         })
     
     return sorted
+
+//461.HammingDistance
+func hammingDistance(_ x: Int, _ y: Int) -> Int {
+    var count = 0
+    var n = x ^ y
+    while n > 0 {
+        count += 1
+        n = n & (n - 1)
+    }
+    return count
 }

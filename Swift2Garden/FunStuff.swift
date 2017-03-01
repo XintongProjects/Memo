@@ -7,41 +7,42 @@
 //
 
 import Foundation
+
 //A generic defination of Stack. Indeed Swift should provid this by default
-struct Stack <Element>{
-    var items = [Element]()
-    mutating func push (_ item: Element){
+struct Stack <T> {
+    var items = [T]()
+    mutating func push (_ item: T) {
         items.append(item)
     }
-    mutating func pop() -> Element?{
+    mutating func pop() -> T? {
         if (!items.isEmpty){
             return items.removeLast()
         }
-        else{
+        else {
             return nil
         }
     }
-    mutating func peep() -> Element?{
-        if (!items.isEmpty){
+    mutating func peep() -> T? {
+        if (!items.isEmpty) {
             return items.last!
         }
         else{
             return nil
         }
     }
-    mutating func isEmpty() -> Bool{
+    mutating func isEmpty() -> Bool {
         return items.isEmpty
     }
     
 }
 
 //A generic defination of Queue. Indeed Swift should provid this by default
-struct Queue <Element>{
-    var items = [Element]()
-    mutating func offer (_ item: Element){
+struct Queue <T> {
+    var items = [T]()
+    mutating func offer (_ item: T) {
         items.append(item)
     }
-    mutating func poll() -> Element?{
+    mutating func poll() -> T?{
         if !items.isEmpty{
             return items.removeFirst()
         }
@@ -49,7 +50,7 @@ struct Queue <Element>{
             return nil
         }
     }
-    mutating func isEmpty() -> Bool{
+    mutating func isEmpty() -> Bool {
         return items.isEmpty
     }
 }

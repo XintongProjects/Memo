@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 // In swift many random utilities are based on UInt32
 //0~n inclusive
 func randomNum(_ n: Int) -> Int {
