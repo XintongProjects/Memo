@@ -19,6 +19,7 @@
 		021435901D39A8B3004913DC /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214358F1D39A8B3004913DC /* TreeNode.swift */; };
 		021435921D3D8754004913DC /* Leets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021435911D3D8754004913DC /* Leets.swift */; };
 		3702F1D31F03244E00616019 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3702F1D21F03244E00616019 /* LRUCache.swift */; };
+		37A2FFC41E3C4E0400F4FD30 /* Mianshi in Resources */ = {isa = PBXBuildFile; fileRef = 37A2FFC31E3C4E0400F4FD30 /* Mianshi */; };
 		37FFF4541D5E70B50044738F /* RandomFun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4531D5E70B50044738F /* RandomFun.swift */; };
 		37FFF4561D789BE30044738F /* FunStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4551D789BE30044738F /* FunStrings.swift */; };
 		37FFF4581D789EF10044738F /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4571D789EF10044738F /* misc.swift */; };
@@ -38,6 +39,62 @@
 			proxyType = 1;
 			remoteGlobalIDString = 021435581D398FC5004913DC;
 			remoteInfo = Swift2Garden;
+		};
+		967FEDC21E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22A142DA1AB4D40900E70376;
+			remoteInfo = "Buckets iOS";
+		};
+		967FEDC41E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22A142E51AB4D40900E70376;
+			remoteInfo = "Buckets iOS Tests";
+		};
+		967FEDC61E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22DD3CBC1AB5062D0083B4AB;
+			remoteInfo = "Buckets OSX";
+		};
+		967FEDC81E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22DD3CC61AB5062D0083B4AB;
+			remoteInfo = "Buckets OSX Tests";
+		};
+		967FEDCA1E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 226F22941C633F5100D5F862;
+			remoteInfo = "Buckets watchOS";
+		};
+		967FEDCC1E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 226F22B61C63423300D5F862;
+			remoteInfo = "Buckets tvOS";
+		};
+		967FEDCE1E3714A700891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 226F22D61C63441900D5F862;
+			remoteInfo = "Buckets tvOS Tests";
+		};
+		967FEDD01E37221F00891BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 22A142D91AB4D40900E70376;
+			remoteInfo = "Buckets iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,9 +117,11 @@
 		0214358F1D39A8B3004913DC /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		021435911D3D8754004913DC /* Leets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leets.swift; sourceTree = "<group>"; };
 		3702F1D21F03244E00616019 /* LRUCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
+		37A2FFC31E3C4E0400F4FD30 /* Mianshi */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mianshi; sourceTree = "<group>"; };
 		37FFF4531D5E70B50044738F /* RandomFun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomFun.swift; sourceTree = "<group>"; };
 		37FFF4551D789BE30044738F /* FunStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunStrings.swift; sourceTree = "<group>"; };
 		37FFF4571D789EF10044738F /* misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
+		967FEDB81E3714A600891BCD /* Buckets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Buckets.xcodeproj; path = "../3dParty/Buckets-Swift-2.0.0/Buckets.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +152,7 @@
 		021435501D398FC5004913DC = {
 			isa = PBXGroup;
 			children = (
+				967FEDB81E3714A600891BCD /* Buckets.xcodeproj */,
 				0214358D1D39916F004913DC /* FunStuff.swift */,
 				0214355B1D398FC5004913DC /* Swift2Garden */,
 				021435731D398FC5004913DC /* Swift2GardenTests */,
@@ -114,6 +174,7 @@
 		0214355B1D398FC5004913DC /* Swift2Garden */ = {
 			isa = PBXGroup;
 			children = (
+				37A2FFC31E3C4E0400F4FD30 /* Mianshi */,
 				0214355C1D398FC5004913DC /* AppDelegate.swift */,
 				0214355E1D398FC5004913DC /* ViewController.swift */,
 				021435911D3D8754004913DC /* Leets.swift */,
@@ -149,6 +210,20 @@
 			path = Swift2GardenUITests;
 			sourceTree = "<group>";
 		};
+		967FEDB91E3714A600891BCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				967FEDC31E3714A700891BCD /* Buckets.framework */,
+				967FEDC51E3714A700891BCD /* Buckets iOS Tests.xctest */,
+				967FEDC71E3714A700891BCD /* Buckets.framework */,
+				967FEDC91E3714A700891BCD /* Buckets OSX Tests.xctest */,
+				967FEDCB1E3714A700891BCD /* Buckets.framework */,
+				967FEDCD1E3714A700891BCD /* Buckets.framework */,
+				967FEDCF1E3714A700891BCD /* Buckets tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				967FEDD11E37221F00891BCD /* PBXTargetDependency */,
 			);
 			name = Swift2Garden;
 			productName = Swift2Garden;
@@ -242,6 +318,12 @@
 			mainGroup = 021435501D398FC5004913DC;
 			productRefGroup = 0214355A1D398FC5004913DC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 967FEDB91E3714A600891BCD /* Products */;
+					ProjectRef = 967FEDB81E3714A600891BCD /* Buckets.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				021435581D398FC5004913DC /* Swift2Garden */,
@@ -251,11 +333,64 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		967FEDC31E3714A700891BCD /* Buckets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Buckets.framework;
+			remoteRef = 967FEDC21E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		967FEDC51E3714A700891BCD /* Buckets iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Buckets iOS Tests.xctest";
+			remoteRef = 967FEDC41E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		967FEDC71E3714A700891BCD /* Buckets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Buckets.framework;
+			remoteRef = 967FEDC61E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		967FEDC91E3714A700891BCD /* Buckets OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Buckets OSX Tests.xctest";
+			remoteRef = 967FEDC81E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		967FEDCB1E3714A700891BCD /* Buckets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Buckets.framework;
+			remoteRef = 967FEDCA1E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		967FEDCD1E3714A700891BCD /* Buckets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Buckets.framework;
+			remoteRef = 967FEDCC1E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		967FEDCF1E3714A700891BCD /* Buckets tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Buckets tvOS Tests.xctest";
+			remoteRef = 967FEDCE1E3714A700891BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		021435571D398FC5004913DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A2FFC41E3C4E0400F4FD30 /* Mianshi in Resources */,
 				0214356A1D398FC5004913DC /* LaunchScreen.storyboard in Resources */,
 				021435671D398FC5004913DC /* Assets.xcassets in Resources */,
 				021435621D398FC5004913DC /* Main.storyboard in Resources */,
@@ -324,6 +459,11 @@
 			isa = PBXTargetDependency;
 			target = 021435581D398FC5004913DC /* Swift2Garden */;
 			targetProxy = 0214357C1D398FC5004913DC /* PBXContainerItemProxy */;
+		};
+		967FEDD11E37221F00891BCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Buckets iOS";
+			targetProxy = 967FEDD01E37221F00891BCD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -442,6 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swift2Garden/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = XintongBi.Swift2Garden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swift2Garden/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = XintongBi.Swift2Garden;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,42 +7,43 @@
 //
 
 import Foundation
+import Buckets
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
 }
 
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
 }
 
 fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l >= r
+    default:
+        return !(lhs < rhs)
+    }
 }
 
 fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l <= r
-  default:
-    return !(rhs < lhs)
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l <= r
+    default:
+        return !(rhs < lhs)
+    }
 }
 
 
@@ -137,6 +138,30 @@ func wallsAndGatesBFS(_ rooms: inout [[Int]]) {
     }
 }
 
+//cartesian product of an array of arrays, a combination
+//Suppose the input is [[1, 2, 3], [4], [5, 6]], the output should be [[1, 4, 5], [1, 4, 6], [2, 4, 5], [2, 4, 6], [3, 4, 5], [3, 4, 6]].
+func combinArrOfArr (arr:[[Int]]) {
+    //let arr = [[1, 2, 3], [4], [5, 6]]
+    var res = [[Int]]()
+    res = combinArrOfArrHelper(arr, 0)
+    print(res)
+    
+}
+
+func combinArrOfArrHelper (_ arr:[[Int]], _ level: Int) -> [[Int]] {
+    if level == arr.count {
+        return [[]]
+    }
+    let next_res: [[Int]] = combinArrOfArrHelper(arr, level + 1)
+    var res = [[Int]]()
+    for item in arr[level] {
+        for array in next_res {
+            res.append([item] + array) // force item into array of one element
+        }
+    }
+    return res
+}
+
 //string manipulations
 func stringsExperiment() {
     let string1 = "  hello world light light   *"
@@ -144,7 +169,7 @@ func stringsExperiment() {
     strArr = strArr.reversed()
     print (strArr) // ["light", "light", "world", "hello"]
     let stringRepresentation = strArr.joined(separator: "-")
-    print(stringRepresentation)
+    print(stringRepresentation) //light-light-world-hello
     let set = Set(strArr)
     print(set) //["light", "hello", "world"]
     let arrSet = Array(set)
@@ -152,16 +177,16 @@ func stringsExperiment() {
     let num1 = Int("127")
     let num2 = Int("abc")
     if (num2 == nil){
-        print("Invalid format")
+        print("Invalid format") //Invalid format
     }
     if (num1 > num2) {
-        print("\(num1)> \(num2)")
+        print("\(num1)> \(num2)") //Optional(127)> nil
     }
     
-//    for index in (0..<5).reverse()
-//    {
-//        print(index) // 4 3 2 1 0
-//    }
+    //    for index in (0..<5).reverse()
+    //    {
+    //        print(index) // 4 3 2 1 0
+    //    }
     let str = "ABCDEFG"
     let index = str.characters.index(str.startIndex, offsetBy: 2)
     print(str[index]) //"C"
@@ -336,7 +361,7 @@ func experiments() {
     //    ////////
     //    var inputArr:[String] = []
     //    sentence.enumerateLines {inputArr.append($0.line)}
-    //    
+    //
     //    print(sentenceLines)
     //    print(inputArr)
 }
@@ -393,7 +418,7 @@ func isSqure(_ line:String){
     let d12 = pow(nums[4] - nums[2], 2) + pow(nums[5] - nums[3], 2)
     let d13 = pow(nums[6] - nums[2], 2) + pow(nums[7] - nums[3], 2)
     let d23 = pow(nums[6] - nums[4], 2) + pow(nums[7] - nums[5], 2)
-    //note: in 2d space, make sure the 2 triangles are not the same. 
+    //note: in 2d space, make sure the 2 triangles are not the same.
     if d01 == d02 && d03 == d01 + d02 {
         isSqure = d23 == d13 && d23 == d01
     }
@@ -413,7 +438,7 @@ func getHint(_ secret: String, _ guess: String) -> String {
     //let s2 = Array(arrayLiteral: String(secret.characters))//["187"]
     let g = guess.characters.map{String($0)}
     //let g2 = Array(arrayLiteral:String(guess.characters))//guess.characters.map{String($0)}
-
+    
     
     let len = s.count
     var num:[Int] = [0,0,0,0,0,0,0,0,0,0]
@@ -440,7 +465,7 @@ func getHint(_ secret: String, _ guess: String) -> String {
     return str
 }
 
-//The following passed 411/450 test cases, still fails at some 
+//The following passed 411/450 test cases, still fails at some
 func isMatch(_ s: String, _ p: String) -> Bool {
     let charS = s.characters.map{String($0)}
     let charP = p.characters.map{String($0)}
@@ -479,13 +504,13 @@ func isMatch(_ s: String, _ p: String) -> Bool {
 
 // 290 TODO
 func wordPattern(_ pattern: String, _ str: String) -> Bool {
-//    let letters = [Character] (pattern.characters)
-//    let strArray = str.componentsSeparatedByString(" ")
-//    var dictP = [Character : String]()
-//    var dictS = [String : Character]()
-////    for pChar in pattern.characters{
-////        
-// //   }
+    //    let letters = [Character] (pattern.characters)
+    //    let strArray = str.componentsSeparatedByString(" ")
+    //    var dictP = [Character : String]()
+    //    var dictS = [String : Character]()
+    ////    for pChar in pattern.characters{
+    ////
+    // //   }
     return false
 }
 
@@ -1100,7 +1125,7 @@ func isOneEditDistance(_ s:String, _ t:String) -> Bool {
 
 func sumNumbers(_ root: TreeNode?) -> Int {
     var sum = 0; // swift does not modification of parameters unless using inout.
-                // but inout cannot be applied to a constant number. So has to declare a var sum
+    // but inout cannot be applied to a constant number. So has to declare a var sum
     return helperSum(root, &sum);
 }
 func helperSum(_ node: TreeNode?, _ sum: inout Int) -> Int{
@@ -1148,7 +1173,7 @@ func multiply(_ num1: String, _ num2: String) -> String {
     for i in 0 ..< len {
         print(pos[i])
     }
-
+    
     // convert each element to String and append to solution
     // skip the first few "0" paddings in the front
     var start = 0
@@ -1342,7 +1367,7 @@ func alienOrder(_ words: [String]) -> String {
     return res
 }
 
-func alienSort(_ key:Character, _ graph:[Character : [Character]], _ visited:inout [Character : Int], _ res:inout String) -> Bool {
+func alienSort(_ key:Character, _ graph: [Character : [Character]], _ visited: inout [Character : Int], _ res:inout String) -> Bool {
     if visited[key] == 1 {
         return false // find cycle
     }
@@ -1495,13 +1520,24 @@ func sumDFS(_ root: TreeNode?, _ sum: inout Int) -> Int{
 func reconstructQueue(_ people: [[Int]]) -> [[Int]] {
     //var sorted = array.sort { $0.isPriority == $1.isPriority ? $0.ordering < $1.ordering : $0.isPriority && !$1.isPriority }
     let sorted :[[Int]] = people.sorted(by: { (p1: [Int], p2: [Int]) -> Bool in
-            if p1[0] == p2[0] {
-                return p1[1] > p2[1]
-            }
-            return p1[0] > p2[0]
-        })
+        if p1[0] == p2[0] {
+            return p1[1] > p2[1]
+        }
+        return p1[0] > p2[0]
+    })
     
     return sorted
+}
+
+//461.HammingDistance
+func hammingDistance(_ x: Int, _ y: Int) -> Int {
+    var count = 0
+    var n = x ^ y
+    while n > 0 {
+        count += 1
+        n = n & (n - 1)
+    }
+    return count
 }
 
 func longestPalindrome(_ s: String) -> Int {
@@ -1528,10 +1564,3 @@ func getPalindrome(_ chars: [Character], _ lo: Int, _ hi: Int) -> Int
     }
     return hi - lo - 1
 }
-
-
-
-
-
-
-

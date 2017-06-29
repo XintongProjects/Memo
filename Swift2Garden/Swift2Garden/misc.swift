@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Buckets
 
 //        let count = 10
 //        var sum = 0
@@ -29,4 +30,12 @@ func reverseList(_ head: ListNode?) -> ListNode? {
         cur = fast
     }
     return pre
+}
+
+func pQueueFun1() {
+    var pQueue = PriorityQueue<Int>(sortedBy: <)
+    pQueue.enqueue(25)
+    pQueue.enqueue(2)
+    pQueue.enqueue(12)
+    print(pQueue.first ?? -999)
 }
