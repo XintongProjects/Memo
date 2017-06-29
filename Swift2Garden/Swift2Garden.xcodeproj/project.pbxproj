@@ -19,7 +19,6 @@
 		021435901D39A8B3004913DC /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214358F1D39A8B3004913DC /* TreeNode.swift */; };
 		021435921D3D8754004913DC /* Leets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021435911D3D8754004913DC /* Leets.swift */; };
 		3702F1D31F03244E00616019 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3702F1D21F03244E00616019 /* LRUCache.swift */; };
-		37A2FFC41E3C4E0400F4FD30 /* Mianshi in Resources */ = {isa = PBXBuildFile; fileRef = 37A2FFC31E3C4E0400F4FD30 /* Mianshi */; };
 		37FFF4541D5E70B50044738F /* RandomFun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4531D5E70B50044738F /* RandomFun.swift */; };
 		37FFF4561D789BE30044738F /* FunStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4551D789BE30044738F /* FunStrings.swift */; };
 		37FFF4581D789EF10044738F /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4571D789EF10044738F /* misc.swift */; };
@@ -117,7 +116,6 @@
 		0214358F1D39A8B3004913DC /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		021435911D3D8754004913DC /* Leets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leets.swift; sourceTree = "<group>"; };
 		3702F1D21F03244E00616019 /* LRUCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
-		37A2FFC31E3C4E0400F4FD30 /* Mianshi */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mianshi; sourceTree = "<group>"; };
 		37FFF4531D5E70B50044738F /* RandomFun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomFun.swift; sourceTree = "<group>"; };
 		37FFF4551D789BE30044738F /* FunStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunStrings.swift; sourceTree = "<group>"; };
 		37FFF4571D789EF10044738F /* misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 		0214355B1D398FC5004913DC /* Swift2Garden */ = {
 			isa = PBXGroup;
 			children = (
-				37A2FFC31E3C4E0400F4FD30 /* Mianshi */,
 				0214355C1D398FC5004913DC /* AppDelegate.swift */,
 				0214355E1D398FC5004913DC /* ViewController.swift */,
 				021435911D3D8754004913DC /* Leets.swift */,
@@ -390,7 +387,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37A2FFC41E3C4E0400F4FD30 /* Mianshi in Resources */,
 				0214356A1D398FC5004913DC /* LaunchScreen.storyboard in Resources */,
 				021435671D398FC5004913DC /* Assets.xcassets in Resources */,
 				021435621D398FC5004913DC /* Main.storyboard in Resources */,
