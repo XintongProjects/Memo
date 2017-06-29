@@ -1400,7 +1400,6 @@ func addEdgeds(_ first:String, _ second:String, _ graph:inout [Character : [Char
     }
 }
 
-<<<<<<< Updated upstream
 // 403 frog jump cross river
 func canCross_recursive(_ stones: [Int]) -> Bool {
     if stones.count < 2 || stones[1] != 1 {
@@ -1527,6 +1526,7 @@ func reconstructQueue(_ people: [[Int]]) -> [[Int]] {
         })
     
     return sorted
+}
 
 //461.HammingDistance
 func hammingDistance(_ x: Int, _ y: Int) -> Int {
