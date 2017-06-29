@@ -81,13 +81,11 @@
     NSArray*result = [mis groupAll:strArr];
     NSLog(@"After grouping: %d groups :%@", (int)[result count], result);
     [mis experiments];
-    Car *myCar = [[Car alloc] init];
-    
     NSMutableString *brandmake =  [NSMutableString stringWithString:@"Ford"];
-    
+    Car *myCar = [[Car alloc] init];
     myCar.make = brandmake;
     
-    brandmake = [@"Honda" mutableCopy];
+    brandmake = [NSMutableString stringWithString:@"Honda"];
     NSLog(@"my car make is :%@", myCar.make);
     
 }

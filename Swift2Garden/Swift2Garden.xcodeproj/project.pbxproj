@@ -18,6 +18,7 @@
 		0214358E1D39916F004913DC /* FunStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214358D1D39916F004913DC /* FunStuff.swift */; };
 		021435901D39A8B3004913DC /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214358F1D39A8B3004913DC /* TreeNode.swift */; };
 		021435921D3D8754004913DC /* Leets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021435911D3D8754004913DC /* Leets.swift */; };
+		3702F1D31F03244E00616019 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3702F1D21F03244E00616019 /* LRUCache.swift */; };
 		37FFF4541D5E70B50044738F /* RandomFun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4531D5E70B50044738F /* RandomFun.swift */; };
 		37FFF4561D789BE30044738F /* FunStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4551D789BE30044738F /* FunStrings.swift */; };
 		37FFF4581D789EF10044738F /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFF4571D789EF10044738F /* misc.swift */; };
@@ -58,6 +59,7 @@
 		0214358D1D39916F004913DC /* FunStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunStuff.swift; sourceTree = "<group>"; };
 		0214358F1D39A8B3004913DC /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		021435911D3D8754004913DC /* Leets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leets.swift; sourceTree = "<group>"; };
+		3702F1D21F03244E00616019 /* LRUCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		37FFF4531D5E70B50044738F /* RandomFun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomFun.swift; sourceTree = "<group>"; };
 		37FFF4551D789BE30044738F /* FunStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunStrings.swift; sourceTree = "<group>"; };
 		37FFF4571D789EF10044738F /* misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				021435911D3D8754004913DC /* Leets.swift */,
 				37FFF4531D5E70B50044738F /* RandomFun.swift */,
 				37FFF4551D789BE30044738F /* FunStrings.swift */,
+				3702F1D21F03244E00616019 /* LRUCache.swift */,
 				37FFF4571D789EF10044738F /* misc.swift */,
 				0214358F1D39A8B3004913DC /* TreeNode.swift */,
 				021435601D398FC5004913DC /* Main.storyboard */,
@@ -283,6 +286,7 @@
 				0214355F1D398FC5004913DC /* ViewController.swift in Sources */,
 				0214355D1D398FC5004913DC /* AppDelegate.swift in Sources */,
 				37FFF4541D5E70B50044738F /* RandomFun.swift in Sources */,
+				3702F1D31F03244E00616019 /* LRUCache.swift in Sources */,
 				37FFF4581D789EF10044738F /* misc.swift in Sources */,
 				0214358E1D39916F004913DC /* FunStuff.swift in Sources */,
 				021435901D39A8B3004913DC /* TreeNode.swift in Sources */,

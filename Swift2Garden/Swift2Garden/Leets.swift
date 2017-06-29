@@ -73,7 +73,8 @@ func minPathSum(_ grid: [[Int]]) -> Int {
     }
     return dp[col - 1]
 }
-// 求矩阵中房间到门的最短距离. 以门为起始点。
+// 求矩阵中房间到门的最短距离. 以门为起始点。When rooms[i][j] == 0, it's a gate
+// in the end all rooms in the grid is filled with shortest distance to nearest door
 func wallsAndGates(_ rooms: inout [[Int]]) {
     guard (rooms.count > 0) else{
         return
@@ -138,7 +139,7 @@ func wallsAndGatesBFS(_ rooms: inout [[Int]]) {
 
 //string manipulations
 func stringsExperiment() {
-    let string1 = "hello world light light   *"
+    let string1 = "  hello world light light   *"
     var strArr = string1.components(separatedBy: " ")
     strArr = strArr.reversed()
     print (strArr) // ["light", "light", "world", "hello"]
@@ -1502,3 +1503,35 @@ func reconstructQueue(_ people: [[Int]]) -> [[Int]] {
     
     return sorted
 }
+
+func longestPalindrome(_ s: String) -> Int {
+    let charArr = Array(s.characters)
+    let len = charArr.count
+    var maxLen = 0
+    for i in 0 ..< len {
+        let len1 = getPalindrome(charArr, i, i)
+        let len2 = getPalindrome(charArr, i, i+1)
+        maxLen = max(maxLen, len1, len2)
+        
+    }
+    return maxLen
+}
+
+func getPalindrome(_ chars: [Character], _ lo: Int, _ hi: Int) -> Int
+{
+    var lo = lo
+    var hi = hi
+    let len = chars.count
+    while (lo >= 0 && hi < len && chars[lo] == chars[hi]) {
+        lo -= 1
+        hi += 1
+    }
+    return hi - lo - 1
+}
+
+
+
+
+
+
+

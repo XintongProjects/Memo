@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let max = data.values.max()
         print("max is \(max)")
         processFirstName()
-        let testS = "12345678"
+        let testS = "12345678" 
         //let startIndex = testS.startIndex.advancedBy(2) //testS.[testS.startIndex.advancedBy(2)] is "3"
         let testSub = testS[testS.characters.index(testS.startIndex, offsetBy: 1)...testS.characters.index(testS.startIndex, offsetBy: 3)]
         print(testSub )
@@ -87,6 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let persons = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
         print(reconstructQueue(persons))
+
+
         return true
     }
 

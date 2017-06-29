@@ -102,7 +102,30 @@ func reverseWords(_ str:String) -> String {
     return result
 }
 
+//leet pass
+func canPermutePalindrome(_ s: String) -> Bool {
+    var set = Set<Character>()
+    let arr = s.characters
+    for item in arr {
+        if set.contains(item){
+            set.remove(item)
+        }
+        else {
+            set.insert(item)
+        }
+    }
+    if set.count <= 1 {
+        return true
+    }
+    return false
+}
 
+func test() {
+    var set1 = Set<Set<Int>>()
+    let set2: Set<Int> = [2, 15]
+    set1.insert(set2)
+    
+}
 
 
 
